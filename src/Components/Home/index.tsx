@@ -2,7 +2,9 @@ import './home.css';
 
 function App() {
   return (
-   <h1>Welcome !</h1>
+    <div className="jumbotron">
+      <h1>Welcome !</h1>
+    </div>
   );
 }
 
