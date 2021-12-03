@@ -1,7 +1,9 @@
 import './projects.css';
 
 function Projects() {
-    return null;
+    return (
+        <h2>My Projects</h2>
+    );
 };
 
 export default Projects;

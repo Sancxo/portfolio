@@ -1,7 +1,9 @@
 import './about.css';
 
 function About() {
-    return null;
+    return (
+        <h2>About Me</h2>
+    );
 };
 
 export default About;
