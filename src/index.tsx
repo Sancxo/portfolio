@@ -9,12 +9,14 @@ import Home from './Components/Home';
 import Projects from "./Components/Projects";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
+import Header from './Components/Layout/Header';
+import Footer from './Components/Layout/Footer';
 
 ReactDOM.render(
   <React.StrictMode>
      <div className="App">
       <header className="header">
-        
+        <Header />
       </header>
 
       <main>
@@ -29,7 +31,7 @@ ReactDOM.render(
       </main>
 
       <footer>
-
+        <Footer />
       </footer>
     </div>
   </React.StrictMode>,
