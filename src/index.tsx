@@ -11,28 +11,30 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Header from './Components/Layout/Header';
 import Footer from './Components/Layout/Footer';
+import Error from './Components/Error';
 
 ReactDOM.render(
   <React.StrictMode>
      <div className="App">
-      <header className="header">
-        <Header />
-      </header>
-
-      <main>
         <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Router>
-      </main>
+          <header>
+            <Header />
+          </header>
+          
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<Error />} />
+            </Routes>
+          </main>
 
-      <footer>
-        <Footer />
-      </footer>
+          <footer>
+            <Footer />
+          </footer>
+        </Router>
     </div>
   </React.StrictMode>,
   document.getElementById('root')

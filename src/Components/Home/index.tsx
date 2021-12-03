@@ -2,7 +2,7 @@ import './home.css';
 
 function App() {
   return (
-   <h2>Welcome !</h2>
+   <h1>Welcome !</h1>
   );
 }
 
