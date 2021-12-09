@@ -1,17 +1,17 @@
 import reportWebVitals from './reportWebVitals';
-import React from 'react';
+import React, {Suspense, lazy} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './index.css';
 
 // Components imports
-import Home from './Components/Home';
-import Projects from "./Components/Projects";
-import About from "./Components/About";
-import Contact from "./Components/Contact";
-import Header from './Components/Layout/Header';
-import Footer from './Components/Layout/Footer';
-import Error from './Components/Error';
+const Home = lazy(() => import('./Components/Home'));
+const Projects = lazy(() => import("./Components/Projects"));
+const About = lazy(() => import("./Components/About"));
+const Contact = lazy(() => import("./Components/Contact"));
+const Header = lazy(() => import('./Components/Layout/Header'));
+const Footer = lazy(() => import('./Components/Layout/Footer'));
+const Error = lazy(() => import('./Components/Error'));
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,13 +22,15 @@ ReactDOM.render(
           </header>
           
           <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<Error />} />
-            </Routes>
+            <Suspense fallback={<div><p>Chargement en cours ...</p></div>}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<Error />} />
+              </Routes>
+            </Suspense>
           </main>
 
           <footer>
