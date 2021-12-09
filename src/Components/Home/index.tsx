@@ -1,11 +1,17 @@
-import './home.css';
+import styled from 'styled-components';
+//import './home.css';
 
-function App() {
+// Style
+const Jumbotron = styled.div`
+  background: center no-repeat url('../../Imgs/hero_img.JPG');
+  background-size: cover;
+`
+function Home() {
   return (
-    <div className="jumbotron">
+    <Jumbotron className="jumbotron">
       <h1>Welcome !</h1>
-    </div>
+    </Jumbotron>
   );
 }
 
-export default App;
+export default Home;

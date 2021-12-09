@@ -7,6 +7,7 @@ import './index.css';
 // Components imports
 import Header from './Components/Layout/Header';
 import Footer from './Components/Layout/Footer';
+// Lazy loading
 const Home = lazy(() => import('./Components/Home'));
 const Projects = lazy(() => import("./Components/Projects"));
 const About = lazy(() => import("./Components/About"));
