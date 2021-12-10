@@ -2,6 +2,11 @@ import styled, {keyframes} from "styled-components";
 import {colors,  fonts } from "../Assets/Style/style";
 import { Link } from "react-router-dom";
 
+const GlitchBrand = keyframes`
+    100% {
+        clip-path: polygon(0% 9%,94% 9%,94% 31%,93% 31%,93% 16%,45% 16%,45% 98%,74% 98%,74% 6%,1% 6%,1% 84%,40% 84%,40% 9%,32% 9%,32% 44%,34% 44%,34% 45%,53% 45%,53% 91%,17% 91%,17% 18%,12% 18%,12% 3%,96% 3%,96% 70%,78% 70%,78% 34%,91% 34%,91% 3%,55% 3%,55% 16%,51% 16%,51% 94%,33% 94%,33% 64%,86% 64%,86% 61%,62% 61%,62% 69%,1% 69%,1% 82%,75% 82%,75% 24%,98% 24%,98% 98%,64% 98%,64% 63%,1% 63%,1% 21%,81% 21%,81% 32%,89% 32%,89% 69%,86% 69%,86% 27%,52% 27%,52% 79%);
+    }
+`
 const GlitchAnim = keyframes`
     0% {
         transform: skew(8deg);
@@ -110,6 +115,7 @@ const MenuLink = styled(Link)<{$brand?: boolean}>`
     &.brand:hover {
         color: #39ff14;
         text-shadow: 0 0 1em #39ff14;
+        animation: ${GlitchBrand} 200ms 750ms;
     }
     &:hover:not(.brand) {
         animation: ${GlitchAnim} 750ms infinite;
