@@ -42,5 +42,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.2.1",
+    "@types/prettier": "^2.4.2",
+    "eslint": "^7.32.0",
+    "prettier": "^2.5.1"
   }
 }

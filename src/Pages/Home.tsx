@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-//import './home.css';
+import HeroImg from '../Assets/Imgs/hero_img.JPG';
 
 // Style
 const Jumbotron = styled.div`
-  background: center no-repeat url('../../Imgs/hero_img.JPG');
-  background-size: cover;
+  background: center / cover no-repeat url(${HeroImg});
 `
 function Home() {
   return (

@@ -1,23 +1,34 @@
 import reportWebVitals from './reportWebVitals';
+import { createGlobalStyle } from 'styled-components';
+import {colors, fonts} from './Assets/Style/style';
 import React, {Suspense, lazy} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './index.css';
 
 // Components imports
-import Header from './Components/Layout/Header';
-import Footer from './Components/Layout/Footer';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
 // Lazy loading
-const Home = lazy(() => import('./Components/Home'));
-const Projects = lazy(() => import("./Components/Projects"));
-const About = lazy(() => import("./Components/About"));
-const Contact = lazy(() => import("./Components/Contact"));
-const Error = lazy(() => import('./Components/Error'));
+const Home = lazy(() => import('./Pages/Home'));
+const Projects = lazy(() => import("./Pages/Projects"));
+const About = lazy(() => import("./Pages/About"));
+const Contact = lazy(() => import("./Pages/Contact"));
+const Error = lazy(() => import('./Pages/Error'));
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: ${colors.white};
+    font-family: ${fonts.regular};
+  }
+`
 
 ReactDOM.render(
   <React.StrictMode>
      <div className="App">
         <Router>
+          <GlobalStyle />
+
           <header>
             <Header />
           </header>
