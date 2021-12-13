@@ -8,9 +8,13 @@ const colors: DefaultColors = {
         neonBlue: '#04d9ff'
 };
 
-const fonts:  DefaultFonts = {
+const fonts: DefaultFonts = {
         regular: '"Fira Sans", sans-serif',
         pixel: '"Bungee Shade", cursive'
 }
 
-export {colors, fonts};
+const sizes = {
+        headerHeight: '5em'
+}
+
+export {colors, fonts, sizes};
