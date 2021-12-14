@@ -1,5 +1,9 @@
-// min and max should be a number in seconds (ex: 1 for 1s, 0.75 for 750ms)
+// Thanks to Matt Gross for his glitch art animation walkthrough in pure CSS and his clip-path generator:
+// Cyberpunk-style Glitch walkthrough: https://codepen.io/mattgrosswork/pen/VwprebG
+// Randomly generated clip-path : https://codepen.io/mattgrosswork/pen/VwprebG
+
 export const animationDurationGenerator = (min?: number, max?: number): string => {
+    // min and max should be a number in seconds (ex: 1 for 1s, 0.75 for 750ms)
     min = min === undefined ? 1 : min * 100;
     max = max === undefined ? 500 : max * 100;
     const duration = (Math.floor(Math.random() * (max - min)) + min) / 100;
@@ -10,20 +14,24 @@ const keyframesGenerator = (prop: string): [number[], number[]] => {
     let rand: number;
     const keyframes: number[] = [], keyframesNone: number[] = [];
 
+    // We randomly generate the amount of steps in the keyframes:
     switch (prop) {
-        case 'path':
-            rand = Math.round(Math.random() * (13 - 5)) + 5;
+        case 'path/pos':
+            // random number between 5 and 10
+            rand = Math.round(Math.random() * 5) + 5;
             break;
     
         case 'opacity':
-        case 'position':
-            rand = Math.round(Math.random() * (5 - 2)) + 2;
+            // random number between 2 and 5
+            rand = Math.round(Math.random() * 2) + 2;
             break;
 
         default:
-            throw new Error("This CSS property is not handled by this generator. Please look code to find another one.");
+            throw new Error("This CSS property is not handled by this glitch animation generator. \nPlease look opacityCode to find another one.");
     }
 
+    // We randomly generate the percentage for each step.
+    // keyframeNone are the same percentage (+ 1, 2 or 3) to deactivate the effect.
     for (let i = 0; i < rand; i++) {
         let keyframe: number, keyframeNone: number;
 
@@ -36,8 +44,10 @@ const keyframesGenerator = (prop: string): [number[], number[]] => {
         keyframes.push(keyframe);
         keyframesNone.push(keyframeNone);
     }
+    // We sort the keyframes list to be in ascending order:
     keyframes.sort((a, b) => { return a - b} );
     keyframesNone.sort((a, b) => { return a - b} );
+    
     return [keyframes, keyframesNone];
 }
 
@@ -68,43 +78,56 @@ export const positionGenerator = (): string => {
     return `${position}em`;
 }
 
-export const glitchAnimationCodeGenerator = (prop: string): string => {
-    // put this in switch case to have less steps for opacity
+export const glitchAnimationCodeGenerator = (prop: string): any => {
     let [keyframes, keyframesNone]: [number[], number[]] = [[], []];
+    const pathsAndPositionKeyframes: [number[], number[]] = keyframesGenerator(prop);
 
-    const code: string[] = [];
     let property: string, propertyNone: string;
     
     switch (prop) {
-        case 'path':
-            [keyframes, keyframesNone] = keyframesGenerator(prop);
-            property = `clip-${prop}: polygon(${pathGenerator()});`;
-            propertyNone = `clip-${prop}: none;`;
-            break;
+        case 'path/pos':
+            const pathPosCode: [string[], string[]] = [[], []];
+
+            [keyframes, keyframesNone] = pathsAndPositionKeyframes;
+            let pathProperty: string = `clip-${prop}: polygon(${pathGenerator()});`;
+            let pathPropertyNone: string = `clip-${prop}: none;`;
+            let positionProperty: string = `${prop}: ${positionGenerator()};`;
+            let positionPropertyNone: string = `${prop}: 0`;
+
+            for (let i = 0; i < keyframes.length; i++) {
+                pathPosCode[0].push(`${keyframes[i]}% { ${pathProperty} }`);
+                pathPosCode[1].push(`${keyframes[i]}% { ${positionProperty} }`);
+            }
+            for (let i = 0; i < keyframesNone.length; i++) {
+                pathPosCode[0].push(`${keyframesNone[i]}% { ${pathPropertyNone} }`);
+                pathPosCode[1].push(`${keyframesNone[i]}% { ${positionPropertyNone} }`);
+            }
+
+            // What do we return ????
+            return pathPosCode;
     
         case 'opacity':
+            const opacityCode: string[] = [];
+
             [keyframes, keyframesNone] = keyframesGenerator(prop);
             property = `${prop}: ${opacityGenerator()};`;
             propertyNone = `${prop}: 0;`;
-            break;
 
-        case 'position': 
-            [keyframes, keyframesNone] = keyframesGenerator(prop);
-            property = `${prop}: ${positionGenerator()};`;
-            propertyNone = `${prop}: 0`;
-            break;
+            for (let i = 0; i < keyframes.length; i++) {
+                opacityCode.push(`${keyframes[i]}% { ${property} }`);
+            }
+            for (let i = 0; i < keyframesNone.length; i++) {
+                opacityCode.push(`${keyframesNone[i]}% { ${propertyNone} }`);
+            }
+
+            // We return a stringified list
+            return `${opacityCode.join('\n')}`;
 
         default:
             throw new Error("Error in glitch animation parameters");
     }
 
-    for (let i = 0; i < keyframes.length; i++) {
-        let lineOfCode: string = `${keyframes[i]}% { ${property} }`;
-        code.push(lineOfCode);
-    }
-    for (let i = 0; i < keyframesNone.length; i++) {
-        let lineOfCode: string = `${keyframesNone[i]}% { ${propertyNone} }`;
-        code.push(lineOfCode);
-    }
-    return `${code.join('\n')}`;
+   
 }
+
+// Paths and Opacity should have the same keyframes !
