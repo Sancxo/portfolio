@@ -5,7 +5,8 @@ declare module 'styled-components' {
         white: string;
         black: string;
         futureBlue: string,
-        neonBlue: string
+        neonBlue: string,
+        neonFuchsia: string
     };
 
     export interface DefaultFonts {

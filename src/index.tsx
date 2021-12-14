@@ -1,6 +1,6 @@
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
-import {colors, fonts} from './Assets/Style/style';
+import { colours, fonts } from './Assets/Style/style';
 import React, {Suspense, lazy} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -18,7 +18,7 @@ const Error = lazy(() => import('./Pages/Error'));
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: ${colors.white};
+    background: ${colours.white};
     font-family: ${fonts.regular};
   }
 `

@@ -1,5 +1,5 @@
 import styled, {keyframes} from "styled-components";
-import {colors, fonts, sizes } from "../Assets/Style/style";
+import {colours, fonts, sizes } from "../Assets/Style/style";
 import { Link } from "react-router-dom";
 import { pathGenerator } from "../Assets/Helpers/path-generator";
 
@@ -15,87 +15,87 @@ const GlitchBrand = keyframes`
 const GlitchAnim = keyframes`
     0% {
         transform: skew(8deg);
-        text-shadow: 0 0 2.1em ${colors.neonBlue};
+        text-shadow: 0 0 2.1em ${colours.neonBlue};
     }
     5% {
         transform: skew(8deg);
-        text-shadow: 0 0 2.1em ${colors.neonBlue};
+        text-shadow: 0 0 2.1em ${colours.neonBlue};
     }
     10% {
         transform: skew(-2deg);
-        text-shadow: 0 0 1em ${colors.neonBlue};
+        text-shadow: 0 0 1em ${colours.neonBlue};
     }
     15% {
         transform: skew(-1deg);
-        text-shadow: 0 0 1em ${colors.neonBlue};
+        text-shadow: 0 0 1em ${colours.neonBlue};
     }
     20% {
         transform: skew(1deg);
-        text-shadow: 0 0 1.3em ${colors.neonBlue};
+        text-shadow: 0 0 1.3em ${colours.neonBlue};
     }
     25% {
         transform: skew(1deg);
-        text-shadow: 0 0 1.3em ${colors.neonBlue};
+        text-shadow: 0 0 1.3em ${colours.neonBlue};
     }
     30% {
         transform: skew(1deg);
-        text-shadow: 0 0 1.3em ${colors.neonBlue};
+        text-shadow: 0 0 1.3em ${colours.neonBlue};
     }
     35% {
         transform: skew(0deg);
-        text-shadow: 0 0 2em ${colors.neonBlue};
+        text-shadow: 0 0 2em ${colours.neonBlue};
     }
     40% {
         transform: skew(5deg);
-        text-shadow: 0 0 2em ${colors.neonBlue};
+        text-shadow: 0 0 2em ${colours.neonBlue};
     }
     45% {
         transform: skew(0deg);
-        text-shadow: 0 0 2em ${colors.neonBlue};
+        text-shadow: 0 0 2em ${colours.neonBlue};
     }
     50% {
         transform: skew(-5deg);
-        text-shadow: 0 0 2.2em ${colors.neonBlue};
+        text-shadow: 0 0 2.2em ${colours.neonBlue};
     }
     55% {
         transform: skew(-5deg);
-        text-shadow: 0 0 1.3em ${colors.neonBlue};
+        text-shadow: 0 0 1.3em ${colours.neonBlue};
     }
     60% {
         transform: skew(-5deg);
-        text-shadow: 0 0 1.5em ${colors.neonBlue};
+        text-shadow: 0 0 1.5em ${colours.neonBlue};
     }
     65% {
         transform: skew(2deg);
-        text-shadow: 0 0 1.5em ${colors.neonBlue};
+        text-shadow: 0 0 1.5em ${colours.neonBlue};
     }
     70% {
         transform: skew(-2deg);
-        text-shadow: 0 0 1.9em ${colors.neonBlue};
+        text-shadow: 0 0 1.9em ${colours.neonBlue};
     }
     75% {
         transform: skew(3deg);
-        text-shadow: 0 0 1em ${colors.neonBlue};
+        text-shadow: 0 0 1em ${colours.neonBlue};
     }
     80% {
         transform: skew(8deg);
-        text-shadow: 0 0 1em ${colors.neonBlue};
+        text-shadow: 0 0 1em ${colours.neonBlue};
     }
     85% {
         transform: skew(8deg);
-        text-shadow: 0 0 2em ${colors.neonBlue};
+        text-shadow: 0 0 2em ${colours.neonBlue};
     }
     90% {
         transform: skew(8deg);
-        text-shadow: 0 0 1.2em ${colors.neonBlue};
+        text-shadow: 0 0 1.2em ${colours.neonBlue};
     }
     95% {
         transform: skew(deg);
-        text-shadow: 0 0 1.2em ${colors.neonBlue};
+        text-shadow: 0 0 1.2em ${colours.neonBlue};
     }
     100% {
         transform: skew(-3deg);
-        text-shadow: 0 0 1.8em ${colors.neonBlue};
+        text-shadow: 0 0 1.8em ${colours.neonBlue};
     }
 `
 
@@ -106,7 +106,7 @@ const NavBar = styled.nav`
     align-items: center;
     align-content: center;
     margin: auto;
-    background: ${colors.black};
+    background: ${colours.black};
     height: ${sizes.headerHeight};
     padding-right: 1em;
 `
@@ -114,8 +114,8 @@ const NavBar = styled.nav`
 const MenuLink = styled(Link)`
     margin: auto 1em;
     text-decoration: none;
-    color: ${colors.futureBlue};
-    text-shadow: 0 0 2em ${colors.neonBlue};
+    color: ${colours.futureBlue};
+    text-shadow: 0 0 2em ${colours.neonBlue};
     &.brand {
         margin-right: auto;
         font: 2.5em ${fonts.pixel};

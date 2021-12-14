@@ -1,11 +1,12 @@
 import { DefaultColors, DefaultFonts } from 'styled-components';
 import './fonts.css';
 
-const colors: DefaultColors = {
+const colours: DefaultColors = {
         white: '#F8F8FF',
         black: '#161616',
         futureBlue: '#15abbe',
-        neonBlue: '#04d9ff'
+        neonBlue: '#04d9ff',
+        neonFuchsia: '#fe4164',
 };
 
 const fonts: DefaultFonts = {
@@ -17,4 +18,4 @@ const sizes = {
         headerHeight: '5em'
 }
 
-export {colors, fonts, sizes};
+export {colours, fonts, sizes};
