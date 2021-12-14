@@ -6,12 +6,9 @@ export const animationDurationGenerator = (min?: number, max?: number): string =
     return `${duration}s`;
 }
 
-// pass parameter to make a different amount of steps depending of the css
-// property (use switch, same as GlitchAnimationCodeGenerator())
 const keyframesGenerator = (prop: string): [number[], number[]] => {
     let rand: number;
-    const keyframes: number[] = [];
-    const keyframesNone: number[] = [];
+    const keyframes: number[] = [], keyframesNone: number[] = [];
 
     switch (prop) {
         case 'path':
@@ -19,15 +16,16 @@ const keyframesGenerator = (prop: string): [number[], number[]] => {
             break;
     
         case 'opacity':
+        case 'position':
             rand = Math.round(Math.random() * (5 - 2)) + 2;
             break;
+
         default:
             throw new Error("This CSS property is not handled by this generator. Please look code to find another one.");
     }
 
     for (let i = 0; i < rand; i++) {
-        let keyframe: number;
-        let keyframeNone: number;
+        let keyframe: number, keyframeNone: number;
 
         do {
             keyframe = Math.round(Math.random() * 100);
@@ -46,7 +44,7 @@ const keyframesGenerator = (prop: string): [number[], number[]] => {
 export const pathGenerator = (): string => {
     const rand: number = Math.round(Math.random() * (Math.random() * 100)) + 1;
     const paths: string[] = [];
-    let x, y: number;
+    let x: number, y: number;
     for (let i = 0; i < rand; i++) {
         x = Math.round(Math.random() * 100);
         y = Math.round(Math.random() * 100);
@@ -61,25 +59,39 @@ export const opacityGenerator = (): string => {
     return opacity;
 }
 
+export const positionGenerator = (): string => {
+    // position should be a value between -0.33em and 0.33em (0 excluded);
+    // random number between 0.1 and 0.5
+    let position: number = Math.floor(Math.random() * (33 - 1) + 1) / 100;
+    // position is randomly positive or negative 
+    position *= Math.round(Math.random()) ? 1 : -1;
+    return `${position}em`;
+}
+
 export const glitchAnimationCodeGenerator = (prop: string): string => {
     // put this in switch case to have less steps for opacity
-    let [keyframes, keyframesNone] = [[NaN], [NaN]];
+    let [keyframes, keyframesNone]: [number[], number[]] = [[], []];
 
     const code: string[] = [];
-    let property: string;
-    let propertyNone: string;
+    let property: string, propertyNone: string;
     
     switch (prop) {
         case 'path':
-            [keyframes, keyframesNone] = keyframesGenerator('path');
-            property = `clip-path: polygon(${pathGenerator()});`;
-            propertyNone = 'clip-path: none;';
+            [keyframes, keyframesNone] = keyframesGenerator(prop);
+            property = `clip-${prop}: polygon(${pathGenerator()});`;
+            propertyNone = `clip-${prop}: none;`;
             break;
     
         case 'opacity':
-            [keyframes, keyframesNone] = keyframesGenerator('opacity');
-            property = `opacity: ${opacityGenerator()};`;
-            propertyNone = 'opacity: 0;';
+            [keyframes, keyframesNone] = keyframesGenerator(prop);
+            property = `${prop}: ${opacityGenerator()};`;
+            propertyNone = `${prop}: 0;`;
+            break;
+
+        case 'position': 
+            [keyframes, keyframesNone] = keyframesGenerator(prop);
+            property = `${prop}: ${positionGenerator()};`;
+            propertyNone = `${prop}: 0`;
             break;
 
         default:

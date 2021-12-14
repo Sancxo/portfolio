@@ -1,20 +1,17 @@
 import styled, { keyframes } from 'styled-components';
-import { colours, sizes } from '../Assets/Style/style';
+import { colours, fonts, sizes } from '../Assets/Style/style';
 import { animationDurationGenerator, glitchAnimationCodeGenerator } from '../Assets/Helpers/path-generator';
 import HeroImg from '../Assets/Imgs/bckgrd_2.jpg';
 import React from 'react';
 
 // Animation
-const GlitchPaths = keyframes`
-  ${glitchAnimationCodeGenerator('path')}
-`
-// We call the function twice to have different parameters so we get asynchronous animations.
-const GlitchOpacityBefore = keyframes`
-  ${glitchAnimationCodeGenerator('opacity')}
-`
-const GlitchOpacityAfter = keyframes`
-  ${glitchAnimationCodeGenerator('opacity')}
-`
+const GlitchPaths = keyframes`${glitchAnimationCodeGenerator('path')}`;
+// We call each functions twice to have different parameters 
+// so we get asynchronous animations.
+const GlitchOpacityBefore = keyframes`${glitchAnimationCodeGenerator('opacity')}`;
+const GlitchOpacityAfter = keyframes`${glitchAnimationCodeGenerator('opacity')}`;
+const GlitchPositionBefore = keyframes`${glitchAnimationCodeGenerator('position')}`;
+const GlitchPositionAfter = keyframes`${glitchAnimationCodeGenerator('position')}`;
 
 // Style
 const Jumbotron = styled.div`
@@ -26,6 +23,7 @@ const Jumbotron = styled.div`
   filter: blur(0.125rem);
 `
 const MainTitle = styled.h1`
+  font-family: ${fonts.pixel};
   position: absolute;
   top: 50%;
   left: 50%;
@@ -45,14 +43,16 @@ const MainTitle = styled.h1`
     top: 0.25em;
     left: 0.33em;
     color: ${colours.neonFuchsia};
-    animation: ${GlitchOpacityBefore} ${animationDurationGenerator(2, 5)} step-end infinite;
+    animation: ${GlitchOpacityBefore} ${animationDurationGenerator(2, 5)} step-end infinite,
+    ${GlitchPositionBefore} ${animationDurationGenerator(2, 5)} step-end infinite;
   }
   &::after {
     opacity: 0;
     top: 0.125em;
     left: -0.25em;
     color: ${colours.neonBlue};
-    animation: ${GlitchOpacityAfter} ${animationDurationGenerator(2, 5)} step-end infinite;
+    animation: ${GlitchOpacityAfter} ${animationDurationGenerator(2, 5)} step-end infinite,
+    ${GlitchPositionAfter} ${animationDurationGenerator(2, 5)} step-end infinite;
   }
 `
 
