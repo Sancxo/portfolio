@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { colours, fonts, sizes } from '../Assets/Style/style';
 import { animationDuration, fontGenerator, positionGenerator } from '../Assets/Helpers/generativeGlitchAnimation/properties-generators';
-import glitchAnimation from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
+import {glitchAnimation, foreverNew} from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
 import HeroImg from '../Assets/Imgs/bckgrd_2.jpg';
 import React from 'react';
 

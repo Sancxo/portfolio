@@ -5,7 +5,7 @@
 import keyframesGenerator from "./keyframes-generator";
 import { blurGenerator, colorGenerator, fontGenerator, opacityGenerator, pathGenerator, positionGenerator } from "./properties-generators";
 
-const glitchAnimation = (prop: string, sign?: string): any => {
+export const glitchAnimation = (prop: string, sign?: string): any => {
     let [keyframes, keyframesNone]: [number[], number[]] = keyframesGenerator(prop);
 
     switch (prop) {
@@ -53,4 +53,12 @@ const glitchAnimation = (prop: string, sign?: string): any => {
     }
 }
 
-export default glitchAnimation;
+// WIP
+// This function allows to refresh the animations parameters by calling again the function after a certain time.
+// 'function' param should be a function handled by generativeCodeAnimation library.
+// 'interval' is a number of seconds (ex: 1 for 1s or 0.75 for 750ms).
+export const foreverNew = (func: any, interval: number = 60): string => {
+    let code: any = setInterval(func(), interval * 1000);
+
+    return `${code}`;
+}
