@@ -1,7 +1,7 @@
 import styled, {keyframes} from "styled-components";
 import {colours, fonts, sizes } from "../Assets/Style/style";
 import { Link } from "react-router-dom";
-import { pathGenerator } from "../Assets/Helpers/path-generator";
+import { pathGenerator } from "../Assets/Helpers/generativeGlitchAnimation/properties-generators";
 
 // Animations
 const GlitchBrand = keyframes`
