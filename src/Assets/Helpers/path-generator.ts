@@ -2,15 +2,7 @@
 // Cyberpunk-style Glitch walkthrough: https://codepen.io/mattgrosswork/pen/VwprebG
 // Randomly generated clip-path : https://codepen.io/mattgrosswork/pen/VwprebG
 
-import { fonts } from "../Style/style";
-
-export const animationDurationGenerator = (min?: number, max?: number): string => {
-    // min and max should be a number in seconds (ex: 1 for 1s, 0.75 for 750ms)
-    min = min === undefined ? 1 : min * 100;
-    max = max === undefined ? 500 : max * 100;
-    const duration = (Math.floor(Math.random() * (max - min)) + min) / 100;
-    return `${duration}s`;
-}
+import { colours, fonts } from "../Style/style";
 
 const keyframesGenerator = (prop: string): [number[], number[]] => {
     let rand: number;
@@ -20,7 +12,7 @@ const keyframesGenerator = (prop: string): [number[], number[]] => {
     switch (prop) {
         case 'path/opac':
             // random number between 5 and 15
-            rand = Math.round(Math.random() * 10) + 5;
+            rand = Math.round(Math.random() * 8) + 7;
             break;
     
         case 'position':
@@ -54,6 +46,14 @@ const keyframesGenerator = (prop: string): [number[], number[]] => {
     return [keyframes, keyframesNone];
 }
 
+export const animationDurationGenerator = (min?: number, max?: number): string => {
+    // min and max should be a number in seconds (ex: 1 for 1s, 0.75 for 750ms)
+    min = min === undefined ? 1 : min * 100;
+    max = max === undefined ? 500 : max * 100;
+    const duration = (Math.floor(Math.random() * (max - min)) + min) / 100;
+    return `${duration}s`;
+}
+
 export const pathGenerator = (): string => {
     // random number between 25 and 100
     const rand: number = Math.round(Math.random() * (Math.random() * 75)) + 25;
@@ -81,26 +81,26 @@ export const positionGenerator = (sign: string): string[] => {
             // let rand = Math.round(Math.random());
             // rand === 0 ? positionGenerator('positive') : positionGenerator('negative');
 
-            // position should be a value between -0.50em and 0.50em (0 excluded);
-            // random number between 0.125 and 0.50
-            positionTop = Math.floor((Math.random() * 37.5) + 12.5) / 100;
-            positionLeft = Math.floor((Math.random() * 37.5) + 12.5) / 100;
+            // position should be a value between -0.25em and 0.25em (0 excluded);
+            // random number between 0.125 and 0.25
+            positionTop = Math.floor((Math.random() * 20.5) + 12.5) / 100;
+            positionLeft = Math.floor((Math.random() * 20.5) + 12.5) / 100;
             // position is randomly positive or negative 
             positionTop *= Math.round(Math.random()) ? 1 : -1;
             positionLeft *= Math.round(Math.random()) ? 1 : -1;
             break;
         
         case 'positive':
-            // Top pos should be between 0.25 and 0.5
-            positionTop = Math.floor((Math.random() * 37.5) + 12.5) / 100;
+            // Top pos should be between 0.25 and 0.25
+            positionTop = Math.floor((Math.random() * 20.5) + 12.5) / 100;
             // Left pos should be between 1.25 and 2.5
             positionLeft = Math.floor((Math.random() * 125) + 125) / 100;
             break;
             
         case 'negative':
-            // pos top and left should be between -0.125 and -0.50
-            positionTop = Math.floor((Math.random() * -37.5) - 12.5) / 100;
-            positionLeft = Math.floor((Math.random() * -37.5) - 12.5) / 100;
+            // pos top and left should be between -0.125 and -0.25
+            positionTop = Math.floor((Math.random() * -20.5) - 12.5) / 100;
+            positionLeft = Math.floor((Math.random() * -20.5) - 12.5) / 100;
             break;
 
         default:
@@ -136,6 +136,34 @@ export const fontGenerator = (): string => {
     return `${font}`;
 }
 
+export const colorGenerator = (): string => {
+    let color: string;
+    // Rand num between 0 and 2
+    const rand: number = Math.round(Math.random() * 2);
+
+    switch (rand) {
+        case 1:
+            color = colours.neonBlue;
+            break;
+    
+        case 2:
+            color = colours.neonFuchsia
+            break;
+
+        case 0:
+        default:
+            color = colours.white;
+            break;
+    }
+    return `${color}`;
+}
+
+export const blurGenerator = (): string => {
+    //rand numb between 0 and 0.125 em
+    const blur = Math.round(Math.random() * 12.5) / 100
+    return `${blur}`;
+}
+
 export const glitchAnimationCodeGenerator = (prop: string, sign?: string): any => {
     let [keyframes, keyframesNone]: [number[], number[]] = keyframesGenerator(prop);
 
@@ -169,8 +197,11 @@ export const glitchAnimationCodeGenerator = (prop: string, sign?: string): any =
             const fontCode: string[] = [];
 
             for (let i = 0; i < keyframes.length; i++) {
-                fontCode.push(`${keyframes[i]}% {font-family: ${fontGenerator()}; }`);   
-                //color: ${colorGenerator()}; filter: blur(${blurGenerator()}em):             
+                fontCode.push(`${keyframes[i]}% { 
+                    font-family: ${fontGenerator()}; 
+                    color: ${colorGenerator()}; 
+                    filter: blur(${blurGenerator()}em); 
+                }`);                
             }
             // We return a stringified list
             return `${fontCode.join('\n')}`;

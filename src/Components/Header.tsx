@@ -118,7 +118,7 @@ const MenuLink = styled(Link)`
     text-shadow: 0 0 2em ${colours.neonBlue};
     &.brand {
         margin-right: auto;
-        font: 2.5em ${fonts.pixel};
+        font: 2em ${fonts.pixel};
         text-shadow: none;
         transition: 2000ms;
     }

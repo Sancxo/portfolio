@@ -6,10 +6,10 @@ import React from 'react';
 
 // Animation
 // put a setInterval with random time to recall functions
-const onloadOpacity = keyframes`
-  from { opacity: 0 }
-  to { opacity: 1 }
-`
+// const onloadOpacity = keyframes`
+//   from { opacity: 0 }
+//   to { opacity: 1 }
+// `
 const pathsAndOpacityDuration = animationDurationGenerator(8, 12);
 let [PathsCode, OpacityCode ] = glitchAnimationCodeGenerator('path/opac');
 PathsCode = keyframes`${PathsCode}`;
@@ -23,7 +23,7 @@ const GlitchFontAfter = keyframes`${glitchAnimationCodeGenerator('font')}`;
 
 // Style
 const Jumbotron = styled.div`
-  background:  linear-gradient(#16161675, #161616EE), 50% 50% / cover no-repeat url(${HeroImg});
+  background: linear-gradient(#16161675, #161616EE), 50% 50% / cover no-repeat url(${HeroImg});
   height: calc(100vh - ${sizes.headerHeight});
   display: flex;
   justify-content: center;
@@ -40,7 +40,7 @@ const MainTitle = styled.h1`
   text-shadow: 0 0 0.25em ${colours.white};
   font-size: 3em;
   opacity: 1;
-  animation: ${onloadOpacity} 666ms ease-out,${PathsCode} ${pathsAndOpacityDuration} step-end infinite;
+  animation: ${pathsAndOpacityDuration} step-end 500ms infinite ${PathsCode};
   &::after, &::before {
     content: "Hello, World !";
     position: absolute;
@@ -49,21 +49,21 @@ const MainTitle = styled.h1`
   }
   &::before {
     font-family: ${fontGenerator()};
-    opacity: 1;
+    opacity: 0;
     top: ${positionGenerator('negative')[0]};
     left: ${positionGenerator('negative')[1]};
     color: ${colours.neonBlue};
-    animation: ${OpacityCode} ${pathsAndOpacityDuration} step-end infinite,
-    ${GlitchPositionBefore} ${animationDurationGenerator(2, 3)} step-end infinite,
-    ${GlitchFontBefore} ${animationDurationGenerator(2, 4)} step-end infinite;
+    animation: ${pathsAndOpacityDuration} step-end 500ms infinite ${OpacityCode},
+    ${animationDurationGenerator(2, 3)} step-end infinite ${GlitchPositionBefore},
+    ${animationDurationGenerator(2, 4)} step-end infinite ${GlitchFontBefore};
   }
   &::after {
     font-family: ${fontGenerator()};
-    opacity: 1;
+    opacity: 0;
     top: ${positionGenerator('positive')[0]};
     left: ${positionGenerator('positive')[1]};
     color: ${colours.neonFuchsia};
-    animation: ${OpacityCode} ${pathsAndOpacityDuration} step-end infinite,
+    animation: ${pathsAndOpacityDuration} step-end 500ms infinite ${OpacityCode},
     ${GlitchPositionAfter} ${animationDurationGenerator(4, 5)} step-end infinite,
     ${GlitchFontAfter} ${animationDurationGenerator(3, 5)} step-end infinite;
   }

@@ -1,5 +1,5 @@
 import reportWebVitals from './reportWebVitals';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, keyframes } from 'styled-components';
 import { colours, fonts } from './Assets/Style/style';
 import React, {Suspense, lazy} from 'react';
 import ReactDOM from 'react-dom';
@@ -16,10 +16,16 @@ const About = lazy(() => import("./Pages/About"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Error = lazy(() => import('./Pages/Error'));
 
+const onloadOpacity = keyframes`
+  from { opacity: 0 }
+  to { opacity: 1 }
+`
 const GlobalStyle = createGlobalStyle`
   body {
-    background: ${colours.white};
+    background: ${colours.black};
     font-family: ${fonts.regular};
+    opacity: 0;
+    animation: 1250ms ease-out 500ms forwards ${onloadOpacity};
   }
 `
 
