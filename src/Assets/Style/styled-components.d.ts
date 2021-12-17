@@ -12,5 +12,9 @@ declare module 'styled-components' {
     export interface DefaultFonts {
           regular: string;
           pixel: string;
+          pixelFlat: string;
+          pixelInline: string;
+          pixelOutline: string;
+          pixelHairline: string;
     };
 }

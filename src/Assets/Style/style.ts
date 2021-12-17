@@ -11,7 +11,11 @@ const colours: DefaultColors = {
 
 const fonts: DefaultFonts = {
         regular: '"Fira Sans", sans-serif',
-        pixel: '"Bungee Shade", cursive'
+        pixel: '"Bungee Shade", cursive',
+        pixelFlat: '"Bungee", cursive',
+        pixelInline: '"Bungee Inline", cursive',
+        pixelOutline: '"Bungee Outline", cursive',
+        pixelHairline: '"Bungee Hairline", cursive'
 }
 
 const sizes = {

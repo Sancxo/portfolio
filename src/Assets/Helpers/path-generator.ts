@@ -2,6 +2,8 @@
 // Cyberpunk-style Glitch walkthrough: https://codepen.io/mattgrosswork/pen/VwprebG
 // Randomly generated clip-path : https://codepen.io/mattgrosswork/pen/VwprebG
 
+import { fonts } from "../Style/style";
+
 export const animationDurationGenerator = (min?: number, max?: number): string => {
     // min and max should be a number in seconds (ex: 1 for 1s, 0.75 for 750ms)
     min = min === undefined ? 1 : min * 100;
@@ -16,14 +18,15 @@ const keyframesGenerator = (prop: string): [number[], number[]] => {
 
     // We randomly generate the amount of steps in the keyframes:
     switch (prop) {
-        case 'path/pos':
-            // random number between 5 and 10
-            rand = Math.round(Math.random() * 5) + 5;
+        case 'path/opac':
+            // random number between 5 and 15
+            rand = Math.round(Math.random() * 10) + 5;
             break;
     
-        case 'opacity':
+        case 'position':
+        case 'font':
             // random number between 2 and 5
-            rand = Math.round(Math.random() * 2) + 2;
+            rand = Math.round(Math.random() * 10) + 5;
             break;
 
         default:
@@ -37,7 +40,7 @@ const keyframesGenerator = (prop: string): [number[], number[]] => {
 
         do {
             keyframe = Math.round(Math.random() * 100);
-            let rand2 = keyframe + (Math.round(Math.random() * 2) + 1);
+            let rand2 = keyframe + (Math.round(Math.random()) + 2);
             keyframeNone = rand2 <= 100 ? rand2 : 100;
         } while (keyframes.includes(keyframe));
         
@@ -52,7 +55,8 @@ const keyframesGenerator = (prop: string): [number[], number[]] => {
 }
 
 export const pathGenerator = (): string => {
-    const rand: number = Math.round(Math.random() * (Math.random() * 100)) + 1;
+    // random number between 25 and 100
+    const rand: number = Math.round(Math.random() * (Math.random() * 75)) + 25;
     const paths: string[] = [];
     let x: number, y: number;
     for (let i = 0; i < rand; i++) {
@@ -64,70 +68,116 @@ export const pathGenerator = (): string => {
 }
 
 export const opacityGenerator = (): string => {
-    // random number between 0.2 and 1
-    const opacity: string = String(Math.floor(Math.random() * (10 - 2) + 2) / 10);
+    // random number between 0.33 and 1
+    const opacity: string = String(Math.floor(Math.random() * 6.6 + 3.3) / 10);
     return opacity;
 }
 
-export const positionGenerator = (): string => {
-    // position should be a value between -0.33em and 0.33em (0 excluded);
-    // random number between 0.1 and 0.5
-    let position: number = Math.floor(Math.random() * (33 - 1) + 1) / 100;
-    // position is randomly positive or negative 
-    position *= Math.round(Math.random()) ? 1 : -1;
+export const positionGenerator = (sign: string): string => {
+    let position: number
+    switch (sign) {
+        case 'equal':
+            // position should be a value between -0.33em and 0.33em (0 excluded);
+            // random number between 0.125 and 0.33
+            position = Math.floor((Math.random() * 37.5) + 12.5) / 100;
+            // position is randomly positive or negative 
+            position *= Math.round(Math.random()) ? 1 : -1;
+            break;
+        
+        case 'positive':
+            // pos should be between 0.125 and 0.33
+            position = Math.floor((Math.random() * 37.5) + 12.5) / 100;
+            break;
+            
+        case 'negative':
+            // pos should be between -0.125 and -0.33
+            position = Math.floor((Math.random() * -37.5) - 12.5) / 100;
+            break;
+
+        default:
+            throw new Error("You must provide a sign as parameter ('positive', 'negative' or 'equal' to define if position should be on bottom/right, top/left or both");        
+    }
     return `${position}em`;
 }
 
-export const glitchAnimationCodeGenerator = (prop: string): any => {
-    let [keyframes, keyframesNone]: [number[], number[]] = [[], []];
-    const pathsAndPositionKeyframes: [number[], number[]] = keyframesGenerator(prop);
+export const fontGenerator = (): string => {
+    let font: string;
+    // random number between 0 and 1
+    const rand = Math.round(Math.random());
+    // console.log(rand);
 
-    let property: string, propertyNone: string;
+    switch (rand) {
+        case 1:
+            font = fonts.pixelHairline; // good !
+            break;
+            
+        //     case 2:
+        //     font = fonts.pixelFlat; // bof
+        //     break;
+        
+        // case 3:
+        //     font = fonts.pixelOutline;
+        //     break;
+
+        case 0:
+        default:
+            font = fonts.pixel;
+            break;
+    }
+    return `${font}`;
+}
+
+export const glitchAnimationCodeGenerator = (prop: string, sign?: string): any => {
+    let [keyframes, keyframesNone]: [number[], number[]] = [[], []];
+    const pathsAndOpacityKeyframes: [number[], number[]] = keyframesGenerator(prop);
     
     switch (prop) {
-        case 'path/pos':
-            const pathPosCode: [string[], string[]] = [[], []];
+        case 'path/opac': // Simplifier le code: on créé 2 listes (path et opacity) qu'on retournera sous forme de listes stringifiées.
+            const pathOpacCode: [string[], string[]] = [[], []];
 
-            [keyframes, keyframesNone] = pathsAndPositionKeyframes;
-            let pathProperty: string = `clip-${prop}: polygon(${pathGenerator()});`;
-            let pathPropertyNone: string = `clip-${prop}: none;`;
-            let positionProperty: string = `${prop}: ${positionGenerator()};`;
-            let positionPropertyNone: string = `${prop}: 0`;
+            [keyframes, keyframesNone] = pathsAndOpacityKeyframes;
 
             for (let i = 0; i < keyframes.length; i++) {
-                pathPosCode[0].push(`${keyframes[i]}% { ${pathProperty} }`);
-                pathPosCode[1].push(`${keyframes[i]}% { ${positionProperty} }`);
+                pathOpacCode[0].push(`${keyframes[i]}% { clip-path: polygon(${pathGenerator()}); }`);
+                pathOpacCode[1].push(`${keyframes[i]}% { opacity: ${opacityGenerator()}; }`);
             }
             for (let i = 0; i < keyframesNone.length; i++) {
-                pathPosCode[0].push(`${keyframesNone[i]}% { ${pathPropertyNone} }`);
-                pathPosCode[1].push(`${keyframesNone[i]}% { ${positionPropertyNone} }`);
+                pathOpacCode[0].push(`${keyframesNone[i]}% { clip-path: none; }`);
+                pathOpacCode[1].push(`${keyframesNone[i]}% { opacity: 0 }`);
             }
 
-            // What do we return ????
-            return pathPosCode;
-    
-        case 'opacity':
-            const opacityCode: string[] = [];
+            // We return a list of stringified lists
+            return [`${pathOpacCode[0].join('\n')}`, `${pathOpacCode[1].join('\n')}`];
+        
+        case 'position':
+            const positionCode: string[] = [];
 
             [keyframes, keyframesNone] = keyframesGenerator(prop);
-            property = `${prop}: ${opacityGenerator()};`;
-            propertyNone = `${prop}: 0;`;
 
             for (let i = 0; i < keyframes.length; i++) {
-                opacityCode.push(`${keyframes[i]}% { ${property} }`);
+                positionCode.push(`${keyframes[i]}% { top: ${positionGenerator(String(sign))}; left: ${positionGenerator(String(sign))} }`);
             }
             for (let i = 0; i < keyframesNone.length; i++) {
-                opacityCode.push(`${keyframesNone[i]}% { ${propertyNone} }`);
+                positionCode.push(`${keyframesNone[i]}% { top: 0; left: 0 }`);
             }
 
             // We return a stringified list
-            return `${opacityCode.join('\n')}`;
+            return `${positionCode.join('\n')}`;
+
+        case 'font':
+            const fontCode: string[] = [];
+
+            [keyframes, keyframesNone] = keyframesGenerator(prop);
+
+            for (let i = 0; i < keyframes.length; i++) {
+                fontCode.push(`${keyframes[i]}% {font-family: ${fontGenerator()}; }`);   
+                //color: ${colorGenerator()}; filter: blur(${blurGenerator()}em):             
+            }
+            return `${fontCode.join('\n')}`;
 
         default:
             throw new Error("Error in glitch animation parameters");
     }
-
-   
 }
 
 // Paths and Opacity should have the same keyframes !
