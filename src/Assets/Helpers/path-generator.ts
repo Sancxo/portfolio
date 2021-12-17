@@ -73,46 +73,54 @@ export const opacityGenerator = (): string => {
     return opacity;
 }
 
-export const positionGenerator = (sign: string): string => {
-    let position: number
+export const positionGenerator = (sign: string): string[] => {
+    let positionTop: number, positionLeft: number;
     switch (sign) {
         case 'equal':
-            // position should be a value between -0.33em and 0.33em (0 excluded);
-            // random number between 0.125 and 0.33
-            position = Math.floor((Math.random() * 37.5) + 12.5) / 100;
+            // If 'equal' get rand num between 0 & 1, then if/else recursive func with param 'pos' or 'neg'
+            // let rand = Math.round(Math.random());
+            // rand === 0 ? positionGenerator('positive') : positionGenerator('negative');
+
+            // position should be a value between -0.50em and 0.50em (0 excluded);
+            // random number between 0.125 and 0.50
+            positionTop = Math.floor((Math.random() * 37.5) + 12.5) / 100;
+            positionLeft = Math.floor((Math.random() * 37.5) + 12.5) / 100;
             // position is randomly positive or negative 
-            position *= Math.round(Math.random()) ? 1 : -1;
+            positionTop *= Math.round(Math.random()) ? 1 : -1;
+            positionLeft *= Math.round(Math.random()) ? 1 : -1;
             break;
         
         case 'positive':
-            // pos should be between 0.125 and 0.33
-            position = Math.floor((Math.random() * 37.5) + 12.5) / 100;
+            // Top pos should be between 0.25 and 0.5
+            positionTop = Math.floor((Math.random() * 37.5) + 12.5) / 100;
+            // Left pos should be between 1.25 and 2.5
+            positionLeft = Math.floor((Math.random() * 125) + 125) / 100;
             break;
             
         case 'negative':
-            // pos should be between -0.125 and -0.33
-            position = Math.floor((Math.random() * -37.5) - 12.5) / 100;
+            // pos top and left should be between -0.125 and -0.50
+            positionTop = Math.floor((Math.random() * -37.5) - 12.5) / 100;
+            positionLeft = Math.floor((Math.random() * -37.5) - 12.5) / 100;
             break;
 
         default:
             throw new Error("You must provide a sign as parameter ('positive', 'negative' or 'equal' to define if position should be on bottom/right, top/left or both");        
     }
-    return `${position}em`;
+    return [`${positionTop}em`, `${positionLeft}em`];
 }
 
 export const fontGenerator = (): string => {
     let font: string;
     // random number between 0 and 1
-    const rand = Math.round(Math.random());
-    // console.log(rand);
+    const rand = Math.round(Math.random()) ;
 
     switch (rand) {
         case 1:
             font = fonts.pixelHairline; // good !
             break;
             
-        //     case 2:
-        //     font = fonts.pixelFlat; // bof
+        // case 2:
+        //     font = fonts.pixelInline;
         //     break;
         
         // case 3:
@@ -121,63 +129,53 @@ export const fontGenerator = (): string => {
 
         case 0:
         default:
-            font = fonts.pixel;
+            font = fonts.pixelFlat; // bof
+            
             break;
     }
     return `${font}`;
 }
 
 export const glitchAnimationCodeGenerator = (prop: string, sign?: string): any => {
-    let [keyframes, keyframesNone]: [number[], number[]] = [[], []];
-    const pathsAndOpacityKeyframes: [number[], number[]] = keyframesGenerator(prop);
-    
-    switch (prop) {
-        case 'path/opac': // Simplifier le code: on créé 2 listes (path et opacity) qu'on retournera sous forme de listes stringifiées.
-            const pathOpacCode: [string[], string[]] = [[], []];
+    let [keyframes, keyframesNone]: [number[], number[]] = keyframesGenerator(prop);
 
-            [keyframes, keyframesNone] = pathsAndOpacityKeyframes;
+    switch (prop) {
+        case 'path/opac':
+            const pathCode: string[] = [], opacityCode: string[] = [];
 
             for (let i = 0; i < keyframes.length; i++) {
-                pathOpacCode[0].push(`${keyframes[i]}% { clip-path: polygon(${pathGenerator()}); }`);
-                pathOpacCode[1].push(`${keyframes[i]}% { opacity: ${opacityGenerator()}; }`);
+                pathCode.push(`${keyframes[i]}% { clip-path: polygon(${pathGenerator()}); }`);
+                opacityCode.push(`${keyframes[i]}% { opacity: ${opacityGenerator()}; }`);
             }
             for (let i = 0; i < keyframesNone.length; i++) {
-                pathOpacCode[0].push(`${keyframesNone[i]}% { clip-path: none; }`);
-                pathOpacCode[1].push(`${keyframesNone[i]}% { opacity: 0 }`);
+                pathCode.push(`${keyframesNone[i]}% { clip-path: none; }`);
+                opacityCode.push(`${keyframesNone[i]}% { opacity: 0 }`);
             }
 
             // We return a list of stringified lists
-            return [`${pathOpacCode[0].join('\n')}`, `${pathOpacCode[1].join('\n')}`];
+            return [`${pathCode.join('\n')}`, `${opacityCode.join('\n')}`];
         
         case 'position':
             const positionCode: string[] = [];
 
-            [keyframes, keyframesNone] = keyframesGenerator(prop);
-
             for (let i = 0; i < keyframes.length; i++) {
-                positionCode.push(`${keyframes[i]}% { top: ${positionGenerator(String(sign))}; left: ${positionGenerator(String(sign))} }`);
+                const [top, left]: string[] = positionGenerator(String(sign));
+                positionCode.push(`${keyframes[i]}% { top: ${top}}; left: ${left}} }`);
             }
-            for (let i = 0; i < keyframesNone.length; i++) {
-                positionCode.push(`${keyframesNone[i]}% { top: 0; left: 0 }`);
-            }
-
             // We return a stringified list
             return `${positionCode.join('\n')}`;
 
         case 'font':
             const fontCode: string[] = [];
 
-            [keyframes, keyframesNone] = keyframesGenerator(prop);
-
             for (let i = 0; i < keyframes.length; i++) {
                 fontCode.push(`${keyframes[i]}% {font-family: ${fontGenerator()}; }`);   
                 //color: ${colorGenerator()}; filter: blur(${blurGenerator()}em):             
             }
+            // We return a stringified list
             return `${fontCode.join('\n')}`;
 
         default:
             throw new Error("Error in glitch animation parameters");
     }
 }
-
-// Paths and Opacity should have the same keyframes !

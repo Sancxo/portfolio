@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { colours, fonts, sizes } from '../Assets/Style/style';
-import { animationDurationGenerator, glitchAnimationCodeGenerator, positionGenerator } from '../Assets/Helpers/path-generator';
+import { animationDurationGenerator, fontGenerator, glitchAnimationCodeGenerator, positionGenerator } from '../Assets/Helpers/path-generator';
 import HeroImg from '../Assets/Imgs/bckgrd_2.jpg';
 import React from 'react';
 
@@ -44,22 +44,24 @@ const MainTitle = styled.h1`
   &::after, &::before {
     content: "Hello, World !";
     position: absolute;
-    width: 125%;
+    width: 110%;
     z-index: -1;
   }
   &::before {
-    opacity: 0;
-    top: ${positionGenerator('negative')};
-    left: ${positionGenerator('negative')};
+    font-family: ${fontGenerator()};
+    opacity: 1;
+    top: ${positionGenerator('negative')[0]};
+    left: ${positionGenerator('negative')[1]};
     color: ${colours.neonBlue};
     animation: ${OpacityCode} ${pathsAndOpacityDuration} step-end infinite,
     ${GlitchPositionBefore} ${animationDurationGenerator(2, 3)} step-end infinite,
     ${GlitchFontBefore} ${animationDurationGenerator(2, 4)} step-end infinite;
   }
   &::after {
-    opacity: 0;
-    top: ${positionGenerator('positive')};
-    left: ${positionGenerator('positive')};
+    font-family: ${fontGenerator()};
+    opacity: 1;
+    top: ${positionGenerator('positive')[0]};
+    left: ${positionGenerator('positive')[1]};
     color: ${colours.neonFuchsia};
     animation: ${OpacityCode} ${pathsAndOpacityDuration} step-end infinite,
     ${GlitchPositionAfter} ${animationDurationGenerator(4, 5)} step-end infinite,
