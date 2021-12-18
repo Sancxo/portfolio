@@ -1,13 +1,13 @@
 import styled, { keyframes } from 'styled-components';
 import { colours, fonts, sizes } from '../Assets/Style/style';
 import { animationDuration, fontGenerator, positionGenerator } from '../Assets/Helpers/generativeGlitchAnimation/properties-generators';
-import {glitchAnimation, foreverNew} from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
+import {glitchAnimation} from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
 import HeroImg from '../Assets/Imgs/bckgrd_2.jpg';
 import React from 'react';
 
 // Animation
 // put a setInterval with random time to recall functions
-const pathsAndOpacityDuration = animationDuration(8, 12);
+const pathsAndOpacityDuration: string = animationDuration(8, 12);
 let [PathsCode, OpacityCode ] = glitchAnimation('path/opac');
 PathsCode = keyframes`${PathsCode}`;
 OpacityCode = keyframes`${OpacityCode}`;
