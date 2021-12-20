@@ -4,6 +4,8 @@ import { animationDuration, fontGenerator, positionGenerator } from '../Assets/H
 import {glitchAnimation} from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
 import HeroImg from '../Assets/Imgs/bckgrd_2.jpg';
 import React from 'react';
+import { Link } from "react-router-dom";
+
 
 // Animation
 // put a setInterval with random time to recall functions
@@ -27,18 +29,24 @@ const Jumbotron = styled.div`
   align-items: center;
   filter: blur(0.25em);
 `
-const MainTitle = styled.h1`
-  font-family: ${fonts.pixel};
+const Container = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+`
+const MainTitle = styled.h1`
+  margin-top: 33%;
+  font-family: ${fonts.pixel};
   color: ${colours.white};
   text-shadow: 0 0 0.25em ${colours.white};
   font-size: 3em;
   opacity: 1;
   animation: ${pathsAndOpacityDuration} step-end 500ms infinite ${PathsCode};
   &::after, &::before {
+    margin-top: 33%;
     content: "Hello, World !";
     position: absolute;
     width: 110%;
@@ -65,12 +73,23 @@ const MainTitle = styled.h1`
     ${GlitchFontAfter} ${animationDuration(3, 5)} step-end infinite;
   }
 `
+const Pipe = styled(Link)`
+  color: ${colours.white};
+  margin-left: 33%;
+  font-size: 1.5em;
+  text-decoration: none;
+`
 
 function Home() {
   return (
     <React.Fragment>
       <Jumbotron></Jumbotron>
-      <MainTitle className='title'>Hello, World !</MainTitle>
+      <Container>
+        <MainTitle className='title'>Hello, World !</MainTitle>
+        <Pipe to='/projects' title="See my projects">|&gt; My projects</Pipe>
+        <Pipe to='/about' title="More about me">|&gt; About me</Pipe>
+        <Pipe to='/contact' title="Contact me here">|&gt; Contact me</Pipe>
+      </Container>
     </React.Fragment>
   );
 }

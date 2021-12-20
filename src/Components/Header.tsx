@@ -110,7 +110,6 @@ const NavBar = styled.nav`
     height: ${sizes.headerHeight};
     padding-right: 1em;
 `
-
 const MenuLink = styled(Link)`
     margin: auto 1em;
     text-decoration: none;
@@ -131,6 +130,7 @@ const MenuLink = styled(Link)`
         animation: ${GlitchAnim} 750ms infinite;
     }
 `
+
 function Header() {
     return (
         <NavBar>
