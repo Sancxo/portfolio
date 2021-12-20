@@ -7,8 +7,8 @@ export const animationDuration = (min: number = 1, max: number = 60): string => 
 }
 
 export const pathGenerator = (): string => {
-    // random number between 25 and 100
-    const rand: number = Math.round(Math.random() * (Math.random() * 75)) + 25;
+    // random number between 30 and 60
+    const rand: number = Math.round(Math.random() * (Math.random() * 30)) + 30;
     const paths: string[] = [];
     let x: number, y: number;
     for (let i = 0; i < rand; i++) {

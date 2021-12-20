@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 // Animation
 // put a setInterval with random time to recall functions
-const pathsAndOpacityDuration: string = animationDuration(8, 12);
+const pathsAndOpacityDuration: string = animationDuration(5, 10);
 let [PathsCode, OpacityCode ] = glitchAnimation('path/opac');
 PathsCode = keyframes`${PathsCode}`;
 OpacityCode = keyframes`${OpacityCode}`;
