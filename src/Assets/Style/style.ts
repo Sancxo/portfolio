@@ -7,10 +7,13 @@ const colours: DefaultColors = {
         futureBlue: '#15abbe',
         neonBlue: '#04d9ff',
         neonFuchsia: '#fe4164',
+        ultraViolet: '#6B5B95',
+        galaxyBlue: '#2A4B7C'
 };
 
 const fonts: DefaultFonts = {
         regular: '"Fira Sans", sans-serif',
+        code: '"Fira Code", monospace',
         pixel: '"Bungee Shade", cursive',
         pixelFlat: '"Bungee", cursive',
         pixelInline: '"Bungee Inline", cursive',
@@ -19,7 +22,8 @@ const fonts: DefaultFonts = {
 }
 
 const sizes = {
-        headerHeight: '5em'
+        headerHeight: '5em',
+        footerHeight: '10em'
 }
 
 export {colours, fonts, sizes};

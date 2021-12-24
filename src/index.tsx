@@ -1,6 +1,6 @@
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle, keyframes } from 'styled-components';
-import { colours, fonts } from './Assets/Style/style';
+import { colours, fonts, sizes } from './Assets/Style/style';
 import React, {Suspense, lazy} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -23,9 +23,18 @@ const onloadOpacity = keyframes`
 const GlobalStyle = createGlobalStyle`
   body {
     background: ${colours.black};
+    color: ${colours.white};
     font-family: ${fonts.regular};
     opacity: 0;
     animation: 1250ms ease-out 500ms forwards ${onloadOpacity};
+  }
+  header {
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+  }
+  main {
+    padding-top: ${sizes.headerHeight};
   }
 `
 

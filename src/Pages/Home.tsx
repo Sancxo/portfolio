@@ -38,7 +38,7 @@ const Container = styled.div`
   flex-direction: column;
 `
 const MainTitle = styled.h1`
-  margin-top: 33%;
+  margin-top: 50%;
   font-family: ${fonts.pixel};
   color: ${colours.white};
   text-shadow: 0 0 0.25em ${colours.white};
@@ -74,10 +74,17 @@ const MainTitle = styled.h1`
   }
 `
 const Pipe = styled(Link)`
-  color: ${colours.white};
-  margin-left: 33%;
-  font-size: 1.5em;
+  color: ${colours.ultraViolet};
+  font-family: ${fonts.pixelHairline};
+  background: ${colours.black};
+  font-weight: bold;
+  margin: 0.25em 0 0.25em 25%;
+  font-size: 2em;
   text-decoration: none;
+  line-height: 1em;
+  &:hover {
+    color: ${colours.white};
+  }
 `
 
 function Home() {

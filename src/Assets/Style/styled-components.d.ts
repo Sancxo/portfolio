@@ -6,15 +6,23 @@ declare module 'styled-components' {
         black: string;
         futureBlue: string,
         neonBlue: string,
-        neonFuchsia: string
+        neonFuchsia: string,
+        ultraViolet: string,
+        galaxyBlue: string
     };
 
     export interface DefaultFonts {
           regular: string;
+          code: string;
           pixel: string;
           pixelFlat: string;
           pixelInline: string;
           pixelOutline: string;
           pixelHairline: string;
     };
+
+    export interface DefaultSizes {
+        headerHeight: string,
+        footerHeight: string
+    }
 }
