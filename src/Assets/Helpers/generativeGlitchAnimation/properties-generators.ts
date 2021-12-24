@@ -61,7 +61,7 @@ export const fontGenerator = (): string => {
     // random number between 0 and 1
     const rand = Math.round(Math.random());
 
-    let font: string = rand === 0 ? fonts.pixelFlat : fonts.pixelHairline;
+    let font: string = rand === 0 ? fonts.pixelOutline : fonts.pixelHairline;
 
     return `${font}`;
 }

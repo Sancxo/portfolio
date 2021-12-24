@@ -46,7 +46,7 @@ const MainTitle = styled.h1`
   opacity: 1;
   animation: ${pathsAndOpacityDuration} step-end 500ms infinite ${PathsCode};
   &::after, &::before {
-    margin-top: 33%;
+    margin-top: 50%;
     content: "Hello, World !";
     position: absolute;
     width: 110%;
