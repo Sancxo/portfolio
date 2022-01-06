@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 import { colours, fonts, sizes } from '../Assets/Style/style';
 import { animationDuration, fontGenerator, positionGenerator } from '../Assets/Helpers/generativeGlitchAnimation/properties-generators';
-import {glitchAnimation} from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
-import HeroImg from '../Assets/Imgs/bckgrd_2.jpg';
+import { glitchAnimation } from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
+import Bckgrd from '../Assets/Imgs/bckgrd_2.jpg';
 import React from 'react';
 import { Link } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const GlitchFontAfter = keyframes`${glitchAnimation('font')}`;
 
 // Style
 const Jumbotron = styled.div`
-  background: linear-gradient(#16161675, #161616EE), 50% 50% / cover no-repeat url(${HeroImg});
+  background: linear-gradient(#16161675, #161616EE), 50% 50% / cover no-repeat url(${Bckgrd});
   height: calc(100vh - ${sizes.headerHeight});
   display: flex;
   justify-content: center;
