@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: ${colours.black};
     color: ${colours.white};
-    font-family: ${fonts.regular};
+    font-family: ${fonts.code};
     opacity: 0;
     animation: 1250ms ease-out 500ms forwards ${onloadOpacity};
   }
@@ -35,6 +35,13 @@ const GlobalStyle = createGlobalStyle`
   }
   main {
     padding-top: ${sizes.headerHeight};
+  }
+  a {
+    color: ${colours.white};
+    transition: color 50ms linear;
+    &:hover {
+      color: ${colours.ultraViolet}
+    }
   }
 `
 

@@ -7,6 +7,7 @@ const colours: DefaultColors = {
         futureBlue: '#15abbe',
         neonBlue: '#04d9ff',
         neonFuchsia: '#fe4164',
+        neonGreen: '#39ff14',
         ultraViolet: '#6B5B95',
         galaxyBlue: '#2A4B7C'
 };

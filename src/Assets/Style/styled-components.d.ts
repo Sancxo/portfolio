@@ -6,6 +6,7 @@ declare module 'styled-components' {
         black: string;
         futureBlue: string,
         neonBlue: string,
+        neonGreen: string,
         neonFuchsia: string,
         ultraViolet: string,
         galaxyBlue: string

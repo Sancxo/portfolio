@@ -44,7 +44,7 @@ function Footer() {
             <div>
                 <p style={{fontWeight: "lighter"}}>Follow me on:</p>
                 <div>
-                    <GitHub href="https://github.com/Sancxo" target="_blank" rel="noreferrer">
+                    <GitHub href="https://github.com/Sancxo" target="_blank" rel="noreferrer" title="GitHub">
                         <svg style={{borderRadius: "50%"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1" width="34" height="34">
                             <title>GitHub</title>
                             <g>
@@ -52,7 +52,7 @@ function Footer() {
                             </g>
                         </svg>
                     </GitHub>
-                    <LinkedIn href="https://www.linkedin.com/in/simontirant/"  target="_blank" rel="noreferrer">
+                    <LinkedIn href="https://www.linkedin.com/in/simontirant/"  target="_blank" rel="noreferrer" title="Linkedin">
                         <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
                             <title>LinkedIn</title>
                             <g>

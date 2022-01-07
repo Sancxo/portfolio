@@ -1,4 +1,6 @@
 import styled, {keyframes} from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import {colours, fonts, sizes } from "../Assets/Style/style";
 import { Link } from "react-router-dom";
 import { pathGenerator } from "../Assets/Helpers/generativeGlitchAnimation/properties-generators";
@@ -15,87 +17,66 @@ const GlitchBrand = keyframes`
 const GlitchAnim = keyframes`
     0% {
         transform: skew(8deg);
-        text-shadow: 0 0 2.1em ${colours.neonBlue};
     }
     5% {
         transform: skew(8deg);
-        text-shadow: 0 0 2.1em ${colours.neonBlue};
     }
     10% {
         transform: skew(-2deg);
-        text-shadow: 0 0 1em ${colours.neonBlue};
     }
     15% {
         transform: skew(-1deg);
-        text-shadow: 0 0 1em ${colours.neonBlue};
     }
     20% {
         transform: skew(1deg);
-        text-shadow: 0 0 1.3em ${colours.neonBlue};
     }
     25% {
         transform: skew(1deg);
-        text-shadow: 0 0 1.3em ${colours.neonBlue};
     }
     30% {
         transform: skew(1deg);
-        text-shadow: 0 0 1.3em ${colours.neonBlue};
     }
     35% {
         transform: skew(0deg);
-        text-shadow: 0 0 2em ${colours.neonBlue};
     }
     40% {
         transform: skew(5deg);
-        text-shadow: 0 0 2em ${colours.neonBlue};
     }
     45% {
         transform: skew(0deg);
-        text-shadow: 0 0 2em ${colours.neonBlue};
     }
     50% {
         transform: skew(-5deg);
-        text-shadow: 0 0 2.2em ${colours.neonBlue};
     }
     55% {
         transform: skew(-5deg);
-        text-shadow: 0 0 1.3em ${colours.neonBlue};
     }
     60% {
         transform: skew(-5deg);
-        text-shadow: 0 0 1.5em ${colours.neonBlue};
     }
     65% {
         transform: skew(2deg);
-        text-shadow: 0 0 1.5em ${colours.neonBlue};
     }
     70% {
         transform: skew(-2deg);
-        text-shadow: 0 0 1.9em ${colours.neonBlue};
     }
     75% {
         transform: skew(3deg);
-        text-shadow: 0 0 1em ${colours.neonBlue};
     }
     80% {
         transform: skew(8deg);
-        text-shadow: 0 0 1em ${colours.neonBlue};
     }
     85% {
         transform: skew(8deg);
-        text-shadow: 0 0 2em ${colours.neonBlue};
     }
     90% {
         transform: skew(8deg);
-        text-shadow: 0 0 1.2em ${colours.neonBlue};
     }
     95% {
         transform: skew(deg);
-        text-shadow: 0 0 1.2em ${colours.neonBlue};
     }
     100% {
         transform: skew(-3deg);
-        text-shadow: 0 0 1.8em ${colours.neonBlue};
     }
 `
 
@@ -114,20 +95,19 @@ const MenuLink = styled(Link)`
     margin: auto 1em;
     text-decoration: none;
     color: ${colours.futureBlue};
-    text-shadow: 0 0 2em ${colours.neonBlue};
     &.brand {
         margin-right: auto;
         font: 2em ${fonts.pixel};
         text-shadow: none;
         transition: 2000ms;
     }
-    &.brand:hover {
-        color: #39ff14;
-        text-shadow: 0 0 1em #39ff14;
-        animation: ${GlitchBrand} 100ms 750ms backwards;
-    }
-    &:hover:not(.brand) {
+    &:hover {
+        color: ${colours.neonGreen};
         animation: ${GlitchAnim} 750ms infinite;
+    }
+    &.brand:hover {
+        text-shadow: 0 0 1em ${colours.neonGreen};
+        animation: ${GlitchBrand} 100ms 500ms backwards;
     }
 `
 
@@ -135,6 +115,7 @@ function Header() {
     return (
         <NavBar>
             <MenuLink to='/' className="brand" title="Home">Simon Tirant</MenuLink>
+            <MenuLink to='/' title="Home sweet home"><FontAwesomeIcon icon={faHome} /></MenuLink>
             <MenuLink to='/projects' title="See my projects">My projects</MenuLink>
             <MenuLink to='/about' title="More about me">About me</MenuLink>
             <MenuLink to='/contact' title="Contact me here">Contact me</MenuLink>
