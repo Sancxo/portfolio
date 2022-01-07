@@ -50,7 +50,7 @@ function About() {
                 <h2>Certifications:</h2>
                 <ul>
                     <li>2021 - 2023: OpenClassrooms - Full-stack Developer (eq. Bachelor / Master's degree).</li>
-                    <li>2020 - 2021: Greta des Hauts-de-Seine - Web and Mobile Web Developper Professional Qualification (eq. BTEC Higher National Diploma).</li>
+                    <li>2020 - 2021: GRETA des Hauts-de-Seine - Web and Mobile Web Developper Professional Qualification (eq. BTEC Higher National Diploma).</li>
                 </ul>
             </div>
         </div>
