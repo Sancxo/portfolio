@@ -1,10 +1,10 @@
 // icon imports
-import elixirIcon from "../Assets/Imgs/icons/elixir.png";
-import phoenixIcon from "../Assets/Imgs/icons/phoenix.png";
-import tsIcon from "../Assets/Imgs/icons/typescript.png";
-import nodeIcon from "../Assets/Imgs/icons/node.png";
-import reactIcon from "../Assets/Imgs/icons/react.png";
-import angularIcon from "../Assets/Imgs/icons/angular.png";
+import elixirIcon from "../Imgs/icons/elixir.png";
+import phoenixIcon from "../Imgs/icons/phoenix.png";
+import tsIcon from "../Imgs/icons/typescript.png";
+import nodeIcon from "../Imgs/icons/node.png";
+import reactIcon from "../Imgs/icons/react.png";
+import angularIcon from "../Imgs/icons/angular.png";
 
 const projectList: {
     id: string,
@@ -22,7 +22,7 @@ const projectList: {
         cover: "",
         category: "Test",
         desc: "This is a test.",
-        technos: ["ts", "graphql", "elixir"]
+        technos: ["ts", "angular", "elixir"]
     }
 ]
 

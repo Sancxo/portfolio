@@ -8,9 +8,6 @@ const CardTemplate = styled.div`
     padding: 1em;
     width: 25%;
 `
-const ClickableImg = styled.a`  
-    text-decoration: none;
-`
 
 function Card ({name, url, cover, category, desc, technos}: {
     name: string, 
@@ -23,14 +20,20 @@ function Card ({name, url, cover, category, desc, technos}: {
 
     return (
         <CardTemplate>
-            <ClickableImg href={url} target="_blank" rel="noreferrer">
-                <img src={cover} alt={name} title={name} />
-            </ClickableImg>
-            {technos.map(tech => (
-                <img src={techIcons[tech]} alt="" />
-            ))}
-            <p>{desc}</p>
-            <a href={url} target="_blank" rel="noreferrer">Click here to see me live !</a>
+            <div>
+                <a style={{textDecoration: "none"}} href={url} target="_blank" rel="noreferrer">
+                    <img src={cover} alt={name} title={name} />
+                </a>
+            </div>
+            <div>
+                <h4>{name}</h4>
+                <p><small>{category}</small></p>
+                {technos.map(tech => (
+                    <img style={{height: "48px"}} src={techIcons[tech]} alt="" />
+                ))}
+                <p>{desc}</p>
+                <a href={url} target="_blank" rel="noreferrer">Click here to see me live !</a>
+            </div>
         </CardTemplate>
     )
 }
