@@ -27,6 +27,9 @@ import chaletsCaviar from "../Imgs/project-screenshots/chalets-caviar.png";
 import getGifs from "../Imgs/project-screenshots/get-gifs.png";
 import snake from "../Imgs/project-screenshots/snake.png";
 import pokeyBall from "../Imgs/project-screenshots/pokey-ball.png";
+import neonClock from "../Imgs/project-screenshots/neon-clock.png";
+import forestView from "../Imgs/project-screenshots/forest-view.png";
+import rotatingCube from "../Imgs/project-screenshots/rotating-cube.png";
 import supplierNotation from "../Imgs/project-screenshots/supplier-notation.png";
 import iKebab from "../Imgs/project-screenshots/ikebab.png";
 import greta from "../Imgs/project-screenshots/greta.png";
@@ -150,6 +153,15 @@ const projectList: {
         technos: ["HTML", "CSS", "Bootstrap"]
     }, 
     {
+        id: "njs",
+        name: "Neon Clock",
+        url: "https://sancxo.github.io/NeonJSClock",
+        cover: neonClock,
+        category: "Perso",
+        desc: "Actual clock made in pure JS and HTML/CSS, made for personal training.",
+        technos: ["JavaScript", "HTML", "CSS"]
+    },
+    {
         id: "pokey-ball",
         name: "Pokey Ball Clone",
         url: "https://sancxo.github.io/PokeyBallClone",
@@ -158,6 +170,24 @@ const projectList: {
         desc: "Copy of a 3D game concept made with Three.js library as a test for a former employer.",
         technos: ["JavaScript", "HTML", "CSS", "Threejs"]
     },
+    {
+        id: "forest-view",
+        name: "Forest View",
+        url: "https://sancxo.github.io/forestview",
+        cover: forestView,
+        category: "Perso",
+        desc: "First person landscape static view made with Three.js for personal training.",
+        technos: ["JavaScript", "HTML", "CSS", "Threejs"]
+    }, 
+    {
+        id: "rotating-cube",
+        name: "Rotating 3D Cube",
+        url: "https://sancxo.github.io/Rotating3DCube",
+        cover: rotatingCube,
+        category: "Perso",
+        desc: "Rotating and interactive 3D cube made with Three.js for personal training.",
+        technos: ["JavaScript", "HTML", "CSS", "Threejs"]
+    }
 ]
 
 const techIcons: {[index: string]: string} = {
