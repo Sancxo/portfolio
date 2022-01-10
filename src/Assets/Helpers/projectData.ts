@@ -70,7 +70,7 @@ const projectList: {
         url: "https://7lieues.io",
         cover: septLieues,
         category: "Pro",
-        desc: "WordPress website made as a freelance mission for 7 Lieues Technologies, which is now my actual employer",
+        desc: "WordPress website made as a freelance mission for 7 Lieues Technologies, which is now my actual employer.",
         technos: ["WordPress", "Elementor"]
     },
     {
