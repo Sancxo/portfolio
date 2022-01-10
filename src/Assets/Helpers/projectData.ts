@@ -10,10 +10,14 @@ import nodeIcon from "../Imgs/icons/node.png";
 import reactIcon from "../Imgs/icons/react.png";
 import angularIcon from "../Imgs/icons/angular.png";
 import wpIcon from "../Imgs/icons/wordpress.png";
+import elementorIcon from "../Imgs/icons/elementor.png";
 
 // screenshot imports
 import lmj from "../Imgs/project-screenshots/lmj.png";
 import wio from "../Imgs/project-screenshots/wio.png";
+import septLieues from "../Imgs/project-screenshots/7lieues.png";
+import chaletsCaviar from "../Imgs/project-screenshots/chalets-caviar.png";
+import getGifs from "../Imgs/project-screenshots/get-gifs.png";
 
 const projectList: {
     id: string,
@@ -55,29 +59,29 @@ const projectList: {
         id: "get-gifs",
         name: "Get Gifs",
         url: "http://itlolcu.cluster031.hosting.ovh.net/get-gifs",
-        cover: "",
+        cover: getGifs,
         category: "Pro",
-        desc: "Technical test for a former employer where I should make a React app which connect to Giphy Api to display the platform's Top20 gifs with several features.",
+        desc: "Technical test for a former employer where I should make a React app which connect to Giphy API to display the platform's Top20 gifs with several features.",
         technos: ["JavaScript", "React", "Bootstrap"]
-    },
-    {
-        id: "chalets-caviar",
-        name: "Chalets & Caviar",
-        url: "itlolcu.cluster031.hosting.ovh.net/chalets-caviar",
-        cover: "",
-        category: "Training course",
-        desc: "WordPress website for a fictional real estate agency in Aspen made as an exam for my full-stack training class at OpenClassrooms.",
-        technos: ["WordPress"]
     },
     {
         id: "7lieues",
         name: "7 Lieues",
         url: "https://7lieues.io",
-        cover: "",
+        cover: septLieues,
         category: "Pro",
         desc: "WordPress website made as a freelance mission for 7 Lieues Technologies, which is now my actual employer",
-        technos: ["WordPress"]
-    }
+        technos: ["WordPress", "Elementor"]
+    },
+    {
+        id: "chalets-caviar",
+        name: "Chalets & Caviar",
+        url: "itlolcu.cluster031.hosting.ovh.net/chalets-caviar",
+        cover: chaletsCaviar,
+        category: "Training course",
+        desc: "WordPress website for a fictional real estate agency in Aspen made as an exam for my full-stack training class at OpenClassrooms.",
+        technos: ["WordPress", "Elementor"]
+    },
 ]
 
 const techIcons: {[index: string]: string} = {
@@ -92,7 +96,8 @@ const techIcons: {[index: string]: string} = {
     "Elixir": elixirIcon,
     "Phoenix": phoenixIcon,
     "GraphQL": "",
-    "WordPress": wpIcon
+    "WordPress": wpIcon,
+    "Elementor": elementorIcon
 }
 
 export {projectList, techIcons}
