@@ -6,7 +6,7 @@ import jsIcon from "../Imgs/icons/js.png";
 import tsIcon from "../Imgs/icons/typescript.png";
 import reactIcon from "../Imgs/icons/react.png";
 import angularIcon from "../Imgs/icons/angular.png";
-import threejs from "../Imgs/icons/threejs.png";
+import threejsIcon from "../Imgs/icons/threejs.png";
 import pwaIcon from "../Imgs/icons/pwa.png";
 import nodeIcon from "../Imgs/icons/node.png";
 import elixirIcon from "../Imgs/icons/elixir.png";
@@ -21,6 +21,7 @@ import septLieues from "../Imgs/project-screenshots/7lieues.png";
 import chaletsCaviar from "../Imgs/project-screenshots/chalets-caviar.png";
 import getGifs from "../Imgs/project-screenshots/get-gifs.png";
 import snake from "../Imgs/project-screenshots/snake.png";
+import pokeyBall from "../Imgs/project-screenshots/pokey-ball.png";
 
 const projectList: {
     id: string,
@@ -94,27 +95,28 @@ const projectList: {
         desc: "Technical test for a former employer where I should make a React app which connect to Giphy API to display the platform's Top20 gifs with several features.",
         technos: ["JavaScript", "React", "Bootstrap"]
     },
-    // {
-    //     id: "test",
-    //     name: "Test",
-    //     url: "https://sancxo.github.io/",
-    //     cover: "",
-    //     category: "Test",
-    //     desc: "This is a test.",
-    //     technos: ["ts", "angular", "elixir"]
-    // },
+    {
+        id: "pokey-ball",
+        name: "Pokey Ball Clone",
+        url: "https://sancxo.github.io/PokeyBallClone",
+        cover: pokeyBall,
+        category: "Pro",
+        desc: "This is a test.",
+        technos: ["JavaScript", "HTML", "Threejs"]
+    },
 ]
 
 const techIcons: {[index: string]: string} = {
     "HTML": htmlIcon,
     "CSS": cssIcon,
-    "PWA": pwaIcon,
     "Bootstrap": boostrapIcon,
     "JavaScript": jsIcon,
     "TypeScript": tsIcon,
-    "Node": nodeIcon,
     "React": reactIcon,
     "Angular": angularIcon,
+    "Threejs": threejsIcon,
+    "PWA": pwaIcon,
+    "Node": nodeIcon,
     "Elixir": elixirIcon,
     "Phoenix": phoenixIcon,
     "GraphQL": "",
