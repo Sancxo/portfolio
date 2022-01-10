@@ -4,10 +4,11 @@ import Card from "../Components/Card";
 
 const CardsList = styled.ul`
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
     & li {
         width: 20em;
-        margin: 0 2em;
+        margin: 1em 2em;
     }
 `
 

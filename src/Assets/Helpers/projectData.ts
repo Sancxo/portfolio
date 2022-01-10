@@ -9,6 +9,7 @@ import tsIcon from "../Imgs/icons/typescript.png";
 import nodeIcon from "../Imgs/icons/node.png";
 import reactIcon from "../Imgs/icons/react.png";
 import angularIcon from "../Imgs/icons/angular.png";
+import wpIcon from "../Imgs/icons/wordpress.png";
 
 // screenshot imports
 import lmj from "../Imgs/project-screenshots/lmj.png";
@@ -47,7 +48,7 @@ const projectList: {
         url: "https://sancxo.github.io/watch-it-outside",
         cover: wio,
         category: "Training course",
-        desc: "Responsive website for a fictionnal film festival in Boston made as an exam for my full-stack training class at OpenClassrooms.",
+        desc: "Responsive website for a fictional film festival in Boston made as an exam for my full-stack training class at OpenClassrooms.",
         technos: ["JavaScript", "HTML", "CSS", "Bootstrap"]
     },
     {
@@ -55,9 +56,27 @@ const projectList: {
         name: "Get Gifs",
         url: "http://itlolcu.cluster031.hosting.ovh.net/get-gifs",
         cover: "",
-        category: "Freelance and tests",
-        desc: "Technical test for a former employer where I should make a React app which connect to Giphy Api to display the platform's Top 20 gifs, a random gif feature, a functional search bar with infinite scroll and a dark mode",
+        category: "Pro",
+        desc: "Technical test for a former employer where I should make a React app which connect to Giphy Api to display the platform's Top20 gifs with several features.",
         technos: ["JavaScript", "React", "Bootstrap"]
+    },
+    {
+        id: "chalets-caviar",
+        name: "Chalets & Caviar",
+        url: "itlolcu.cluster031.hosting.ovh.net/chalets-caviar",
+        cover: "",
+        category: "Training course",
+        desc: "WordPress website for a fictional real estate agency in Aspen made as an exam for my full-stack training class at OpenClassrooms.",
+        technos: ["WordPress"]
+    },
+    {
+        id: "7lieues",
+        name: "7 Lieues",
+        url: "https://7lieues.io",
+        cover: "",
+        category: "Pro",
+        desc: "WordPress website made as a freelance mission for 7 Lieues Technologies, which is now my actual employer",
+        technos: ["WordPress"]
     }
 ]
 
@@ -72,7 +91,8 @@ const techIcons: {[index: string]: string} = {
     "Angular": angularIcon,
     "Elixir": elixirIcon,
     "Phoenix": phoenixIcon,
-    "GraphQL": ""
+    "GraphQL": "",
+    "WordPress": wpIcon
 }
 
 export {projectList, techIcons}
