@@ -11,10 +11,15 @@ import pwaIcon from "../Imgs/icons/pwa.png";
 import nodeIcon from "../Imgs/icons/node.png";
 import elixirIcon from "../Imgs/icons/elixir.png";
 import phoenixIcon from "../Imgs/icons/phoenix.png";
+import phpIcon from "../Imgs/icons/php.png";
 import wpIcon from "../Imgs/icons/wordpress.png";
 import elementorIcon from "../Imgs/icons/elementor.png";
+import graphqlIcon from "../Imgs/icons/graphql.png";
+import postgresIcon from "../Imgs/icons/postgres.png";
+import mysqlIcon from "../Imgs/icons/mysql.png";
 
 // screenshot imports
+import portfolio from "../Imgs/project-screenshots/portfolio.png";
 import lmj from "../Imgs/project-screenshots/lmj.png";
 import wio from "../Imgs/project-screenshots/wio.png";
 import septLieues from "../Imgs/project-screenshots/7lieues.png";
@@ -22,6 +27,10 @@ import chaletsCaviar from "../Imgs/project-screenshots/chalets-caviar.png";
 import getGifs from "../Imgs/project-screenshots/get-gifs.png";
 import snake from "../Imgs/project-screenshots/snake.png";
 import pokeyBall from "../Imgs/project-screenshots/pokey-ball.png";
+import supplierNotation from "../Imgs/project-screenshots/supplier-notation.png";
+import iKebab from "../Imgs/project-screenshots/ikebab.png";
+import greta from "../Imgs/project-screenshots/greta.png";
+import renault from "../Imgs/project-screenshots/renault.png";
 
 const projectList: {
     id: string,
@@ -40,13 +49,22 @@ const projectList: {
     //     category: "Test",
     //     desc: "This is a test.",
     //     technos: ["ts", "angular", "elixir"]
-    // },
+    // }, 
+    {
+        id: "portfolio",
+        name: "Portfolio",
+        url: "https://sancxo.github.io/",
+        cover: portfolio,
+        category: "Perso",
+        desc: "This portfolio.",
+        technos: ["TypeScript", "React", "PHP"]
+    },
     {
         id: "lmj",
         name: "La Maison Jungle",
         url: "https://sancxo.github.io/la-maison-jungle",
         cover: lmj,
-        category: "Training course",
+        category: "Perso",
         desc: 'Dynamic front-end e-commerce web page made in React for a course on OpenClassrooms.', // Features: dynamic cart (open/close, add items), automatic item catalog with parameters from model, light/dark mode switch written in localStorage, type filter.
         technos: ["JavaScript", "React"]
     },    
@@ -55,7 +73,7 @@ const projectList: {
         name: "Watch It Outside",
         url: "https://sancxo.github.io/watch-it-outside",
         cover: wio,
-        category: "Training course",
+        category: "Perso",
         desc: "Responsive website for a fictional film festival in Boston made as an exam for my full-stack training class at OpenClassrooms.",
         technos: ["JavaScript", "HTML", "CSS", "Bootstrap"]
     },
@@ -64,7 +82,7 @@ const projectList: {
         name: "Chalets & Caviar",
         url: "itlolcu.cluster031.hosting.ovh.net/chalets-caviar",
         cover: chaletsCaviar,
-        category: "Training course",
+        category: "Perso",
         desc: "WordPress website for a fictional real estate agency in Aspen made as an exam for my full-stack training class at OpenClassrooms.",
         technos: ["WordPress", "Elementor"]
     },
@@ -96,13 +114,49 @@ const projectList: {
         technos: ["JavaScript", "React", "Bootstrap"]
     },
     {
+        id: "supplier-notation",
+        name: "Supplier Notation",
+        url: "",
+        cover: supplierNotation,
+        category: "Pro",
+        desc: "Full-stack data visualisation feature made during a work-placement at 7 Lieues Technologies, containing a form to evaluate a supplier, then the app render data through charts.",
+        technos: ["TypeScript", "Angular", "Bootstrap", "Elixir", "Phoenix", "GraphQL", "PostgresQL"]
+    },
+    {
+        id: "ikebab",
+        name: "iKebab",
+        url: "",
+        cover: iKebab,
+        category: "Perso",
+        desc: "Fictional kebab delivery app, made during my full-stack training at the GRETA, where the customer can order a sandwich, then receive confirmation by mail while the restaurant can see the order from the database via RESTful API.",
+        technos: ["HTML", "CSS", "PHP", "MySQL"]
+    }, 
+    {
+        id: "greta",
+        name: "GRETA",
+        url: "",
+        cover: greta,
+        category: "Perso",
+        desc: "Wordpress website made during my full-stack training at the GRETA des Hauts-de-Seine.",
+        technos: ["WordPress"]
+    }, 
+    {
+        id: "renault",
+        name: "Renault Group",
+        url: "",
+        cover: renault,
+        category: "Perso",
+        desc: "Fully responsive Renault Group's website copy made during my full-stack training at the GRETA des Hauts-de-Seine.",
+        technos: ["HTML", "CSS", "Bootstrap"]
+    }, 
+    {
         id: "pokey-ball",
         name: "Pokey Ball Clone",
         url: "https://sancxo.github.io/PokeyBallClone",
         cover: pokeyBall,
         category: "Pro",
-        desc: "This is a test.",
-        technos: ["JavaScript", "HTML", "Threejs"]
+        desc: "Copy of a 3D game concept made with Three.js library as a test for a former employer.",
+        technos: ["JavaScript", "HTML", "CSS", "Threejs"]
     },
 ]
 
@@ -119,7 +173,10 @@ const techIcons: {[index: string]: string} = {
     "Node": nodeIcon,
     "Elixir": elixirIcon,
     "Phoenix": phoenixIcon,
-    "GraphQL": "",
+    "PHP": phpIcon,
+    "GraphQL": graphqlIcon,
+    "PostgresQL": postgresIcon,
+    "MySQL": mysqlIcon,
     "WordPress": wpIcon,
     "Elementor": elementorIcon
 }
