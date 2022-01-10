@@ -7,7 +7,7 @@ const CardTemplate = styled.div`
     border: solid ${colours.white} 1px;
     padding: 1em;
     width: 100%;
-    height: 62.5vh
+    height: 66vh
 `
 
 function Card ({name, url, cover, category, desc, technos}: {
@@ -22,7 +22,7 @@ function Card ({name, url, cover, category, desc, technos}: {
     return (
         <CardTemplate>
             <div>
-                <h4>{name}</h4>
+                <h4 style={{margin: "1em auto"}}>{name}</h4>
                 <a style={{textDecoration: "none"}} href={url} target="_blank" rel="noreferrer">
                     <img src={cover} alt={name} title={name} style={{width: "100%", height: "25vh", objectPosition: "50% top", objectFit: "cover"}}/>
                 </a>
@@ -33,7 +33,7 @@ function Card ({name, url, cover, category, desc, technos}: {
                     <img style={{height: "48px", margin: "0 0.25em"}} src={techIcons[tech]} alt={tech} title={tech} />
                 ))}
                 <p>{desc}</p>
-                <a href={url} target="_blank" rel="noreferrer" style={{position: "absolute", bottom: "0", left: "0", translate: "12.5% 0"}}>Click here to see me live !</a>
+                <a href={url} target="_blank" rel="noreferrer" style={{position: "absolute", bottom: "-1em", left: "0", translate: "12.5% 0"}}>Click here to see me live !</a>
             </div>
         </CardTemplate>
     )

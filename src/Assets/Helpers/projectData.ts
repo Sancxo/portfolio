@@ -3,12 +3,14 @@ import htmlIcon from "../Imgs/icons/html.png";
 import cssIcon from "../Imgs/icons/css.png";
 import boostrapIcon from "../Imgs/icons/bootstrap.png";
 import jsIcon from "../Imgs/icons/js.png";
-import elixirIcon from "../Imgs/icons/elixir.png";
-import phoenixIcon from "../Imgs/icons/phoenix.png";
 import tsIcon from "../Imgs/icons/typescript.png";
-import nodeIcon from "../Imgs/icons/node.png";
 import reactIcon from "../Imgs/icons/react.png";
 import angularIcon from "../Imgs/icons/angular.png";
+import threejs from "../Imgs/icons/threejs.png";
+import pwaIcon from "../Imgs/icons/pwa.png";
+import nodeIcon from "../Imgs/icons/node.png";
+import elixirIcon from "../Imgs/icons/elixir.png";
+import phoenixIcon from "../Imgs/icons/phoenix.png";
 import wpIcon from "../Imgs/icons/wordpress.png";
 import elementorIcon from "../Imgs/icons/elementor.png";
 
@@ -18,6 +20,7 @@ import wio from "../Imgs/project-screenshots/wio.png";
 import septLieues from "../Imgs/project-screenshots/7lieues.png";
 import chaletsCaviar from "../Imgs/project-screenshots/chalets-caviar.png";
 import getGifs from "../Imgs/project-screenshots/get-gifs.png";
+import snake from "../Imgs/project-screenshots/snake.png";
 
 const projectList: {
     id: string,
@@ -65,6 +68,15 @@ const projectList: {
         technos: ["WordPress", "Elementor"]
     },
     {
+        id: "snake",
+        name: "Snake",
+        url: "https://sancxo.github.io/snake",
+        cover: snake,
+        category: "Perso",
+        desc: "Personal project made during summer holiday to stay in shape with vanilla JavaScript and canvas. Fully playable on computers and mobiles, also downloadable on device as a Progressive Web App.",
+        technos: ["JavaScript", "HTML", "CSS", "PWA"]
+    },
+    {
         id: "7lieues",
         name: "7 Lieues",
         url: "https://7lieues.io",
@@ -82,11 +94,21 @@ const projectList: {
         desc: "Technical test for a former employer where I should make a React app which connect to Giphy API to display the platform's Top20 gifs with several features.",
         technos: ["JavaScript", "React", "Bootstrap"]
     },
+    // {
+    //     id: "test",
+    //     name: "Test",
+    //     url: "https://sancxo.github.io/",
+    //     cover: "",
+    //     category: "Test",
+    //     desc: "This is a test.",
+    //     technos: ["ts", "angular", "elixir"]
+    // },
 ]
 
 const techIcons: {[index: string]: string} = {
     "HTML": htmlIcon,
     "CSS": cssIcon,
+    "PWA": pwaIcon,
     "Bootstrap": boostrapIcon,
     "JavaScript": jsIcon,
     "TypeScript": tsIcon,
