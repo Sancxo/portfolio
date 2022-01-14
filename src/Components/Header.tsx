@@ -89,7 +89,7 @@ const NavBar = styled.nav`
     margin: auto;
     background: ${colours.black};
     height: ${sizes.headerHeight};
-    padding-right: 1em;
+    padding: 0 3em 0 1em;
 `
 const MenuLink = styled(Link)`
     margin: auto 1em;

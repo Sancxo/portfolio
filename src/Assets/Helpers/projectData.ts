@@ -44,15 +44,6 @@ const projectList: {
     desc: string,
     technos: string[]
     }[] = [
-    // {
-    //     id: "test",
-    //     name: "Test",
-    //     url: "https://sancxo.github.io/",
-    //     cover: "",
-    //     category: "Test",
-    //     desc: "This is a test.",
-    //     technos: ["ts", "angular", "elixir"]
-    // }, 
     {
         id: "portfolio",
         name: "Portfolio",
@@ -78,12 +69,12 @@ const projectList: {
         cover: wio,
         category: "Perso",
         desc: "Responsive website for a fictional film festival in Boston made as an exam for my full-stack training class at OpenClassrooms.",
-        technos: ["JavaScript", "HTML", "CSS", "Bootstrap"]
+        technos: ["HTML", "CSS", "Bootstrap", "JavaScript"]
     },
     {
         id: "chalets-caviar",
         name: "Chalets & Caviar",
-        url: "itlolcu.cluster031.hosting.ovh.net/chalets-caviar",
+        url: "http://itlolcu.cluster031.hosting.ovh.net/chalets-caviar",
         cover: chaletsCaviar,
         category: "Perso",
         desc: "WordPress website for a fictional real estate agency in Aspen made as an exam for my full-stack training class at OpenClassrooms.",
@@ -96,7 +87,7 @@ const projectList: {
         cover: snake,
         category: "Perso",
         desc: "Personal project made during summer holiday to stay in shape with vanilla JavaScript and canvas. Fully playable on computers and mobiles, also downloadable on device as a Progressive Web App.",
-        technos: ["JavaScript", "HTML", "CSS", "PWA"]
+        technos: ["HTML", "CSS", "JavaScript", "PWA"]
     },
     {
         id: "7lieues",
@@ -159,7 +150,7 @@ const projectList: {
         cover: neonClock,
         category: "Perso",
         desc: "Actual clock made in pure JS and HTML/CSS, made for personal training.",
-        technos: ["JavaScript", "HTML", "CSS"]
+        technos: ["HTML", "CSS", "JavaScript"]
     },
     {
         id: "pokey-ball",
@@ -168,7 +159,7 @@ const projectList: {
         cover: pokeyBall,
         category: "Pro",
         desc: "Copy of a 3D game concept made with Three.js library as a test for a former employer.",
-        technos: ["JavaScript", "HTML", "CSS", "Threejs"]
+        technos: ["HTML", "CSS", "JavaScript", "Three.js"]
     },
     {
         id: "forest-view",
@@ -177,7 +168,7 @@ const projectList: {
         cover: forestView,
         category: "Perso",
         desc: "First person landscape static view made with Three.js for personal training.",
-        technos: ["JavaScript", "HTML", "CSS", "Threejs"]
+        technos: ["HTML", "CSS", "JavaScript", "Three.js"]
     }, 
     {
         id: "rotating-cube",
@@ -186,7 +177,7 @@ const projectList: {
         cover: rotatingCube,
         category: "Perso",
         desc: "Rotating and interactive 3D cube made with Three.js for personal training.",
-        technos: ["JavaScript", "HTML", "CSS", "Threejs"]
+        technos: ["HTML", "CSS", "JavaScript", "Three.js"]
     }
 ]
 
@@ -198,7 +189,7 @@ const techIcons: {[index: string]: string} = {
     "TypeScript": tsIcon,
     "React": reactIcon,
     "Angular": angularIcon,
-    "Threejs": threejsIcon,
+    "Three.js": threejsIcon,
     "PWA": pwaIcon,
     "Node": nodeIcon,
     "Elixir": elixirIcon,
@@ -211,9 +202,23 @@ const techIcons: {[index: string]: string} = {
     "Elementor": elementorIcon
 }
 
+const techList: {[index: string]: string} = {
+    "HTML/CSS": "HTML",
+    "JavaScript": "JavaScript",
+    "TypeScript": "TypeScript",
+    "React": "React",
+    "Angular": "Angular",
+    "Three.js": "Three.js",
+    // "Node": "Node",
+    "Elixir/Phoenix": "Elixir",
+    "PHP": "PHP",
+    "GraphQL": "GraphQL",
+    "WordPress": "WordPress"
+}
+
 const projectType: {[index: string]: string} = {
     "Pro": "Professional work",
     "Perso": "Personal and training"
 }
 
-export {projectList, techIcons, projectType}
+export {projectList, techIcons, techList, projectType}

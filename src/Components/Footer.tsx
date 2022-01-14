@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colours, sizes } from "../Assets/Style/style";
 
 const FooterContainer = styled.div`
-    padding: 0 1em;
+    padding: 0 3em;
     height: ${sizes.footerHeight};
     display: flex;
     justify-content: space-between;
