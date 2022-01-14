@@ -41,7 +41,7 @@ function Projects() {
 
             <p>Active filters : {typeFilter !== "" ? filterTags(typeFilter) : null} {techFilter !== "" ? filterTags(techFilter) : null}</p>
 
-            <select name="type-filter" id="type-filter" onChange={e => setTypeFilter(e.target.value)} value={typeFilter} >
+            <select style={{marginRight: "1em"}} name="type-filter" id="type-filter" onChange={e => setTypeFilter(e.target.value)} value={typeFilter} >
                     <option value="">Choose a type to filter: </option>
                 {Object.keys(projectType).map((type: string) => (
                     <option value={type} key={type}>{projectType[type]}</option>
