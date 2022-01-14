@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { techIcons } from "../Assets/Helpers/projectData";
+import { projectType, techIcons } from "../Assets/Helpers/projectData";
 import { colours } from "../Assets/Style/style";
 
 const CardTemplate = styled.div`
@@ -10,7 +10,8 @@ const CardTemplate = styled.div`
     height: 66vh
 `
 
-function Card ({name, url, cover, category, desc, technos}: {
+function Card ({id, name, url, cover, category, desc, technos}: {
+    id: string,
     name: string, 
     url: string,
     cover: string,
@@ -33,9 +34,9 @@ function Card ({name, url, cover, category, desc, technos}: {
                 }
             </div>
             <div style={{position: "relative", height: "45%"}}>
-                <p><small>{category}</small></p>
+                <p><small>{projectType[category]}</small></p>
                 {technos.map(tech => (
-                    <img style={{height: "48px", margin: "0 0.25em"}} src={techIcons[tech]} alt={tech} title={tech} />
+                    <img style={{height: "48px", margin: "0 0.25em"}} src={techIcons[tech]} alt={tech} title={tech} key={tech + id} />
                 ))}
                 <p>{desc}</p>
                 {

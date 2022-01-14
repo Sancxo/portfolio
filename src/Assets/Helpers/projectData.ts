@@ -211,4 +211,9 @@ const techIcons: {[index: string]: string} = {
     "Elementor": elementorIcon
 }
 
-export {projectList, techIcons}
+const projectType: {[index: string]: string} = {
+    "Pro": "Professional work",
+    "Perso": "Personal and training"
+}
+
+export {projectList, techIcons, projectType}
