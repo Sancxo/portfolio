@@ -1,10 +1,23 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { projectList, projectType, techList } from "../Assets/Helpers/projectData";
-import { colours } from "../Assets/Style/style";
+import { colours, sizes } from "../Assets/Style/style";
 import Card from "../Components/Card";
 
+
+const FilterContainer = styled.div`
+    position: fixed;
+    top: ${sizes.headerHeight};
+    left: 12.5%;
+    width: 75%;
+    background: ${colours.black};
+    z-index: 1;
+    padding: 3em;
+    padding-top: 0;
+    height: 15vh;
+`
 const CardsList = styled.ul`
+    margin-top: calc(15vh + 3em);
     list-style: none;
     padding: 0;
     display: flex;
@@ -37,23 +50,27 @@ function Projects() {
 
     return (
         <div style={{marginTop: "3em", padding: "0 12.5%"}}>
-            <h3>My Projects</h3>
+            <FilterContainer id="filter-container">
+                <h3>My Projects</h3>
 
-            <p>Active filters : {typeFilter !== "" ? filterTags(typeFilter) : null} {techFilter !== "" ? filterTags(techFilter) : null}</p>
+                <p>Active filters : {typeFilter !== "" ? filterTags(typeFilter) : null} {techFilter !== "" ? filterTags(techFilter) : null}</p>
 
-            <select style={{marginRight: "1em"}} name="type-filter" id="type-filter" onChange={e => setTypeFilter(e.target.value)} value={typeFilter} >
-                    <option value="">Choose a type to filter: </option>
-                {Object.keys(projectType).map((type: string) => (
-                    <option value={type} key={type}>{projectType[type]}</option>
-                ))}
-            </select>
+                <div style={{textAlign: "center"}}>
+                    <select style={{marginRight: "1em"}} name="type-filter" id="type-filter" onChange={e => setTypeFilter(e.target.value)} value={typeFilter} >
+                            <option value="">Choose a type to filter: </option>
+                        {Object.keys(projectType).map((type: string) => (
+                            <option value={type} key={type}>{projectType[type]}</option>
+                        ))}
+                    </select>
 
-            <select name="tech-filter" id="tech-filter" onChange={e => setTechFilter(e.target.value)} value={techFilter} >
-                    <option value="">Choose a tech to filter: </option>
-                {Object.keys(techList).map((tech: string) => (
-                    <option value={techList[tech]} key={tech}>{tech}</option>
-                ))}
-            </select>
+                    <select name="tech-filter" id="tech-filter" onChange={e => setTechFilter(e.target.value)} value={techFilter} >
+                            <option value="">Choose a tech to filter: </option>
+                        {Object.keys(techList).map((tech: string) => (
+                            <option value={techList[tech]} key={tech}>{tech}</option>
+                        ))}
+                    </select>
+                </div>
+            </FilterContainer>
 
             <CardsList>
                 {
