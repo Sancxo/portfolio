@@ -1,37 +1,4 @@
-import styled from "styled-components";
-import { colours, sizes } from "../Assets/Style/style";
-
-const FooterContainer = styled.div`
-    padding: 0 3em;
-    height: ${sizes.footerHeight};
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`
-const GitHub = styled.a`
-    color: ${colours.white};
-    margin-right: 0.5em;
-    & svg {
-        transition: 500ms;
-    }
-    & svg:hover {
-        color: #39ff14;
-        box-shadow: 0 0 1em #39ff14;
-        transform: rotate(45deg);
-    }
-`
-const LinkedIn = styled.a`
-    color: ${colours.galaxyBlue};
-    margin-left: 0.5em;
-    & svg {
-        transition: 500ms;
-    }    
-    & svg:hover {
-        color: #39ff14;
-        box-shadow: 0 0 1em #39ff14;
-        transform: rotate(-45deg)
-    }
-`
+import { FooterContainer, GitHub, LinkedIn } from "../Assets/Style/styled-components";
 
 function Footer() {
     const currentDate = new Date();
