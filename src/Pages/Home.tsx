@@ -24,9 +24,6 @@ const GlitchFontAfter = keyframes`${glitchAnimation('font')}`;
 const Jumbotron = styled.div`
   background: linear-gradient(#16161675, #161616EE), 50% 50% / cover no-repeat url(${Bckgrd});
   height: calc(100vh - ${sizes.headerHeight});
-  display: flex;
-  justify-content: center;
-  align-items: center;
   filter: blur(0.25em);
 `
 const Container = styled.div`

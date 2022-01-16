@@ -1,8 +1,8 @@
-import { createGlobalStyle, keyframes } from 'styled-components';
-import { colours, fonts, sizes } from './Assets/Style/style';
 import React, {Suspense, lazy, useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+// Style imports
+import { GlobalStyle, Loader } from './Assets/Style/styled-components';
 
 // Components imports
 import Header from './Components/Header';
@@ -15,36 +15,6 @@ const Projects = lazy(() => import("./Pages/Projects"));
 const About = lazy(() => import("./Pages/About"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Error = lazy(() => import('./Pages/Error'));
-
-// Styled Components
-const onloadOpacity = keyframes`
-  from { opacity: 0 }
-  to { opacity: 1 }
-`
-const GlobalStyle = createGlobalStyle`
-  body {
-    background: ${colours.black};
-    color: ${colours.white};
-    font-family: ${fonts.code};
-    opacity: 0;
-    animation: 1250ms ease-out 500ms forwards ${onloadOpacity};
-  }
-  header {
-    position: fixed;
-    z-index: 1;
-    width: 100vw;
-  }
-  main {
-    padding-top: ${sizes.headerHeight};
-  }
-  a {
-    color: ${colours.white};
-    transition: color 50ms linear;
-    &:hover {
-      color: ${colours.ultraViolet}
-    }
-  }
-`
 
 function App() {
     useEffect(() => {
@@ -65,7 +35,7 @@ function App() {
                     </header>
                     
                     <main>
-                        <Suspense fallback={<div><p>Chargement en cours ...</p></div>}>
+                        <Suspense fallback={<Loader />}>
                         <Routes >
                             <Route path="/" element={<Home />} />
                             <Route path="/projects" element={<Projects />} />
