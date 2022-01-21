@@ -78,7 +78,7 @@ const projectList: {
         cover: chaletsCaviar,
         category: "Perso",
         desc: "WordPress website for a fictional real estate agency in Aspen made as an exam for my full-stack training class at OpenClassrooms.",
-        technos: ["WordPress", "Elementor"]
+        technos: ["PHP", "WordPress", "Elementor"]
     },
     {
         id: "snake",
@@ -96,7 +96,7 @@ const projectList: {
         cover: septLieues,
         category: "Pro",
         desc: "WordPress website made as a freelance mission for 7 Lieues Technologies, which is now my actual employer.",
-        technos: ["WordPress", "Elementor"]
+        technos: ["PHP", "WordPress", "Elementor"]
     },
     {
         id: "get-gifs",
@@ -132,7 +132,7 @@ const projectList: {
         cover: greta,
         category: "Perso",
         desc: "Wordpress website made during my full-stack training at the GRETA des Hauts-de-Seine.",
-        technos: ["WordPress"]
+        technos: ["HTML", "CSS", "WordPress"]
     }, 
     {
         id: "renault",
