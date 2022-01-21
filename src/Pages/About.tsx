@@ -22,9 +22,7 @@ const Icon = styled.a`
         height: 8em;
         transition: transform 300ms ease-in-out;
     }
-    & img:hover {
-        transform: scale(1.5);
-    }
+    & img:hover { transform: scale(1.5); }
 `
 function About() {
     return (

@@ -51,7 +51,7 @@ function Projects() {
     return (
         <div style={{marginTop: "3em", padding: "0 12.5%"}}>
             <FilterContainer id="filter-container">
-                <h3>My Projects</h3>
+                <h2>My Projects</h2>
 
                 <p>Active filters : {typeFilter !== "" ? filterTags(typeFilter) : null} {techFilter !== "" ? filterTags(techFilter) : null}</p>
 

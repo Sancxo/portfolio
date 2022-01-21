@@ -65,77 +65,31 @@ export const NavBar = styled.nav`
     padding: 0 3em 0 1em;
 `
 const GlitchBrand = keyframes`
-    0% {
-        clip-path: none;
-    }
-    100% {
-        clip-path: polygon(${pathGenerator()});
-    }
+    0% { clip-path: none; }
+    100% { clip-path: polygon(${pathGenerator()}); }
 `
 const GlitchAnim = keyframes`
-    0% {
-        transform: skew(8deg);
-    }
-    5% {
-        transform: skew(8deg);
-    }
-    10% {
-        transform: skew(-2deg);
-    }
-    15% {
-        transform: skew(-1deg);
-    }
-    20% {
-        transform: skew(1deg);
-    }
-    25% {
-        transform: skew(1deg);
-    }
-    30% {
-        transform: skew(1deg);
-    }
-    35% {
-        transform: skew(0deg);
-    }
-    40% {
-        transform: skew(5deg);
-    }
-    45% {
-        transform: skew(0deg);
-    }
-    50% {
-        transform: skew(-5deg);
-    }
-    55% {
-        transform: skew(-5deg);
-    }
-    60% {
-        transform: skew(-5deg);
-    }
-    65% {
-        transform: skew(2deg);
-    }
-    70% {
-        transform: skew(-2deg);
-    }
-    75% {
-        transform: skew(3deg);
-    }
-    80% {
-        transform: skew(8deg);
-    }
-    85% {
-        transform: skew(8deg);
-    }
-    90% {
-        transform: skew(8deg);
-    }
-    95% {
-        transform: skew(deg);
-    }
-    100% {
-        transform: skew(-3deg);
-    }
+    0% { transform: skew(8deg); }
+    5% { transform: skew(8deg); }
+    10% { transform: skew(-2deg); }
+    15% { transform: skew(-1deg); }
+    20% { transform: skew(1deg); }
+    25% { transform: skew(1deg); }
+    30% { transform: skew(1deg); }
+    35% { transform: skew(0deg); }
+    40% { transform: skew(5deg); }
+    45% { transform: skew(0deg); }
+    50% { transform: skew(-5deg); }
+    55% { transform: skew(-5deg); }
+    60% { transform: skew(-5deg); }
+    65% { transform: skew(2deg); }
+    70% { transform: skew(-2deg); }
+    75% { transform: skew(3deg); }
+    80% { transform: skew(8deg); }
+    85% { transform: skew(8deg); }
+    90% { transform: skew(8deg); }
+    95% { transform: skew(8deg); }
+    100% { transform: skew(-3deg); }
 `
 export const MenuLink = styled(Link)`
     margin: auto 1em;
