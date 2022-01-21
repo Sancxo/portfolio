@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled, { createGlobalStyle, keyframes } from 'styled-components';
-import { colours, fonts, sizes } from './style';
+import { colours, fonts, mediaQueries, sizes } from './style';
 import { pathGenerator } from "../Helpers/generativeGlitchAnimation/properties-generators";
 
 // App.tsx
@@ -99,7 +99,8 @@ export const MenuLink = styled(Link)`
         margin-right: auto;
         font: 2em ${fonts.pixel};
         text-shadow: none;
-        transition: 2000ms;
+        transition: color 2000ms, text-shadow 2000ms;
+        @media ${mediaQueries.mobile} { font-size: 1.5em; }
     }
     &:hover {
         color: ${colours.neonGreen};
