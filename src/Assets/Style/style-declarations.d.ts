@@ -25,5 +25,16 @@ declare module 'styled-components' {
     export interface DefaultSizes {
         headerHeight: string,
         footerHeight: string
+    };
+
+    export interface BreakPoints {
+        mobile: string;
+        tablet: string;
+    };
+
+    export interface MediaQueries {
+        mobile: string,
+        tablet: string
     }
+
 }

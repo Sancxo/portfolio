@@ -1,4 +1,10 @@
-import { DefaultColors, DefaultFonts } from 'styled-components';
+import { 
+        BreakPoints, 
+        DefaultColors, 
+        DefaultFonts, 
+        DefaultSizes, 
+        MediaQueries 
+} from 'styled-components';
 import './fonts.css';
 
 const colours: DefaultColors = {
@@ -22,9 +28,23 @@ const fonts: DefaultFonts = {
         pixelHairline: '"Bungee Hairline", cursive'
 }
 
-const sizes = {
+const sizes: DefaultSizes = {
         headerHeight: '5em',
         footerHeight: '10em'
 }
 
-export {colours, fonts, sizes};
+const breakPoints: BreakPoints = {
+        mobile: '480px',
+        tablet: '992px'
+}
+
+function mediaQuery(cond: string): string {
+        return `(max-width: ${cond})`;
+}
+
+const mediaQueries: MediaQueries = {
+        mobile: mediaQuery(breakPoints.mobile),
+        tablet: mediaQuery(breakPoints.tablet)
+}
+
+export {colours, fonts, sizes, mediaQueries};
