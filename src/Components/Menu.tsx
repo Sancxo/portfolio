@@ -13,7 +13,8 @@ const LinksContainer = styled.div`
         width: 100%;
         left: 0;
         top: ${sizes.headerHeight};
-        & a{
+        padding-bottom: 1em;
+        & a {
             margin: auto 4em;
         }
         & a::before {

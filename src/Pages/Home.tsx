@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { colours, fonts, sizes } from '../Assets/Style/style';
+import { colours, fonts, mediaQueries, sizes } from '../Assets/Style/style';
 import { animationDuration, fontGenerator, positionGenerator } from '../Assets/Helpers/generativeGlitchAnimation/properties-generators';
 import { glitchAnimation } from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
 import Bckgrd from '../Assets/Imgs/bckgrd_2.jpg';
@@ -36,11 +36,12 @@ const Container = styled.div`
 `
 const MainTitle = styled.h1`
   margin-top: 50%;
-  font-family: ${fonts.pixel};
   color: ${colours.white};
-  text-shadow: 0 0 0.25em ${colours.white};
-  font-size: 3em;
   opacity: 1;
+  font-family: ${fonts.pixel};
+  font-size: 3em;
+  text-align: center;
+  text-shadow: 0 0 0.25em ${colours.white};
   animation: ${pathsAndOpacityDuration} step-end 500ms infinite ${PathsCode};
   &::after, &::before {
     margin-top: 50%;
@@ -89,7 +90,7 @@ function Home() {
     <React.Fragment>
       <Jumbotron></Jumbotron>
       <Container>
-        <MainTitle className='title'>Hello, World !</MainTitle>
+        <MainTitle className='title'>Hello, World&nbsp;!</MainTitle>
         <Pipe to='/projects' title="See my projects">|&gt; My projects</Pipe>
         <Pipe to='/about' title="More about me">|&gt; About me</Pipe>
         <Pipe to='/contact' title="Contact me here">|&gt; Contact me</Pipe>
