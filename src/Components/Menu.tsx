@@ -14,7 +14,6 @@ const LinksContainer = styled.div`
         left: 0;
         top: ${sizes.headerHeight};
         padding-bottom: 1em;
-        z-index: 3;
         & a {
             margin: auto 4em;
         }
