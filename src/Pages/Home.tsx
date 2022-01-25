@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { colours, fonts, mediaQueries, sizes } from '../Assets/Style/style';
+import { colours, fonts, sizes } from '../Assets/Style/style';
 import { animationDuration, fontGenerator, positionGenerator } from '../Assets/Helpers/generativeGlitchAnimation/properties-generators';
 import { glitchAnimation } from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
 import Bckgrd from '../Assets/Imgs/bckgrd_2.jpg';

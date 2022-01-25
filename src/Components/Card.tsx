@@ -6,7 +6,7 @@ const CardTemplate = styled.div`
     text-align: center;
     border: solid ${colours.white} 1px;
     padding: 1em;
-    width: 100%;
+    width: calc(100% - 2em);
     height: 66vh
 `
 
@@ -40,7 +40,7 @@ function Card ({id, name, url, cover, category, desc, technos}: {
                 ))}
                 <p>{desc}</p>
                 {
-                    url !== "" && <a href={url} target="_blank" rel="noreferrer" style={{position: "absolute", bottom: "-1em", left: "0", translate: "12.5% 0"}}>Click here to see me live !</a>
+                    url !== "" && <a href={url} target="_blank" rel="noreferrer" style={{position: "absolute", bottom: "-1em", left: "-1em", translate: "12.5% 0"}}>Click here to see me live !</a>
                 }
             </div>
         </CardTemplate>
