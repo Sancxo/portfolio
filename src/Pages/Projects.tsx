@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { projectList, projectType, techList } from "../Assets/Helpers/projectData";
 import { colours, mediaQueries, sizes } from "../Assets/Style/style";
@@ -16,12 +16,24 @@ const FilterContainer = styled.div`
     width: 100%;
     background: ${colours.black};
     z-index: 1;
-    padding: 3em;
     padding-top: 0;
-    height: 15vh;
+    @media ${mediaQueries.mobile} { padding: 0; }
+`
+const InputContainer = styled.div`
+    text-align: center;
+    @media ${mediaQueries.mobile} {
+        display: flex;
+        flex-direction column;
+    }
+`
+const FirstSelect = styled.select`
+    margin-right: 1em;
+    @media ${mediaQueries.mobile} { 
+        margin-right: 0;
+        margin-bottom: 1em; 
+    }
 `
 const CardsList = styled.ul`
-    margin-top: calc(15vh + 3em);
     list-style: none;
     padding: 0;
     display: flex;
@@ -42,7 +54,12 @@ const FilterTag = styled.span`
 function Projects() {
     const [typeFilter, setTypeFilter] = useState("");
     const [techFilter, setTechFilter] = useState("");
+    const [filterSize, setFilterSize] = useState(document.getElementById("filter-container")?.offsetHeight);
 
+    useEffect(() => {
+        setFilterSize(document.getElementById("filter-container")?.offsetHeight);
+    }, [])
+    
     const removeTag = (filterTag: string) => {
         if (Object.values(techList).includes(filterTag)) setTechFilter("")
         else if (Object.keys(projectType).includes(filterTag)) setTypeFilter("");
@@ -60,13 +77,13 @@ function Projects() {
 
                     <p>Active filters : {typeFilter !== "" ? filterTags(typeFilter) : null} {techFilter !== "" ? filterTags(techFilter) : null}</p>
 
-                    <div style={{textAlign: "center"}}>
-                        <select style={{marginRight: "1em"}} name="type-filter" id="type-filter" onChange={e => setTypeFilter(e.target.value)} value={typeFilter} >
+                    <InputContainer>
+                        <FirstSelect name="type-filter" id="type-filter" onChange={e => setTypeFilter(e.target.value)} value={typeFilter} >
                                 <option value="">Choose a type to filter: </option>
                             {Object.keys(projectType).map((type: string) => (
                                 <option value={type} key={type}>{projectType[type]}</option>
                             ))}
-                        </select>
+                        </FirstSelect>
 
                         <select name="tech-filter" id="tech-filter" onChange={e => setTechFilter(e.target.value)} value={techFilter} >
                                 <option value="">Choose a tech to filter: </option>
@@ -74,11 +91,11 @@ function Projects() {
                                 <option value={techList[tech]} key={tech}>{tech}</option>
                             ))}
                         </select>
-                    </div>
+                    </InputContainer>
                 </div>
             </FilterContainer>
 
-            <CardsList>
+            <CardsList style={{marginTop: filterSize}}>
                 {
                     projectList.map(project => (
                         typeFilter === project.category || typeFilter === "" ?
