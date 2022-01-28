@@ -54,24 +54,24 @@ const MainTitle = styled.h1`
     z-index: -1;
   }
   &::before {
-    font-family: ${fontGenerator()};
+    font-family: ${ fontGenerator() };
     opacity: 0;
-    top: ${positionGenerator('negative')[0]};
-    left: ${positionGenerator('negative')[1]};
-    color: ${colours.neonBlue};
-    animation: ${pathsAndOpacityDuration} step-end 500ms infinite ${OpacityCode},
-    ${animationDuration(2, 3)} step-end infinite ${GlitchPositionBefore},
-    ${animationDuration(2, 4)} step-end infinite ${GlitchFontBefore};
+    top: ${ positionGenerator('negative')[0] };
+    left: ${ positionGenerator('negative')[1] };
+    color: ${ colours.neonBlue };
+    animation: ${ pathsAndOpacityDuration} step-end 500ms infinite ${ OpacityCode },
+    ${ animationDuration(2, 3) } step-end infinite ${ GlitchPositionBefore },
+    ${animationDuration(2, 4) } step-end infinite ${ GlitchFontBefore };
   }
   &::after {
-    font-family: ${fontGenerator()};
+    font-family: ${ fontGenerator() };
     opacity: 0;
-    top: ${positionGenerator('positive')[0]};
-    left: ${positionGenerator('positive')[1]};
-    color: ${colours.neonFuchsia};
-    animation: ${pathsAndOpacityDuration} step-end 500ms infinite ${OpacityCode},
-    ${GlitchPositionAfter} ${animationDuration(4, 5)} step-end infinite,
-    ${GlitchFontAfter} ${animationDuration(3, 5)} step-end infinite;
+    top: ${ positionGenerator('positive')[0] };
+    left: ${ positionGenerator('positive')[1] };
+    color: ${ colours.neonFuchsia };
+    animation: ${ pathsAndOpacityDuration } step-end 500ms infinite ${ OpacityCode },
+    ${ GlitchPositionAfter } ${ animationDuration(4, 5) } step-end infinite,
+    ${ GlitchFontAfter } ${ animationDuration(3, 5) } step-end infinite;
   }
 `
 const Pipe = styled(Link)`
@@ -83,9 +83,7 @@ const Pipe = styled(Link)`
   font-size: 2em;
   text-decoration: none;
   line-height: 1em;
-  &:hover {
-    color: ${colours.white};
-  }
+  &:hover { color: ${colours.white}; }
   @media ${mediaQueries.tablet} { font-size: 1.75em; }
   @media ${mediaQueries.mobileLandscape} { 
     font-size: 1.5em; 

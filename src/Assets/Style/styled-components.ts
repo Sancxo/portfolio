@@ -47,7 +47,7 @@ export const Loader = styled.div`
   width: 0;
   text-align: center;
   position: absolute;
-  translate: 50% 50%;
+  translate: -50% -50%;
   top: 50%;
   left: 50%;
   filter: drop-shadow(0 0 1em ${colours.ultraViolet});

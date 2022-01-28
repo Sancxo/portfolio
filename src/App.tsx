@@ -2,7 +2,7 @@ import React, {Suspense, lazy, useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Style imports
-import { GlobalStyle, Loader } from './Assets/Style/styled-components';
+import { GlobalStyle, Loader} from './Assets/Style/styled-components';
 
 // Components imports
 import Header from './Components/Header';
@@ -49,6 +49,7 @@ function App() {
                             <Route path="/projects" element={<Projects />} />
                             <Route path="/about" element={<About />} />
                             <Route path="/contact" element={<Contact />} />
+                            <Route path="/loader" element={<Loader />} />
                             <Route path="*" element={<Error />} />
                         </Routes>
                         </Suspense>
