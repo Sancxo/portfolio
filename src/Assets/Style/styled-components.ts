@@ -21,9 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     z-index: 2;
     width: 100vw;
   }
-  main {
-    padding-top: ${sizes.headerHeight};
-  }
+
   a {
     color: ${colours.white};
     transition: color 50ms linear;

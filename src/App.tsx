@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Style imports
 import { GlobalStyle, Loader} from './Assets/Style/styled-components';
+import { sizes } from './Assets/Style/style';
+
 
 // Components imports
 import Header from './Components/Header';
@@ -42,7 +44,10 @@ function App() {
                         <Header />
                     </header>
                     
-                    <main>
+{/* Utiliser Context pour setIsMenuDisplayed du MobileMenu; App doit aussi utiliser 
+cette même info dans une useEffect + eventListener afin de recalculer le padding-top de 
+main lorsque MobileMenu est ouvert */}
+                    <main style={{paddingTop: sizes.headerHeight}}>
                         <Suspense fallback={ <div style={{height: "100vh"}}> <Loader /> </div> }>
                         <Routes>
                             <Route path="/" element={<Home />} />
