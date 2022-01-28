@@ -16,8 +16,8 @@ const FilterContainer = styled.div`
     width: 100%;
     background: ${colours.black};
     z-index: 1;
-    padding-top: 0;
-    @media ${mediaQueries.mobile} { padding: 0; }
+    padding: 0 0 1em 0;
+    @media ${mediaQueries.mobile} { padding: 0 0 .5em 0; }
 `
 const InputContainer = styled.div`
     text-align: center;
@@ -27,11 +27,8 @@ const InputContainer = styled.div`
     }
 `
 const FirstSelect = styled.select`
-    margin-right: 1em;
-    @media ${mediaQueries.mobile} { 
-        margin-right: 0;
-        margin-bottom: 1em; 
-    }
+    margin: 1em 1em 0 0;
+    @media ${mediaQueries.mobile} { margin: 1em 0 .5em 0; }
 `
 const CardsList = styled.ul`
     list-style: none;
@@ -44,9 +41,16 @@ const CardsList = styled.ul`
         margin: 1em 2em;
     }
 `
+const FilterTagContainer = styled.div`
+    padding-left: 25%;
+    @media ${mediaQueries.tablet} {
+        padding-left: 0;
+        text-align: center;
+    }
+`
 const FilterTag = styled.span`
     border: solid 1px ${colours.white};
-    padding: 0.25em;
+    padding: .25em;
     border-radius: 5px;
     cursor: pointer;
 `
@@ -58,6 +62,7 @@ function Projects() {
 
     useEffect(() => {
         setFilterSize(document.getElementById("filter-container")?.offsetHeight);
+        window.matchMedia(mediaQueries.mobile).addEventListener("change", _ => setFilterSize(document.getElementById("filter-container")?.offsetHeight))
     }, [])
     
     const removeTag = (filterTag: string) => {
@@ -73,11 +78,20 @@ function Projects() {
         <ProjectContainer>
             <FilterContainer id="filter-container">
                 <div style={{padding: "0 12.5%"}}>
-                    <h2>My Projects</h2>
+                    <FilterTagContainer>
+                        <h2>My Projects</h2>
 
-                    <p>Active filters : {typeFilter !== "" ? filterTags(typeFilter) : null} {techFilter !== "" ? filterTags(techFilter) : null}</p>
+                        <p style={{ margin: "0.5em auto"}}>Active filters :</p>
+                    </FilterTagContainer>
 
                     <InputContainer>
+                        <p style={{height: "2em", margin: "0.5em auto"}}>{
+                            typeFilter !== "" ? filterTags(typeFilter) : null
+                        } {
+                            techFilter !== "" ? filterTags(techFilter) : null
+                        }{
+                            typeFilter === "" && techFilter === "" ? <small>Choose a filter below to modify the projects list.</small> : null 
+                        }</p>
                         <FirstSelect name="type-filter" id="type-filter" onChange={e => setTypeFilter(e.target.value)} value={typeFilter} >
                                 <option value="">Choose a type to filter: </option>
                             {Object.keys(projectType).map((type: string) => (
