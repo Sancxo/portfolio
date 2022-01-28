@@ -28,13 +28,15 @@ declare module 'styled-components' {
     };
 
     export interface BreakPoints {
-        mobile: string;
-        tablet: string;
-        tabletLandscape: string;
+        mobile: string,
+        mobileLandscape: string,
+        tablet: string,
+        tabletLandscape: string
     };
 
     export interface MediaQueries {
         mobile: string,
+        mobileLandscape: string,
         tablet: string,
         tabletLandscape: string
     }

@@ -35,6 +35,7 @@ const sizes: DefaultSizes = {
 
 const breakPoints: BreakPoints = {
         mobile: '480px',
+        mobileLandscape: '655px',
         tablet: '992px',
         tabletLandscape: '1535px'
 }
@@ -45,6 +46,7 @@ function mediaQuery(cond: string): string {
 
 const mediaQueries: MediaQueries = {
         mobile: mediaQuery(breakPoints.mobile),
+        mobileLandscape: mediaQuery(breakPoints.mobileLandscape),
         tablet: mediaQuery(breakPoints.tablet),
         tabletLandscape: mediaQuery(breakPoints.tabletLandscape)
 }

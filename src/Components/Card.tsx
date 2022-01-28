@@ -7,7 +7,8 @@ const CardTemplate = styled.div`
     border: solid ${colours.white} 1px;
     padding: 1em;
     width: calc(100% - 2em);
-    height: 66vh
+    height: 66vh;
+    max-height: 43.125em;
 `
 
 function Card ({id, name, url, cover, category, desc, technos}: {
@@ -27,10 +28,10 @@ function Card ({id, name, url, cover, category, desc, technos}: {
                 {
                     url !== "" ?
                         <a style={{textDecoration: "none"}} href={url} target="_blank" rel="noreferrer">
-                            <img src={cover} alt={name} title={name} style={{width: "100%", height: "25vh", objectPosition: "50% top", objectFit: "cover"}}/>
+                            <img src={cover} alt={name} title={name} style={{width: "100%", height: "25vh", maxHeight: "15.5em", objectPosition: "50% top", objectFit: "cover"}}/>
                         </a>
                     :
-                        <img src={cover} alt={name} title={name} style={{width: "100%", height: "25vh", objectPosition: "50% top", objectFit: "cover"}}/>
+                        <img src={cover} alt={name} title={name} style={{width: "100%", height: "25vh", maxHeight: "15.5em", objectPosition: "50% top", objectFit: "cover"}}/>
                 }
             </div>
             <div style={{position: "relative", height: "45%"}}>

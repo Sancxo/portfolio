@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { colours, fonts, sizes } from '../Assets/Style/style';
+import { colours, fonts, mediaQueries, sizes } from '../Assets/Style/style';
 import { animationDuration, fontGenerator, positionGenerator } from '../Assets/Helpers/generativeGlitchAnimation/properties-generators';
 import { glitchAnimation } from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
 import Bckgrd from '../Assets/Imgs/bckgrd_2.jpg';
@@ -24,7 +24,7 @@ const GlitchFontAfter = keyframes`${glitchAnimation('font')}`;
 const Jumbotron = styled.div`
   background: linear-gradient(#16161675, #161616EE), 50% 50% / cover no-repeat url(${Bckgrd});
   height: calc(100vh - ${sizes.headerHeight});
-  filter: blur(0.25em);
+  filter: blur(.25em);
 `
 const Container = styled.div`
   position: absolute;
@@ -41,8 +41,11 @@ const MainTitle = styled.h1`
   font-family: ${fonts.pixel};
   font-size: 3em;
   text-align: center;
-  text-shadow: 0 0 0.25em ${colours.white};
+  text-shadow: 0 0 .25em ${colours.white};
   animation: ${pathsAndOpacityDuration} step-end 500ms infinite ${PathsCode};
+  @media ${mediaQueries.tablet} {
+    line-height: 1.5em;
+  }
   &::after, &::before {
     margin-top: 50%;
     content: "Hello, World !";
@@ -76,12 +79,17 @@ const Pipe = styled(Link)`
   font-family: ${fonts.pixelHairline};
   background: ${colours.black};
   font-weight: bold;
-  margin: 0.25em 0 0.25em 25%;
+  margin: .25em 0 .25em 25%;
   font-size: 2em;
   text-decoration: none;
   line-height: 1em;
   &:hover {
     color: ${colours.white};
+  }
+  @media ${mediaQueries.tablet} { font-size: 1.75em; }
+  @media ${mediaQueries.mobileLandscape} { 
+    font-size: 1.5em; 
+    margin: .25em 0 .25em 12.5%
   }
 `
 

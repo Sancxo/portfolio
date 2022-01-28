@@ -62,7 +62,10 @@ function Projects() {
 
     useEffect(() => {
         setFilterSize(document.getElementById("filter-container")?.offsetHeight);
-        window.matchMedia(mediaQueries.mobile).addEventListener("change", _ => setFilterSize(document.getElementById("filter-container")?.offsetHeight))
+        
+        window.matchMedia(mediaQueries.mobile).addEventListener("change", _ => setFilterSize(document.getElementById("filter-container")?.offsetHeight));
+        
+        return window.matchMedia(mediaQueries.mobile).removeEventListener("change", _ => setFilterSize(document.getElementById("filter-container")?.offsetHeight));
     }, [])
     
     const removeTag = (filterTag: string) => {

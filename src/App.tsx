@@ -18,10 +18,18 @@ const Error = lazy(() => import('./Pages/Error'));
 
 function App() {
     useEffect(() => {
-        window.addEventListener('scroll', _ => {
-            const goUpArrow = document.querySelector('#go-up-arrow') as HTMLElement;
+        const goUpArrow = document.querySelector('#go-up-arrow') as HTMLElement;
+
+        function displayArrow() {
             window.scrollY <= 100 ? goUpArrow.style.display = 'none' : goUpArrow.style.display = 'block';
-        })
+        }
+        window.addEventListener('load', _ => goUpArrow.style.display = 'none' );
+        window.addEventListener('scroll', _ => displayArrow() );
+
+        return () => {
+            window.removeEventListener('load', _ => displayArrow() );
+            window.removeEventListener('scroll',  _ => displayArrow() )
+        };
     });
 
     return (

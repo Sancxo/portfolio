@@ -11,7 +11,8 @@ function Header() {
     let [isTablet, setIsTablet] = useState(mediaQueryTablet.matches ? true : false);
 
     useEffect(() => {
-        mediaQueryTablet.addEventListener('change', () => setIsTablet(!isTablet));
+        mediaQueryTablet.addEventListener('change', _ => setIsTablet(!isTablet));
+        return mediaQueryTablet.removeEventListener('change', _ => setIsTablet(!isTablet));
     })
 
     return (
