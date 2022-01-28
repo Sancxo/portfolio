@@ -43,13 +43,12 @@ function App() {
                     </header>
                     
                     <main>
-                        <Suspense fallback={<Loader />}>
-                        <Routes >
+                        <Suspense fallback={ <div style={{height: "100vh"}}> <Loader /> </div> }>
+                        <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/projects" element={<Projects />} />
                             <Route path="/about" element={<About />} />
                             <Route path="/contact" element={<Contact />} />
-                            <Route path="/loader" element={<Loader />} />
                             <Route path="*" element={<Error />} />
                         </Routes>
                         </Suspense>
