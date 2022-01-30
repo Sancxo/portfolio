@@ -1,6 +1,6 @@
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import Menu from './Menu';
 
@@ -11,13 +11,22 @@ const Hamburger = styled.button`
     color: inherit;
     font-size: 1.5em;
 `;
-function MobileMenu(): ReactElement {
-    let [isMenuDisplayed, setIsMenuDisplayed] = useState(false);
+function MobileMenu ({ closeMobileMenu, isMenuDisplayed, setIsMenuDisplayed }: {
+    closeMobileMenu: () => void,
+    isMenuDisplayed: boolean,
+    setIsMenuDisplayed: React.Dispatch<React.SetStateAction<boolean>>
+}): ReactElement {
 
     return(
         <div>
-            <Hamburger onClick={() => setIsMenuDisplayed(!isMenuDisplayed)}><FontAwesomeIcon icon={faBars} /></Hamburger>
-            {isMenuDisplayed ? <Menu /> : null}
+            <Hamburger onClick={() => setIsMenuDisplayed(!isMenuDisplayed)}>
+                {
+                    !isMenuDisplayed ? 
+                        <FontAwesomeIcon icon={faBars} style={{width: "1em"}} /> : 
+                        <FontAwesomeIcon icon={faTimes} style={{width: "1em"}} />
+                }
+            </Hamburger>
+            {isMenuDisplayed ? <Menu closeMobileMenu={ closeMobileMenu } /> : null}
         </div>
     )
 }

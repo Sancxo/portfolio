@@ -1,11 +1,15 @@
 
 import { NavBar, MenuLink } from '../Assets/Style/styled-components'
 import { mediaQueries } from "../Assets/Style/style";
-import { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import MobileMenu from "./MobileMenu";
 import Menu from './Menu';
 
-function Header() { 
+function Header ({ closeMobileMenu, isMenuDisplayed, setIsMenuDisplayed }: {
+    closeMobileMenu: () => void,
+    isMenuDisplayed: boolean,
+    setIsMenuDisplayed: React.Dispatch<React.SetStateAction<boolean>>
+}): ReactElement { 
     const mediaQueryTablet = window.matchMedia(mediaQueries.tablet);
     
     let [isTablet, setIsTablet] = useState(mediaQueryTablet.matches ? true : false);
@@ -17,11 +21,11 @@ function Header() {
 
     return (
         <NavBar>
-                <MenuLink to='/' className="brand" title="Home">Simon Tirant</MenuLink>
+                <MenuLink to='/' className="brand" title="Home" onClick={_ => closeMobileMenu }>Simon Tirant</MenuLink>
             {
                 isTablet ?
-                    <MobileMenu /> :
-                    <Menu />
+                    <MobileMenu closeMobileMenu={ closeMobileMenu } isMenuDisplayed={ isMenuDisplayed } setIsMenuDisplayed={ setIsMenuDisplayed }  /> :
+                    <Menu closeMobileMenu={ closeMobileMenu } />
             }
         </NavBar>
     )

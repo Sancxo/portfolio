@@ -3,6 +3,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { MenuLink } from '../Assets/Style/styled-components'
 import styled from "styled-components";
 import { colours, fonts, mediaQueries, sizes } from "../Assets/Style/style";
+import { ReactElement } from "react";
 
 const LinksContainer = styled.div`
     display: flex;
@@ -11,11 +12,12 @@ const LinksContainer = styled.div`
         background: ${colours.black};
         position: absolute;
         width: 100%;
+        height: 100vh;
         left: 0;
         top: ${sizes.headerHeight};
         padding-bottom: 1em;
         & a {
-            margin: auto 4em;
+            margin: 0 4em;
         }
         & a::before {
             font-family: ${fonts.pixelHairline};
@@ -24,13 +26,14 @@ const LinksContainer = styled.div`
         }
     }
 `;
-function Menu () {
+function Menu ({ closeMobileMenu }: { closeMobileMenu: () => void }): ReactElement {
+    
     return(
         <LinksContainer>
-            <MenuLink to='/' title="Home sweet home"><FontAwesomeIcon icon={faHome} /></MenuLink>
-            <MenuLink to='/projects' title="See my projects">My projects</MenuLink>
-            <MenuLink to='/about' title="More about me">About me</MenuLink>
-            <MenuLink to='/contact' title="Contact me here">Contact me</MenuLink>
+            <MenuLink to='/' onClick={ closeMobileMenu } title="Home sweet home"><FontAwesomeIcon icon={faHome} /></MenuLink>
+            <MenuLink to='/projects' onClick={ closeMobileMenu } title="See my projects">My projects</MenuLink>
+            <MenuLink to='/about' onClick={ closeMobileMenu } title="More about me">About me</MenuLink>
+            <MenuLink to='/contact' onClick={ closeMobileMenu } title="Contact me here">Contact me</MenuLink>
         </LinksContainer>
     )
 }

@@ -1,4 +1,4 @@
-import React, {Suspense, lazy, useEffect} from 'react';
+import React, {Suspense, lazy, useEffect, useState, ReactElement} from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Style imports
@@ -18,7 +18,9 @@ const About = lazy(() => import("./Pages/About"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Error = lazy(() => import('./Pages/Error'));
 
-function App() {
+function App(): ReactElement {
+    const [isMenuDisplayed, setIsMenuDisplayed] = useState(false);
+
     useEffect(() => {
         const goUpArrow = document.querySelector('#go-up-arrow') as HTMLElement;
 
@@ -34,6 +36,8 @@ function App() {
         };
     });
 
+    const closeMobileMenu = () => setIsMenuDisplayed(!isMenuDisplayed);
+
     return (
         <React.StrictMode>
             <div className="App" >
@@ -41,7 +45,7 @@ function App() {
                     <GlobalStyle />
 
                     <header>
-                        <Header />
+                        <Header closeMobileMenu={ closeMobileMenu } isMenuDisplayed={ isMenuDisplayed } setIsMenuDisplayed={ setIsMenuDisplayed } />
                     </header>
                     
 
