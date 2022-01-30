@@ -2,13 +2,26 @@ import styled from "styled-components";
 import { projectType, techIcons } from "../Assets/Helpers/projectData";
 import { colours } from "../Assets/Style/style";
 
+// styled-components
 const CardTemplate = styled.div`
     text-align: center;
     border: solid ${colours.white} 1px;
     padding: 1em;
     width: calc(100% - 2em);
-    height: 66vh;
-    max-height: 43.125em;
+    height: 37.5em;
+    position: relative;
+`
+const CardImg = styled.img`
+    width: 100%;
+    height: 12.5em;
+    object-position: 50% top;
+    object-fit: cover;
+`
+const CardUrl = styled.a`
+    position: absolute;
+    bottom: 1em;
+    left: 0;
+    translate: 12.5% 0;
 `
 
 function Card ({id, name, url, cover, category, desc, technos}: {
@@ -28,10 +41,10 @@ function Card ({id, name, url, cover, category, desc, technos}: {
                 {
                     url !== "" ?
                         <a style={{textDecoration: "none"}} href={url} target="_blank" rel="noreferrer">
-                            <img src={cover} alt={name} title={name} style={{width: "100%", height: "25vh", maxHeight: "15.5em", objectPosition: "50% top", objectFit: "cover"}}/>
+                            <CardImg src={cover} alt={name} title={name} />
                         </a>
                     :
-                        <img src={cover} alt={name} title={name} style={{width: "100%", height: "25vh", maxHeight: "15.5em", objectPosition: "50% top", objectFit: "cover"}}/>
+                        <CardImg src={cover} alt={name} title={name} />
                 }
             </div>
             <div style={{position: "relative", height: "45%"}}>
@@ -40,10 +53,10 @@ function Card ({id, name, url, cover, category, desc, technos}: {
                     <img style={{height: "48px", margin: "0 0.25em"}} src={techIcons[tech]} alt={tech} title={tech} key={tech + id} />
                 ))}
                 <p>{desc}</p>
-                {
-                    url !== "" && <a href={url} target="_blank" rel="noreferrer" style={{position: "absolute", bottom: "-1em", left: "-1em", translate: "12.5% 0"}}>Click here to see me live !</a>
-                }
             </div>
+            {
+                url !== "" && <CardUrl href={url} target="_blank" rel="noreferrer">Click here to see me live !</CardUrl>
+            }
         </CardTemplate>
     )
 }

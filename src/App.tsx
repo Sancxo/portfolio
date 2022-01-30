@@ -44,9 +44,7 @@ function App() {
                         <Header />
                     </header>
                     
-{/* Utiliser Context pour setIsMenuDisplayed du MobileMenu; App doit aussi utiliser 
-cette même info dans une useEffect + eventListener afin de recalculer le padding-top de 
-main lorsque MobileMenu est ouvert */}
+
                     <main style={{paddingTop: sizes.headerHeight}}>
                         <Suspense fallback={ <div style={{height: "100vh"}}> <Loader /> </div> }>
                         <Routes>
