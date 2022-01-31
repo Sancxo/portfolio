@@ -25,14 +25,17 @@ function App(): ReactElement {
         const goUpArrow = document.querySelector('#go-up-arrow') as HTMLElement;
 
         function displayArrow() {
-            window.scrollY <= 100 ? goUpArrow.style.display = 'none' : goUpArrow.style.display = 'block';
+            const scrollPos = window.scrollY;
+            scrollPos <= 100 ? goUpArrow.style.display = "none" : goUpArrow.style.display = "block";
+            const timeout = setTimeout(() => { scrollPos === window.scrollY ? goUpArrow.style.display = "none" : goUpArrow.style.display = "block" }, 2000);
+            return clearTimeout(timeout); // Do I clean the timeout properly ?
         }
         window.addEventListener('load', _ => goUpArrow.style.display = 'none' );
         window.addEventListener('scroll', _ => displayArrow() );
 
         return () => {
             window.removeEventListener('load', _ => displayArrow() );
-            window.removeEventListener('scroll',  _ => displayArrow() )
+            window.removeEventListener('scroll',  _ => displayArrow() );
         };
     });
 
