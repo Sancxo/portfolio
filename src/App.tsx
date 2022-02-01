@@ -22,21 +22,29 @@ function App(): ReactElement {
     
     const [isMenuDisplayed, setIsMenuDisplayed] = useState(false);
 
+    
     useEffect(() => {
         const goUpArrow: HTMLElement = document.querySelector('#go-up-arrow') as HTMLElement;
 
+        let timeout: NodeJS.Timeout;
+        // To show and hide the scroll to top button (we show if we scroll, we hide again after a certain time)
         function displayArrow(): void {
             const scrollPos: number = window.scrollY;
-            scrollPos <= 100 ? goUpArrow.style.display = "none" : goUpArrow.style.display = "block";
-            const timeout: NodeJS.Timeout = setTimeout(() => { scrollPos === window.scrollY ? goUpArrow.style.display = "none" : goUpArrow.style.display = "block" }, 2000);
-            return clearTimeout(timeout);
+
+            goUpArrow.style.display = scrollPos <= 100 ? "none" : "block";
+            timeout = setTimeout(() => { goUpArrow.style.display = scrollPos === window.scrollY && !goUpArrow.matches(':hover') ?  "none" : "block" }, 2000);;
+            // return clearTimeout(timeout);
         }
+
+        goUpArrow.addEventListener('mouseout', _ => timeout); // find to how recall the setTimeout
         window.addEventListener('load', _ => goUpArrow.style.display = 'none' );
         window.addEventListener('scroll', _ => displayArrow() );
 
         return () => {
+            // eventListeners cleaning functions
             window.removeEventListener('load', _ => displayArrow() );
             window.removeEventListener('scroll',  _ => displayArrow() );
+            clearTimeout(timeout);
         };
     });
 
