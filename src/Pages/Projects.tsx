@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import styled from "styled-components";
 import { projectList, projectType, techList } from "../Assets/Helpers/projectData";
 import { colours, mediaQueries, sizes } from "../Assets/Style/style";
@@ -55,12 +55,15 @@ const FilterTag = styled.span`
     cursor: pointer;
 `
 
-function Projects() {
+function Projects(): ReactElement {
     const [typeFilter, setTypeFilter] = useState("");
     const [techFilter, setTechFilter] = useState("");
     const [filterSize, setFilterSize] = useState(document.getElementById("filter-container")?.offsetHeight);
 
-    useEffect(() => {
+    useEffect( () => {
+        // used to go at the top of the page after loading
+        window.scrollTo({top:0, behavior:"smooth"});
+
         setFilterSize(document.getElementById("filter-container")?.offsetHeight);
         
         window.matchMedia(mediaQueries.mobile).addEventListener("change", _ => setFilterSize(document.getElementById("filter-container")?.offsetHeight));

@@ -3,7 +3,7 @@ import { colours, fonts, mediaQueries, sizes } from '../Assets/Style/style';
 import { animationDuration, fontGenerator, positionGenerator } from '../Assets/Helpers/generativeGlitchAnimation/properties-generators';
 import { glitchAnimation } from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
 import Bckgrd from '../Assets/Imgs/bckgrd_2.jpg';
-import React from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 
@@ -91,7 +91,13 @@ const Pipe = styled(Link)`
   }
 `
 
-function Home() {
+function Home(): ReactElement  {
+
+  // used to go at the top of the page after loading
+  useEffect( () => {
+    window.scrollTo({top:0, behavior:"smooth"});
+  }, [])
+
   return (
     <React.Fragment>
       <Jumbotron></Jumbotron>

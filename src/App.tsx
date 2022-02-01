@@ -19,6 +19,7 @@ const Contact = lazy(() => import("./Pages/Contact"));
 const Error = lazy(() => import('./Pages/Error'));
 
 function App(): ReactElement {
+    
     const [isMenuDisplayed, setIsMenuDisplayed] = useState(false);
 
     useEffect(() => {

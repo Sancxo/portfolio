@@ -21,7 +21,7 @@ function Header ({ closeMobileMenu, isMenuDisplayed, setIsMenuDisplayed }: {
 
     return (
         <NavBar>
-                <MenuLink to='/' className="brand" title="Home" onClick={_ => closeMobileMenu }>Simon Tirant</MenuLink>
+                <MenuLink to='/' className="brand" title="Home" onClick={ _ => setIsMenuDisplayed(false) }>Simon Tirant</MenuLink>
             {
                 isTablet ?
                     <MobileMenu closeMobileMenu={ closeMobileMenu } isMenuDisplayed={ isMenuDisplayed } setIsMenuDisplayed={ setIsMenuDisplayed }  /> :

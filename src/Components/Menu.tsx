@@ -17,6 +17,7 @@ const LinksContainer = styled.div`
         top: ${sizes.headerHeight};
         padding-bottom: 1em;
         & a {
+            font-size: 1.25em;
             margin: 0 4em;
         }
         & a::before {

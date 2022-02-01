@@ -1,10 +1,16 @@
+import { ReactElement, useEffect } from "react";
 import styled from "styled-components";
 
 const ContactForm = styled.form`
     display: flex;
     flex-direction: column;
 `
-function Contact() {
+function Contact(): ReactElement {
+    // used to go at the top of the page after loading
+    useEffect( () => {
+        window.scrollTo({top:0, behavior:"smooth"});
+    }, [])
+
     return (
         <div>
             <h2>Contact Me</h2>

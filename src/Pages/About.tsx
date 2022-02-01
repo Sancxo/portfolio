@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactElement, useEffect } from "react";
 import styled from "styled-components";
 import Profile from "../Assets/Imgs/hero_img.JPG";
 
@@ -24,7 +24,12 @@ const Icon = styled.a`
     }
     & img:hover { transform: scale(1.5); }
 `
-function About() {
+function About(): ReactElement {
+    // used to go at the top of the page after loading
+    useEffect( () => {
+        window.scrollTo({top:0, behavior:"smooth"});
+    }, [])
+
     return (
         <div style={{marginTop: "3em", padding: "0 12.5%"}}>
             <div style={{textAlign: "center", marginBottom: "3em"}}>
