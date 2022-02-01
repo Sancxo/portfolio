@@ -23,13 +23,13 @@ function App(): ReactElement {
     const [isMenuDisplayed, setIsMenuDisplayed] = useState(false);
 
     useEffect(() => {
-        const goUpArrow = document.querySelector('#go-up-arrow') as HTMLElement;
+        const goUpArrow: HTMLElement = document.querySelector('#go-up-arrow') as HTMLElement;
 
-        function displayArrow() {
-            const scrollPos = window.scrollY;
+        function displayArrow(): void {
+            const scrollPos: number = window.scrollY;
             scrollPos <= 100 ? goUpArrow.style.display = "none" : goUpArrow.style.display = "block";
-            const timeout = setTimeout(() => { scrollPos === window.scrollY ? goUpArrow.style.display = "none" : goUpArrow.style.display = "block" }, 2000);
-            return clearTimeout(timeout); // Do I clean the timeout properly ?
+            const timeout: NodeJS.Timeout = setTimeout(() => { scrollPos === window.scrollY ? goUpArrow.style.display = "none" : goUpArrow.style.display = "block" }, 2000);
+            return clearTimeout(timeout);
         }
         window.addEventListener('load', _ => goUpArrow.style.display = 'none' );
         window.addEventListener('scroll', _ => displayArrow() );
@@ -40,7 +40,7 @@ function App(): ReactElement {
         };
     });
 
-    const closeMobileMenu = () => setIsMenuDisplayed(!isMenuDisplayed);
+    const closeMobileMenu: () => void = () => setIsMenuDisplayed(!isMenuDisplayed);
 
     return (
         <React.StrictMode>
