@@ -33,7 +33,6 @@ function App(): ReactElement {
 
             goUpArrow.style.display = scrollPos <= 100 ? "none" : "block";
             timeout = setTimeout(() => { goUpArrow.style.display = scrollPos === window.scrollY && !goUpArrow.matches(':hover') ?  "none" : "block" }, 2000);;
-            // return clearTimeout(timeout);
         }
 
         goUpArrow.addEventListener('mouseout', _ => timeout); // find to how recall the setTimeout
