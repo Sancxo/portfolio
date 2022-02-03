@@ -28,21 +28,21 @@ function App(): ReactElement {
         const goUpArrow: HTMLElement = document.querySelector('#go-up-arrow') as HTMLElement;
         let timeout: NodeJS.Timeout; // Pointer so we can clean the setTimeout
 
+        goUpArrow.style.display = 'none';
+
         function displayArrow(): void {
             const scrollPos: number = window.scrollY;
 
             goUpArrow.style.display = scrollPos <= 100 ? "none" : "block";
-            timeout = setTimeout(() => { goUpArrow.style.display = scrollPos === window.scrollY && !goUpArrow.matches(':hover') ?  "none" : "block" }, 2000);;
+            timeout = setTimeout(() => { if(scrollPos === window.scrollY && (!goUpArrow.matches(':hover'))) goUpArrow.style.display = "none" }, 2000);;
         }
 
         goUpArrow.addEventListener('mouseout', _ => displayArrow() );
-        window.addEventListener('load', _ => goUpArrow.style.display = 'none' );
         window.addEventListener('scroll', _ => displayArrow() );
 
         return () => {
             // eventListeners & setTimeout cleaning functions
             goUpArrow.removeEventListener('mouseout', _ => displayArrow() );
-            window.removeEventListener('load', _ => goUpArrow.style.display = 'none' );
             window.removeEventListener('scroll',  _ => displayArrow() );
             clearTimeout(timeout);
         };
