@@ -10,7 +10,7 @@ function Footer() {
             </div>
             <div>
                 <p style={{fontWeight: "lighter"}}>Follow me on:</p>
-                <div>
+                <div style={{textAlign: "center"}}>
                     <GitHub href="https://github.com/Sancxo" target="_blank" rel="noreferrer" title="GitHub">
                         <svg style={{borderRadius: "50%"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1" width="34" height="34">
                             <title>GitHub</title>

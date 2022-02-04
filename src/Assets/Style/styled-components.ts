@@ -128,6 +128,11 @@ export const FooterContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media ${mediaQueries.mobile} {
+      flex-direction: column-reverse;
+      padding: 1em;
+      font-size: .75em
+    }
 `
 export const GitHub = styled.a`
     color: ${colours.white};

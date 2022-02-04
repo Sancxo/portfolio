@@ -34,7 +34,7 @@ function App(): ReactElement {
             const scrollPos: number = window.scrollY;
 
             goUpArrow.style.display = scrollPos <= 100 ? "none" : "block";
-            timeout = setTimeout(() => { if(scrollPos === window.scrollY && (!goUpArrow.matches(':hover'))) goUpArrow.style.display = "none" }, 2000);;
+            timeout = setTimeout(() => { if(scrollPos === window.scrollY && (!goUpArrow.matches(':hover'))) goUpArrow.style.display = "none" }, 2000);
         }
 
         goUpArrow.addEventListener('mouseout', _ => displayArrow() );
