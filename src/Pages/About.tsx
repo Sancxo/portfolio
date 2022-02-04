@@ -49,9 +49,7 @@ const Icon = styled.a`
 `
 function About(): ReactElement {
     // used to go at the top of the page after loading
-    useEffect( () => {
-        window.scroll({top:0});
-    }, [])
+    useEffect( () => { window.scroll({top:0}); }, [])
 
     return (
         <AboutContainer>
