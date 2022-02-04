@@ -1,7 +1,9 @@
+import { ReactElement, useEffect } from "react";
+
+// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { faFortAwesome } from "@fortawesome/free-brands-svg-icons";
-import { ReactElement, useEffect } from "react";
 
 // style
 import styled from "styled-components";

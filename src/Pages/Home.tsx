@@ -8,9 +8,8 @@ import { glitchAnimation } from '../Assets/Helpers/generativeGlitchAnimation/ani
 // style
 import styled, { keyframes } from 'styled-components';
 import { colours, fonts, mediaQueries, sizes } from '../Assets/Style/style';
-import Bckgrd from '../Assets/Imgs/bckgrd_2.jpg';
 import { pageLoadAnimation } from '../Assets/Style/styled-components';
-
+import Bckgrd from '../Assets/Imgs/bckgrd_2.jpg';
 
 // Animations
 const pathsAndOpacityDuration: string = animationDuration(5, 10);
@@ -101,6 +100,7 @@ function Home(): ReactElement  {
 
   return (
     <HomeContainer>
+      {/* Background image from Harrison Qi (https://unsplash.com/photos/ce-K_rj1P7U) */}
       <Jumbotron></Jumbotron>
       <Container>
         <MainTitle className='title'>Hello, World&nbsp;!</MainTitle>

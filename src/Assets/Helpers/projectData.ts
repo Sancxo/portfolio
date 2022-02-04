@@ -35,6 +35,7 @@ import iKebab from "../Imgs/project-screenshots/ikebab.png";
 import greta from "../Imgs/project-screenshots/greta.png";
 import renault from "../Imgs/project-screenshots/renault.png";
 
+// data to feed each card in Projects page
 const projectList: {
     id: string,
     name: string,
@@ -181,6 +182,7 @@ const projectList: {
     }
 ]
 
+// Icons to be displayed in each project card depending on the technologies the project uses
 const techIcons: {[index: string]: string} = {
     "HTML": htmlIcon,
     "CSS": cssIcon,
@@ -202,6 +204,7 @@ const techIcons: {[index: string]: string} = {
     "Elementor": elementorIcon
 }
 
+// Technologies displayed in the tech filter select input
 const techFilterList: {[index: string]: string} = {
     "HTML/CSS": "HTML",
     "JavaScript": "JavaScript",
@@ -216,6 +219,7 @@ const techFilterList: {[index: string]: string} = {
     "WordPress": "WordPress"
 }
 
+// Types displayed in the type filter select input
 const projectType: {[index: string]: string} = {
     "Pro": "Professional work",
     "Perso": "Personal and training"

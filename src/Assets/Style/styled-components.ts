@@ -1,8 +1,8 @@
 import styled, { createGlobalStyle, css, keyframes } from 'styled-components';
-import { colours, fonts, mediaQueries, sizes } from './style';
+import { colours, fonts} from './style';
 import { pathGenerator } from "../Helpers/generativeGlitchAnimation/properties-generators";
 
-// General animations
+// General animations and style
 const onloadOpacity = keyframes`
   from { opacity: 0 }
   to { opacity: 1 }
@@ -38,6 +38,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 
+// Loader
 const rotate = keyframes`
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -85,42 +86,4 @@ export const GlitchAnim = keyframes`
     90% { transform: skew(8deg); }
     95% { transform: skew(8deg); }
     100% { transform: skew(-3deg); }
-`
-
-// Footer.tsx
-export const FooterContainer = styled.div`
-    padding: 0 3em;
-    height: ${sizes.footerHeight};
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @media ${mediaQueries.mobile} {
-      flex-direction: column-reverse;
-      padding: 1em;
-      font-size: .75em
-    }
-`
-export const GitHub = styled.a`
-    color: ${colours.white};
-    margin-right: 0.5em;
-    & svg {
-        transition: 500ms;
-    }
-    & svg:hover {
-        color: #39ff14;
-        box-shadow: 0 0 1em #39ff14;
-        transform: rotate(45deg);
-    }
-`
-export const LinkedIn = styled.a`
-    color: ${colours.galaxyBlue};
-    margin-left: 0.5em;
-    & svg {
-        transition: 500ms;
-    }    
-    & svg:hover {
-        color: #39ff14;
-        box-shadow: 0 0 1em #39ff14;
-        transform: rotate(-45deg)
-    }
 `

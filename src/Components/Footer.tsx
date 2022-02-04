@@ -1,4 +1,43 @@
-import { FooterContainer, GitHub, LinkedIn } from "../Assets/Style/styled-components";
+import styled from 'styled-components';
+import { colours, mediaQueries, sizes } from "../Assets/Style/style";
+
+// styled components
+const FooterContainer = styled.div`
+    padding: 0 3em;
+    height: ${sizes.footerHeight};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media ${mediaQueries.mobile} {
+      flex-direction: column-reverse;
+      padding: 1em;
+      font-size: .75em
+    }
+`
+const GitHub = styled.a`
+    color: ${colours.white};
+    margin-right: 0.5em;
+    & svg {
+        transition: 500ms;
+    }
+    & svg:hover {
+        color: #39ff14;
+        box-shadow: 0 0 1em #39ff14;
+        transform: rotate(45deg);
+    }
+`
+const LinkedIn = styled.a`
+    color: ${colours.galaxyBlue};
+    margin-left: 0.5em;
+    & svg {
+        transition: 500ms;
+    }    
+    & svg:hover {
+        color: #39ff14;
+        box-shadow: 0 0 1em #39ff14;
+        transform: rotate(-45deg)
+    }
+`
 
 function Footer() {
     const currentDate = new Date();
@@ -8,8 +47,10 @@ function Footer() {
             <div>
                 <p style={{fontWeight: "lighter"}}>&copy; Simon Tirant - {currentDate.getFullYear()}</p>
             </div>
+
             <div>
                 <p style={{fontWeight: "lighter"}}>Follow me on:</p>
+
                 <div style={{textAlign: "center"}}>
                     <GitHub href="https://github.com/Sancxo" target="_blank" rel="noreferrer" title="GitHub">
                         <svg style={{borderRadius: "50%"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1" width="34" height="34">
@@ -19,6 +60,7 @@ function Footer() {
                             </g>
                         </svg>
                     </GitHub>
+
                     <LinkedIn href="https://www.linkedin.com/in/simontirant/"  target="_blank" rel="noreferrer" title="Linkedin">
                         <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
                             <title>LinkedIn</title>
