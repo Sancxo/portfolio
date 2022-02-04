@@ -24,7 +24,9 @@ declare module 'styled-components' {
 
     export interface DefaultSizes {
         headerHeight: string,
-        footerHeight: string
+        footerHeight: string,
+        pagePadding: string,
+        pageMarginTop: string
     };
 
     export interface BreakPoints {

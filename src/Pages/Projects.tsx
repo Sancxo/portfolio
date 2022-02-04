@@ -5,8 +5,8 @@ import { colours, mediaQueries, sizes } from "../Assets/Style/style";
 import Card from "../Components/Card";
 
 const ProjectContainer = styled.div`
-    margin-top: 3em;
-    padding: 0 12.5%;
+    margin-top: ${sizes.pageMarginTop};
+    padding: ${sizes.pagePadding};
     @media ${mediaQueries.tabletLandscape} { padding: 0; }
 `
 const FilterContainer = styled.div`
@@ -69,7 +69,10 @@ function Projects(): ReactElement {
         
         window.matchMedia(mediaQueries.mobile).addEventListener("change", eventFunction );
         
-        return window.matchMedia(mediaQueries.mobile).removeEventListener("change", eventFunction );
+        return () => {
+            window.matchMedia(mediaQueries.mobile).removeEventListener("change", eventFunction );
+            setFilterSize(0);
+        }
     }, [])
     
     const removeTag = (filterTag: string) => {

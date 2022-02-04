@@ -9,6 +9,7 @@ import tsIcon from "../Assets/Imgs/icons/typescript.png";
 import nodeIcon from "../Assets/Imgs/icons/node.png";
 import reactIcon from "../Assets/Imgs/icons/react.png";
 import angularIcon from "../Assets/Imgs/icons/angular.png";
+import { sizes } from "../Assets/Style/style";
 
 const ProfilePicture = styled.img`
     border-radius: 100vw;
@@ -31,8 +32,8 @@ function About(): ReactElement {
     }, [])
 
     return (
-        <div style={{marginTop: "3em", padding: "0 12.5%"}}>
-            <div style={{textAlign: "center", marginBottom: "3em"}}>
+        <div style={{marginTop: sizes.pageMarginTop, padding: sizes.pagePadding}}>
+            <div style={{textAlign: "center", marginBottom: sizes.pageMarginTop}}>
                 <p>My favourite technologies :</p>
                 <Icon href="https://elixir-lang.org/" target="_blank" rel="noreferrer" title="Elixir website"><img src={elixirIcon} alt="Elixir icon"/></Icon>
                 <Icon href="https://www.phoenixframework.org/" target="_blank" rel="noreferrer" title="Phoenix website"><img src={phoenixIcon} alt="Phoenix icon"/></Icon>
@@ -49,7 +50,7 @@ function About(): ReactElement {
                 <p>I also did a 2 and half months work placement during this training; <a href="https://7lieues.io/fr/accueil/" target="_blank" rel="noreferrer" title="7 Lieues Technologies"><code>7 Lieues Technologies</code></a> brought me new items to add to my full-stack arsenal: <code><strong>Angular</strong></code> and <code><strong>TypeScript</strong></code> frontend, <code><strong>GraphQL API</strong></code> and - last but not least 😍 - the <code><strong>Elixir</strong></code> back-end language and his <code><strong>Phoenix</strong></code> framework !</p>
                 <p>Nowadays I am still working at <a href="https://7lieues.io/fr/accueil/" target="_blank" rel="noreferrer" title="7 Lieues Technologies"><code>7 Lieues Technologies</code></a>, but as an apprentice since I started my 2 years full-stack training class at <a href="https://openclassrooms.com" target="_blank" rel="noreferrer" title="OpenClassrooms"><code>OpenClassrooms</code></a>, where I am learning <code><strong>React</strong></code>, <code><strong>UML</strong></code>, <code><strong>Ruby</strong></code> and <code><strong>Ruby on Rails</strong></code>; while being 4 days a week in the professional field.</p>
             </div>
-            <div style={{marginTop: "3em"}}>
+            <div style={{marginTop: sizes.pageMarginTop}}>
                 <h2>Certifications:</h2>
                 <ul>
                     <li>2021 - 2023: OpenClassrooms - Full-stack Developer (eq. Bachelor / Master's degree).</li>

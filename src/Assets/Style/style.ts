@@ -30,7 +30,9 @@ const fonts: DefaultFonts = {
 
 const sizes: DefaultSizes = {
         headerHeight: '5em',
-        footerHeight: '10em'
+        footerHeight: '10em',
+        pagePadding: '0 12.5%',
+        pageMarginTop: '3em'
 }
 
 const breakPoints: BreakPoints = {
