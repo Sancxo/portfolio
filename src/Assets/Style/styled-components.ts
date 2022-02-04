@@ -9,6 +9,10 @@ const onloadOpacity = keyframes`
   to { opacity: 1 }
 `
 export const GlobalStyle = createGlobalStyle`
+  *::selection { 
+    background: ${colours.ultraViolet};
+    color: ${colours.white};
+  }
   body {
     background: ${colours.black};
     color: ${colours.white};
