@@ -20,6 +20,7 @@ const Error = lazy(() => import('./Pages/Error'));
 
 function App(): ReactElement {
     
+    // state to check if mobile menu is open or not
     const [isMenuDisplayed, setIsMenuDisplayed] = useState(false);
 
     
@@ -48,7 +49,7 @@ function App(): ReactElement {
         };
     });
 
-    const closeMobileMenu: () => void = () => setIsMenuDisplayed(!isMenuDisplayed);
+    const closeMobileMenu: () => void = () => setIsMenuDisplayed(false);
 
     return (
         <React.StrictMode>
@@ -57,7 +58,10 @@ function App(): ReactElement {
                     <GlobalStyle />
 
                     <header>
-                        <Header closeMobileMenu={ closeMobileMenu } isMenuDisplayed={ isMenuDisplayed } setIsMenuDisplayed={ setIsMenuDisplayed } />
+                        <Header 
+                            closeMobileMenu={ closeMobileMenu } 
+                            isMenuDisplayed={ isMenuDisplayed } 
+                            setIsMenuDisplayed={ setIsMenuDisplayed } />
                     </header>
                     
 

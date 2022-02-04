@@ -1,27 +1,29 @@
-import styled, { keyframes } from 'styled-components';
-import { colours, fonts, mediaQueries, sizes } from '../Assets/Style/style';
-import { animationDuration, fontGenerator, positionGenerator } from '../Assets/Helpers/generativeGlitchAnimation/properties-generators';
-import { glitchAnimation } from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
-import Bckgrd from '../Assets/Imgs/bckgrd_2.jpg';
 import { ReactElement, useEffect } from 'react';
 import { Link } from "react-router-dom";
+
+// generativeGlitchAnimation library imports
+import { animationDuration, fontGenerator, positionGenerator } from '../Assets/Helpers/generativeGlitchAnimation/properties-generators';
+import { glitchAnimation } from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
+
+// style
+import styled, { keyframes } from 'styled-components';
+import { colours, fonts, mediaQueries, sizes } from '../Assets/Style/style';
+import Bckgrd from '../Assets/Imgs/bckgrd_2.jpg';
 import { pageLoadAnimation } from '../Assets/Style/styled-components';
 
 
-// Animation
-// put a setInterval with random time to recall functions
+// Animations
 const pathsAndOpacityDuration: string = animationDuration(5, 10);
 let [PathsCode, OpacityCode ] = glitchAnimation('path/opac');
 PathsCode = keyframes`${PathsCode}`;
 OpacityCode = keyframes`${OpacityCode}`;
-// We call each functions twice to have different parameters
-// so we get asynchronous animations.
+// We call each functions twice to have different parameters so we get asynchronous animations.
 const GlitchPositionBefore = keyframes`${glitchAnimation('position', 'negative')}`;
 const GlitchPositionAfter = keyframes`${glitchAnimation('position', 'positive')}`;
 const GlitchFontBefore = keyframes`${glitchAnimation('font')}`;
 const GlitchFontAfter = keyframes`${glitchAnimation('font')}`;
 
-// Style
+// Styled components
 const HomeContainer = styled.div` ${pageLoadAnimation} `
 const Jumbotron = styled.div`
   background: linear-gradient(#16161675, #161616EE), 50% 50% / cover no-repeat url(${Bckgrd});
@@ -94,11 +96,8 @@ const Pipe = styled(Link)`
 `
 
 function Home(): ReactElement  {
-
   // used to go at the top of the page after loading
-  useEffect( () => {
-    window.scroll({top:0});
-  }, [])
+  useEffect( () => { window.scroll({top:0}); }, [])
 
   return (
     <HomeContainer>

@@ -1,9 +1,10 @@
 import { ReactElement } from "react";
+import Menu from './Menu';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
-import Menu from './Menu';
 
+// styled components
 const Hamburger = styled.button`
     background: none;
     cursor: pointer;
@@ -11,6 +12,7 @@ const Hamburger = styled.button`
     color: inherit;
     font-size: 1.5em;
 `;
+
 function MobileMenu ({ closeMobileMenu, isMenuDisplayed, setIsMenuDisplayed }: {
     closeMobileMenu: () => void,
     isMenuDisplayed: boolean,
@@ -26,7 +28,7 @@ function MobileMenu ({ closeMobileMenu, isMenuDisplayed, setIsMenuDisplayed }: {
                         <FontAwesomeIcon icon={faTimes} style={{width: "1em"}} />
                 }
             </Hamburger>
-            {isMenuDisplayed ? <Menu closeMobileMenu={ closeMobileMenu } /> : null}
+            {isMenuDisplayed && <Menu closeMobileMenu={ closeMobileMenu } />}
         </div>
     )
 }

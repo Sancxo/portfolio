@@ -1,8 +1,11 @@
 import { ReactElement, useEffect } from "react";
+
+// style
 import styled from "styled-components";
 import { colours, mediaQueries, sizes } from "../Assets/Style/style";
 import { pageLoadAnimation } from "../Assets/Style/styled-components";
 
+// styled components
 const ContactFormContainer = styled.div`
     ${pageLoadAnimation}
     padding: ${sizes.pagePadding};
@@ -54,11 +57,10 @@ const FormButton = styled.input`
 `
 const FormInput = styled.input` ${sharedStyle} `
 const FormTextArea = styled.textarea` ${sharedStyle} `
+
 function Contact(): ReactElement {
     // used to go at the top of the page after loading
-    useEffect( () => {
-        window.scroll({top:0});
-    }, [])
+    useEffect(() => { window.scroll({top:0}); }, [])
 
     return (
         <ContactFormContainer>

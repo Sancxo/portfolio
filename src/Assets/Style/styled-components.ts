@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 import styled, { createGlobalStyle, css, keyframes } from 'styled-components';
 import { colours, fonts, mediaQueries, sizes } from './style';
 import { pathGenerator } from "../Helpers/generativeGlitchAnimation/properties-generators";
 
-// App.tsx
+// General animations
 const onloadOpacity = keyframes`
   from { opacity: 0 }
   to { opacity: 1 }
@@ -59,22 +58,12 @@ export const Loader = styled.div`
   filter: drop-shadow(0 0 1em ${colours.ultraViolet});
 `
 
-// Header.tsx
-export const NavBar = styled.nav`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    align-content: center;
-    margin: auto;
-    background: ${colours.black};
-    height: ${sizes.headerHeight};
-    padding: 0 3em 0 1em;
-`
-const GlitchBrand = keyframes`
+// Header animations 
+export const GlitchBrand = keyframes`
     0% { clip-path: none; }
     100% { clip-path: polygon(${pathGenerator()}); }
 `
-const GlitchAnim = keyframes`
+export const GlitchAnim = keyframes`
     0% { transform: skew(8deg); }
     5% { transform: skew(8deg); }
     10% { transform: skew(-2deg); }
@@ -96,29 +85,6 @@ const GlitchAnim = keyframes`
     90% { transform: skew(8deg); }
     95% { transform: skew(8deg); }
     100% { transform: skew(-3deg); }
-`
-export const MenuLink = styled(Link)`
-    margin: auto 1em;
-    text-decoration: none;
-    color: ${colours.futureBlue};
-    &.brand {
-        margin-right: auto;
-        font: 2em ${fonts.pixel};
-        text-shadow: none;
-        transition: color 2000ms, text-shadow 2000ms;
-        @media ${mediaQueries.mobile} { 
-          font-size: 1.25em; 
-          margin-left: 0;
-        }
-    }
-    &:hover {
-        color: ${colours.neonGreen};
-        animation: ${GlitchAnim} 750ms infinite;
-    }
-    &.brand:hover {
-        text-shadow: 0 0 1em ${colours.neonGreen};
-        animation: ${GlitchBrand} 100ms 500ms backwards;
-    }
 `
 
 // Footer.tsx

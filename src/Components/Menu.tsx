@@ -1,10 +1,11 @@
+import { ReactElement } from "react";
+import { MenuLink } from "./Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { MenuLink } from '../Assets/Style/styled-components'
 import styled from "styled-components";
 import { colours, fonts, mediaQueries, sizes } from "../Assets/Style/style";
-import { ReactElement } from "react";
 
+// styled components
 const LinksContainer = styled.div`
     display: flex;
     @media ${mediaQueries.tablet} {
