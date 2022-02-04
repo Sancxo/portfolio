@@ -97,7 +97,7 @@ function Home(): ReactElement  {
 
   // used to go at the top of the page after loading
   useEffect( () => {
-    window.scrollTo({top:0, behavior:"smooth"});
+    window.scroll({top:0});
   }, [])
 
   return (

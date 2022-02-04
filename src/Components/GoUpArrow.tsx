@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import styled, { keyframes } from 'styled-components';
 import arrowUp from "../Assets/Imgs/icons/arrow_up.png";
 
@@ -20,13 +21,13 @@ const ArrowUp = styled.img`
   }
 `
 
-function GoUpArrow () {
-    function goTop () {
-        window.scrollTo({top: 0, behavior: 'smooth'})
-    }
-    return (
-        <ArrowUp src={arrowUp} alt="Go up arrow" id="go-up-arrow" onClick={goTop}/>
-    )
+function GoUpArrow (): ReactElement {
+  function goTop () {
+      window.scrollTo({top: 0, behavior: 'smooth'})
+  }
+  return (
+      <ArrowUp src={arrowUp} alt="Go up arrow" id="go-up-arrow" onClick={goTop}/>
+  )
 }
 
 export default GoUpArrow;

@@ -63,12 +63,11 @@ function Projects(): ReactElement {
     const [techFilter, setTechFilter] = useState("");
     const [filterHeight, setFilterHeight] = useState(document.getElementById("filter-container")?.offsetHeight);
 
-    const onMediaQueryMatches = () => setFilterHeight(document.getElementById("filter-container")?.offsetHeight);
-    
-    useEffect( () => {
+    const onMediaQueryMatches = () => { setFilterHeight(document.getElementById("filter-container")?.offsetHeight) };
 
+    useEffect(() => {
         // used to go at the top of the page after loading
-        window.scrollTo({top:0, behavior:"smooth"});
+        window.scroll({top:0});
         
         onMediaQueryMatches();
         
