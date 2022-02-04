@@ -54,7 +54,7 @@ function App(): ReactElement {
     return (
         <React.StrictMode>
             <div className="App" >
-                <Router basename='/portfolio'>
+                <Router>
                     <GlobalStyle />
 
                     <header>
