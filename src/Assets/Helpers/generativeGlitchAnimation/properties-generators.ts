@@ -41,8 +41,8 @@ export const positionGenerator = (sign: string): string[] => {
         case 'positive':
             // Top pos should be between 0.125 and 0.25
             topPosition = Math.floor((Math.random() * 12.5) + 12.5) / 100;
-            // Left pos should be between .25 and 1
-            leftPosition = Math.floor((Math.random() * 75) + 25) / 100;
+            // Left pos should be between 0 and .21
+            leftPosition = Math.floor((Math.random() * 21)) / 100;
             break;
             
         case 'negative':

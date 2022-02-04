@@ -1,12 +1,15 @@
 import { ReactElement, useEffect, useState } from "react";
 import styled from "styled-components";
-import { projectList, projectType, techList } from "../Assets/Helpers/projectData";
+import { projectList, projectType, techFilterList } from "../Assets/Helpers/projectData";
 import { colours, mediaQueries, sizes } from "../Assets/Style/style";
+import { pageLoadAnimation } from "../Assets/Style/styled-components";
 import Card from "../Components/Card";
 
 const ProjectContainer = styled.div`
+    ${pageLoadAnimation}
     margin-top: ${sizes.pageMarginTop};
     padding: ${sizes.pagePadding};
+
     @media ${mediaQueries.tabletLandscape} { padding: 0; }
 `
 const FilterContainer = styled.div`
@@ -58,25 +61,27 @@ const FilterTag = styled.span`
 function Projects(): ReactElement {
     const [typeFilter, setTypeFilter] = useState("");
     const [techFilter, setTechFilter] = useState("");
-    const [filterSize, setFilterSize] = useState(document.getElementById("filter-container")?.offsetHeight);
+    const [filterHeight, setFilterHeight] = useState(document.getElementById("filter-container")?.offsetHeight);
 
+    const onMediaQueryMatches = () => setFilterHeight(document.getElementById("filter-container")?.offsetHeight);
+    
     useEffect( () => {
+
         // used to go at the top of the page after loading
         window.scrollTo({top:0, behavior:"smooth"});
-
-        const eventFunction = () => setFilterSize(document.getElementById("filter-container")?.offsetHeight);
-        eventFunction();
         
-        window.matchMedia(mediaQueries.mobile).addEventListener("change", eventFunction );
+        onMediaQueryMatches();
+        
+        window.matchMedia(mediaQueries.mobile).addEventListener("change", onMediaQueryMatches );
         
         return () => {
-            window.matchMedia(mediaQueries.mobile).removeEventListener("change", eventFunction );
-            setFilterSize(0);
+            window.matchMedia(mediaQueries.mobile).removeEventListener("change", onMediaQueryMatches );
+            // setFilterHeight(0);
         }
-    }, [])
+    }, [typeFilter, techFilter])
     
     const removeTag = (filterTag: string) => {
-        if (Object.values(techList).includes(filterTag)) setTechFilter("")
+        if (Object.values(techFilterList).includes(filterTag)) setTechFilter("")
         else if (Object.keys(projectType).includes(filterTag)) setTypeFilter("");
     }
 
@@ -87,7 +92,7 @@ function Projects(): ReactElement {
     return (
         <ProjectContainer>
             <FilterContainer id="filter-container">
-                <div style={{padding: "0 12.5%"}}>
+                <div style={{padding: sizes.pagePadding}}>
                     <FilterTagContainer>
                         <h2>My Projects</h2>
 
@@ -111,15 +116,15 @@ function Projects(): ReactElement {
 
                         <select name="tech-filter" id="tech-filter" onChange={e => setTechFilter(e.target.value)} value={techFilter} >
                                 <option value="">Choose a tech to filter: </option>
-                            {Object.keys(techList).map((tech: string) => (
-                                <option value={techList[tech]} key={tech}>{tech}</option>
+                            {Object.keys(techFilterList).map((tech: string) => (
+                                <option value={techFilterList[tech]} key={tech}>{tech}</option>
                             ))}
                         </select>
                     </InputContainer>
                 </div>
             </FilterContainer>
 
-            <CardsList style={{marginTop: filterSize}}>
+            <CardsList style={{marginTop: filterHeight}}>
                 {
                     projectList.map(project => (
                         typeFilter === project.category || typeFilter === "" ?

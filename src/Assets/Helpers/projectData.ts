@@ -114,7 +114,7 @@ const projectList: {
         cover: supplierNotation,
         category: "Pro",
         desc: "Full-stack data visualisation feature made during a work-placement at 7 Lieues Technologies, containing a form to evaluate a supplier, then the app render data through charts.",
-        technos: ["TypeScript", "Angular", "Bootstrap", "Elixir", "Phoenix", "GraphQL", "PostgresQL"]
+        technos: ["TypeScript", "Angular", "Bootstrap", "Elixir", "Phoenix", "GraphQL", "PostgreSQL"]
     },
     {
         id: "ikebab",
@@ -196,13 +196,13 @@ const techIcons: {[index: string]: string} = {
     "Phoenix": phoenixIcon,
     "PHP": phpIcon,
     "GraphQL": graphqlIcon,
-    "PostgresQL": postgresIcon,
+    "PostgreSQL": postgresIcon,
     "MySQL": mysqlIcon,
     "WordPress": wpIcon,
     "Elementor": elementorIcon
 }
 
-const techList: {[index: string]: string} = {
+const techFilterList: {[index: string]: string} = {
     "HTML/CSS": "HTML",
     "JavaScript": "JavaScript",
     "TypeScript": "TypeScript",
@@ -221,4 +221,4 @@ const projectType: {[index: string]: string} = {
     "Perso": "Personal and training"
 }
 
-export {projectList, techIcons, techList, projectType}
+export {projectList, techIcons, techFilterList, projectType}

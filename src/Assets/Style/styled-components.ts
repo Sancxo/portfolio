@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled, { createGlobalStyle, keyframes } from 'styled-components';
+import styled, { createGlobalStyle, css, keyframes } from 'styled-components';
 import { colours, fonts, mediaQueries, sizes } from './style';
 import { pathGenerator } from "../Helpers/generativeGlitchAnimation/properties-generators";
 
@@ -7,6 +7,10 @@ import { pathGenerator } from "../Helpers/generativeGlitchAnimation/properties-g
 const onloadOpacity = keyframes`
   from { opacity: 0 }
   to { opacity: 1 }
+`
+export const pageLoadAnimation = css`
+  opacity: 0;
+  animation: 1250ms ease-out 125ms forwards ${onloadOpacity};
 `
 export const GlobalStyle = createGlobalStyle`
   *::selection { 
@@ -102,7 +106,10 @@ export const MenuLink = styled(Link)`
         font: 2em ${fonts.pixel};
         text-shadow: none;
         transition: color 2000ms, text-shadow 2000ms;
-        @media ${mediaQueries.mobile} { font-size: 1.5em; }
+        @media ${mediaQueries.mobile} { 
+          font-size: 1.25em; 
+          margin-left: 0;
+        }
     }
     &:hover {
         color: ${colours.neonGreen};

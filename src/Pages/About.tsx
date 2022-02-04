@@ -10,7 +10,13 @@ import nodeIcon from "../Assets/Imgs/icons/node.png";
 import reactIcon from "../Assets/Imgs/icons/react.png";
 import angularIcon from "../Assets/Imgs/icons/angular.png";
 import { sizes } from "../Assets/Style/style";
+import { pageLoadAnimation } from "../Assets/Style/styled-components";
 
+const AboutContainer = styled.div`
+    ${pageLoadAnimation}
+    margin-top: ${sizes.pageMarginTop};
+    padding: ${sizes.pagePadding};
+`
 const ProfilePicture = styled.img`
     border-radius: 100vw;
     object-fit: cover;
@@ -32,7 +38,7 @@ function About(): ReactElement {
     }, [])
 
     return (
-        <div style={{marginTop: sizes.pageMarginTop, padding: sizes.pagePadding}}>
+        <AboutContainer>
             <div style={{textAlign: "center", marginBottom: sizes.pageMarginTop}}>
                 <p>My favourite technologies :</p>
                 <Icon href="https://elixir-lang.org/" target="_blank" rel="noreferrer" title="Elixir website"><img src={elixirIcon} alt="Elixir icon"/></Icon>
@@ -57,7 +63,7 @@ function About(): ReactElement {
                     <li>2020 - 2021: GRETA des Hauts-de-Seine - Web and Mobile Web Developper Professional Qualification (eq. BTEC Higher National Diploma).</li>
                 </ul>
             </div>
-        </div>
+        </AboutContainer>
     );
 };
 

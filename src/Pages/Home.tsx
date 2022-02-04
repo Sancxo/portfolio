@@ -3,8 +3,9 @@ import { colours, fonts, mediaQueries, sizes } from '../Assets/Style/style';
 import { animationDuration, fontGenerator, positionGenerator } from '../Assets/Helpers/generativeGlitchAnimation/properties-generators';
 import { glitchAnimation } from '../Assets/Helpers/generativeGlitchAnimation/animation-code-generator';
 import Bckgrd from '../Assets/Imgs/bckgrd_2.jpg';
-import React, { ReactElement, useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { pageLoadAnimation } from '../Assets/Style/styled-components';
 
 
 // Animation
@@ -21,6 +22,7 @@ const GlitchFontBefore = keyframes`${glitchAnimation('font')}`;
 const GlitchFontAfter = keyframes`${glitchAnimation('font')}`;
 
 // Style
+const HomeContainer = styled.div` ${pageLoadAnimation} `
 const Jumbotron = styled.div`
   background: linear-gradient(#16161675, #161616EE), 50% 50% / cover no-repeat url(${Bckgrd});
   height: calc(100vh - ${sizes.headerHeight});
@@ -99,7 +101,7 @@ function Home(): ReactElement  {
   }, [])
 
   return (
-    <React.Fragment>
+    <HomeContainer>
       <Jumbotron></Jumbotron>
       <Container>
         <MainTitle className='title'>Hello, World&nbsp;!</MainTitle>
@@ -107,7 +109,7 @@ function Home(): ReactElement  {
         <Pipe to='/about' title="More about me">|&gt; About me</Pipe>
         <Pipe to='/contact' title="Contact me here">|&gt; Contact me</Pipe>
       </Container>
-    </React.Fragment>
+    </HomeContainer>
   );
 }
 

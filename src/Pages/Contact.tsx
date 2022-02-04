@@ -1,7 +1,17 @@
 import { ReactElement, useEffect } from "react";
 import styled from "styled-components";
 import { colours, mediaQueries, sizes } from "../Assets/Style/style";
+import { pageLoadAnimation } from "../Assets/Style/styled-components";
 
+const ContactFormContainer = styled.div`
+    ${pageLoadAnimation}
+    padding: ${sizes.pagePadding};
+    margin-top: ${sizes.pageMarginTop};
+    @media ${mediaQueries.mobile} { 
+        padding: .5em;
+        margin-top: 0;
+    }
+`
 const ContactForm = styled.form`
     display: grid;
     grid-template: 
@@ -15,7 +25,10 @@ const ContactForm = styled.form`
         "submit reset";
     gap: .5em 1em;
     padding:${sizes.pagePadding};
-    @media ${mediaQueries.mobile} { padding: 0 }
+    @media ${mediaQueries.mobile} { 
+        padding: 0; 
+        gap: .5em
+    }
 `
 const sharedStyle = `
     border: ${colours.ultraViolet} 1px solid;
@@ -37,6 +50,7 @@ const FormButton = styled.input`
         background: ${colours.ultraViolet};
         color: ${colours.black};
     }
+    @media ${mediaQueries.mobile} { width: 10em }
 `
 const FormInput = styled.input` ${sharedStyle} `
 const FormTextArea = styled.textarea` ${sharedStyle} `
@@ -47,7 +61,7 @@ function Contact(): ReactElement {
     }, [])
 
     return (
-        <div style={{padding: sizes.pagePadding, marginTop: sizes.pagePadding}}>
+        <ContactFormContainer>
             <h2>Contact Me</h2>
 
             <ContactForm action="#">
@@ -63,7 +77,7 @@ function Contact(): ReactElement {
                 <FormTextArea style={{gridArea: "message"}} name="message" id="message" cols={30} rows={10} required></FormTextArea>
                 <FormButton style={{gridArea: "submit"}} type="submit" value="Send" /><FormButton style={{gridArea: "reset"}} type="reset" value="Reset" />
             </ContactForm>
-        </div>
+        </ContactFormContainer>
     )
 }
 
