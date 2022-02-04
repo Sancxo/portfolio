@@ -64,11 +64,12 @@ function Projects(): ReactElement {
         // used to go at the top of the page after loading
         window.scrollTo({top:0, behavior:"smooth"});
 
-        setFilterSize(document.getElementById("filter-container")?.offsetHeight);
+        const eventFunction = () => setFilterSize(document.getElementById("filter-container")?.offsetHeight);
+        eventFunction();
         
-        window.matchMedia(mediaQueries.mobile).addEventListener("change", _ => setFilterSize(document.getElementById("filter-container")?.offsetHeight));
+        window.matchMedia(mediaQueries.mobile).addEventListener("change", eventFunction );
         
-        return window.matchMedia(mediaQueries.mobile).removeEventListener("change", _ => setFilterSize(document.getElementById("filter-container")?.offsetHeight));
+        return window.matchMedia(mediaQueries.mobile).removeEventListener("change", eventFunction );
     }, [])
     
     const removeTag = (filterTag: string) => {

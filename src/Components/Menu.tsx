@@ -12,8 +12,7 @@ const LinksContainer = styled.div`
         background: ${colours.black};
         position: absolute;
         width: 100%;
-        height: 100vh;
-        left: 0;
+        height: 100vh;        left: 0;
         top: ${sizes.headerHeight};
         padding-bottom: 1em;
         & a {
