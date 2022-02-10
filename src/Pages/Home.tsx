@@ -78,7 +78,7 @@ const MainTitle = styled.h1`
   }
 `
 const Pipe = styled(Link)`
-  color: ${colours.ultraViolet};
+  color: ${colours.neonBlue};
   font-family: ${fonts.pixelHairline};
   background: ${colours.black};
   font-weight: bold;
@@ -86,7 +86,7 @@ const Pipe = styled(Link)`
   font-size: 2em;
   text-decoration: none;
   line-height: 1em;
-  &:hover { color: ${colours.white}; }
+  &:hover { color: ${colours.neonFuchsia}; }
   @media ${mediaQueries.tablet} { font-size: 1.75em; }
   @media ${mediaQueries.mobileLandscape} { 
     font-size: 1.5em; 

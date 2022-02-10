@@ -45,7 +45,7 @@ const rotate = keyframes`
 `
 export const Loader = styled.div`
   padding: 1em;
-  border: 1em solid ${colours.ultraViolet};
+  border: 1em solid ${colours.neonFuchsia};
   border-bottom-color transparent;
   border-radius: 50%;
   animation: ${rotate} 1s infinite linear;
@@ -56,7 +56,7 @@ export const Loader = styled.div`
   translate: -50% -50%;
   top: 50%;
   left: 50%;
-  filter: drop-shadow(0 0 1em ${colours.ultraViolet});
+  filter: drop-shadow(0 0 1em ${colours.neonFuchsia});
 `
 
 // Header animations 
