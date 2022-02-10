@@ -19,6 +19,7 @@ const NavBar = styled.nav`
     background: ${colours.black};
     height: ${sizes.headerHeight};
     padding: 0 3em 0 1em;
+    @media ${mediaQueries.mobile} { padding-right: 1em; }
 `
 export const MenuLink = styled(Link)`
     margin: auto 1em;
