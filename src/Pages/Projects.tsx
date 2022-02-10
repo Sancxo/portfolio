@@ -7,14 +7,13 @@ import Card from "../Components/Card";
 
 const ProjectContainer = styled.div`
     ${pageLoadAnimation}
-    margin-top: ${sizes.pageMarginTop};
     padding: ${sizes.pagePadding};
 
     @media ${mediaQueries.tabletLandscape} { padding: 0; }
 `
 const FilterContainer = styled.div`
-    position: fixed;
-    top: ${sizes.headerHeight};
+    position: sticky;
+    top: -3.5em;
     left: 0;
     width: 100%;
     background: ${colours.black};
@@ -30,8 +29,12 @@ const InputContainer = styled.div`
     }
 `
 const FirstSelect = styled.select`
-    margin: 1em 1em 0 0;
-    @media ${mediaQueries.mobile} { margin: 1em 0 .5em 0; }
+    margin: 3.5em 1em 2em 0;
+    @media ${mediaQueries.mobile} { margin: 2em 0 .5em 0; }
+    & + select {
+        @media ${mediaQueries.mobile} { margin-bottom: 2em; }
+
+    }
 `
 const CardsList = styled.ul`
     list-style: none;
@@ -61,20 +64,20 @@ const FilterTag = styled.span`
 function Projects(): ReactElement {
     const [typeFilter, setTypeFilter] = useState("");
     const [techFilter, setTechFilter] = useState("");
-    const [filterHeight, setFilterHeight] = useState(document.getElementById("filter-container")?.offsetHeight);
+    // const [filterHeight, setFilterHeight] = useState(document.getElementById("filter-container")?.offsetHeight);
 
-    const onMediaQueryMatches = () => { setFilterHeight(document.getElementById("filter-container")?.offsetHeight) };
+    // const onMediaQueryMatches = () => { setFilterHeight(document.getElementById("filter-container")?.offsetHeight) };
 
     useEffect(() => {
         // used to go at the top of the page after loading
         window.scroll({top:0});
         
-        onMediaQueryMatches();
+        // onMediaQueryMatches();
         
-        window.matchMedia(mediaQueries.mobile).addEventListener("change", onMediaQueryMatches );
+        // window.matchMedia(mediaQueries.mobile).addEventListener("change", onMediaQueryMatches );
         
         return () => {
-            window.matchMedia(mediaQueries.mobile).removeEventListener("change", onMediaQueryMatches );
+            // window.matchMedia(mediaQueries.mobile).removeEventListener("change", onMediaQueryMatches );
             // setFilterHeight(0);
         }
     }, [typeFilter, techFilter])
@@ -123,7 +126,9 @@ function Projects(): ReactElement {
                 </div>
             </FilterContainer>
 
-            <CardsList style={{marginTop: filterHeight}}>
+            <CardsList 
+                // style={{marginTop: filterHeight}}
+            >
                 {
                     projectList.map(project => (
                         typeFilter === project.category || typeFilter === "" ?
