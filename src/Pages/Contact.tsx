@@ -28,9 +28,22 @@ const ContactForm = styled.form`
         "submit reset";
     gap: .5em 1em;
     padding:${sizes.pagePadding};
-    @media ${mediaQueries.mobile} { 
+    @media ${mediaQueries.mobileLandscape} { 
         padding: 0; 
-        gap: .5em
+        gap: .5em;
+        grid-template: 
+            "label-name ." 
+            "name name"
+            "label-fname ." 
+            "fname fname"
+            "label-email ."
+            "email email"
+            "label-phone ."
+            "phone phone"
+            "label-message ."
+            "message message"
+            ". ."
+            "submit reset";
     }
 `
 const sharedStyle = `
@@ -64,8 +77,9 @@ function Contact(): ReactElement {
 
     return (
         <ContactFormContainer>
-            <h2>Contact Me</h2>
+            <h2 style={{marginBottom: "0"}}>Contact Me</h2>
 
+            <p style={{marginTop: "0"}}><sub>(*) = Required</sub></p>
             <ContactForm action="#">
                 <label style={{gridArea: "label-name"}} htmlFor="name">Name(*)</label>
                 <FormInput style={{gridArea: "name"}} type="text" name="Name:" id="name" required/>
