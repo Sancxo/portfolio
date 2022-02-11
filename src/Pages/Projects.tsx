@@ -64,23 +64,9 @@ const FilterTag = styled.span`
 function Projects(): ReactElement {
     const [typeFilter, setTypeFilter] = useState("");
     const [techFilter, setTechFilter] = useState("");
-    // const [filterHeight, setFilterHeight] = useState(document.getElementById("filter-container")?.offsetHeight);
 
-    // const onMediaQueryMatches = () => { setFilterHeight(document.getElementById("filter-container")?.offsetHeight) };
-
-    useEffect(() => {
-        // used to go at the top of the page after loading
-        window.scroll({top:0});
-        
-        // onMediaQueryMatches();
-        
-        // window.matchMedia(mediaQueries.mobile).addEventListener("change", onMediaQueryMatches );
-        
-        return () => {
-            // window.matchMedia(mediaQueries.mobile).removeEventListener("change", onMediaQueryMatches );
-            // setFilterHeight(0);
-        }
-    }, [typeFilter, techFilter])
+    // used to go at the top of the page after loading
+    useEffect(() => { window.scroll({top:0}); }, [])
     
     const removeTag = (filterTag: string) => {
         if (Object.values(techFilterList).includes(filterTag)) setTechFilter("")
@@ -126,9 +112,7 @@ function Projects(): ReactElement {
                 </div>
             </FilterContainer>
 
-            <CardsList 
-                // style={{marginTop: filterHeight}}
-            >
+            <CardsList>
                 {
                     projectList.map(project => (
                         typeFilter === project.category || typeFilter === "" ?
