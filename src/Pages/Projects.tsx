@@ -18,8 +18,8 @@ const FilterContainer = styled.div`
     width: 100%;
     background: ${colours.black};
     z-index: 1;
-    padding: 0 0 1em 0;
-    @media ${mediaQueries.mobile} { padding: 0 0 .5em 0; }
+    padding: 3em 0 1em 0;
+    @media ${mediaQueries.mobile} { padding-bottom: .5em; }
 `
 const InputContainer = styled.div`
     text-align: center;
@@ -29,10 +29,10 @@ const InputContainer = styled.div`
     }
 `
 const FirstSelect = styled.select`
-    margin: 3.5em 1em 2em 0;
-    @media ${mediaQueries.mobile} { margin: 2em 0 .5em 0; }
+    margin: 1em 1em 1em 0;
+    @media ${mediaQueries.mobile} { margin: 1em 0 .5em 0; }
     & + select {
-        @media ${mediaQueries.mobile} { margin-bottom: 2em; }
+        @media ${mediaQueries.mobile} { margin-bottom: 1em; }
 
     }
 `
@@ -66,7 +66,7 @@ function Projects(): ReactElement {
     const [techFilter, setTechFilter] = useState("");
 
     // used to go at the top of the page after loading
-    useEffect(() => { window.scroll({top:0}); }, [])
+    useEffect(() => { window.scroll({top:0}); }, [typeFilter, techFilter])
     
     const removeTag = (filterTag: string) => {
         if (Object.values(techFilterList).includes(filterTag)) setTechFilter("")
@@ -88,7 +88,7 @@ function Projects(): ReactElement {
                     </FilterTagContainer>
 
                     <InputContainer>
-                        <p style={{height: "2em", margin: "0.5em auto"}}>{
+                        <p >{
                             typeFilter !== "" ? filterTags(typeFilter) : null
                         } {
                             techFilter !== "" ? filterTags(techFilter) : null
