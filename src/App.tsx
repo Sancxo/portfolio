@@ -67,13 +67,13 @@ function App(): ReactElement {
 
                     <main style={{paddingTop: sizes.headerHeight}}>
                         <Suspense fallback={ <div style={{height: "100vh"}}> <Loader /> </div> }>
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/projects" element={<Projects />} />
-                            <Route path="/about" element={<About />} />
-                            <Route path="/contact" element={<Contact />} />
-                            <Route path="*" element={<Error />} />
-                        </Routes>
+                            <Routes>
+                                <Route path="/" element={<Home />} />
+                                <Route path="/projects" element={<Projects />} />
+                                <Route path="/about" element={<About />} />
+                                <Route path="/contact" element={<Contact />} />
+                                <Route path="*" element={<Error />} />
+                            </Routes>
                         </Suspense>
                     </main>
 
