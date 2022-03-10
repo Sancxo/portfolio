@@ -48,7 +48,7 @@ const projectList: {
     {
         id: "portfolio",
         name: "Portfolio",
-        url: "https://sancxo.github.io/",
+        url: "https://simontirant.dev/",
         cover: portfolio,
         category: "Perso",
         desc: "This portfolio.",
@@ -75,7 +75,7 @@ const projectList: {
     {
         id: "chalets-caviar",
         name: "Chalets & Caviar",
-        url: "http://itlolcu.cluster031.hosting.ovh.net/chalets-caviar",
+        url: "http://simontirant.dev/chalets-caviar",
         cover: chaletsCaviar,
         category: "Perso",
         desc: "WordPress website for a fictional real estate agency in Aspen made as an exam for my full-stack training class at OpenClassrooms.",
@@ -102,7 +102,7 @@ const projectList: {
     {
         id: "get-gifs",
         name: "Get Gifs",
-        url: "http://itlolcu.cluster031.hosting.ovh.net/get-gifs",
+        url: "http://simontirant.dev/get-gifs",
         cover: getGifs,
         category: "Pro",
         desc: "Technical test for a former employer where I should make a React app which connect to Giphy API to display the platform's Top20 gifs with several features.",
