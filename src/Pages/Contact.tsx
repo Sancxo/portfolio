@@ -95,7 +95,7 @@ function Contact(): ReactElement {
         e.preventDefault();
         axios({
             method: 'post',
-            url:`${process.env.API_PATH}`,
+            url:`${process.env.REACT_APP_API_PATH}`,
             headers: { "content-type": "application/json" },
             data: formData
         })
