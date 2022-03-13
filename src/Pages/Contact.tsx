@@ -1,4 +1,4 @@
-import { ReactElement, useEffect } from "react";
+import { ReactElement, useEffect, useState } from "react";
 
 // style
 import styled from "styled-components";
@@ -72,9 +72,23 @@ const FormInput = styled.input` ${sharedStyle} `
 const FormTextArea = styled.textarea` ${sharedStyle} `
 
 function Contact(): ReactElement {
+    // use state to handle the form
+    const [name, setName] = useState("");
+    const [fName, setFName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [message, setMessage] = useState("");
+    const [isMessageSent, setIsMessageSent] = useState(false);
+    const [error, setError] = useState(null);
+
     // used to go at the top of the page after loading
     useEffect(() => { window.scroll({top:0}); }, [])
 
+    function handleFormSubmit(e: React.MouseEvent<HTMLInputElement, MouseEvent>) {
+        e.preventDefault();
+        console.log(`{name: ${name}, fName: ${fName}, email: ${email}, phone: ${phone}, message: ${message}}`);
+    }
+    
     return (
         <ContactFormContainer>
             <h2 style={{marginBottom: "0"}}>Contact Me</h2>
@@ -82,16 +96,67 @@ function Contact(): ReactElement {
             <p style={{marginTop: "0"}}><sub>(*) = Required</sub></p>
             <ContactForm action="#">
                 <label style={{gridArea: "label-name"}} htmlFor="name">Name(*)</label>
-                <FormInput style={{gridArea: "name"}} type="text" name="Name:" id="name" required/>
+                <FormInput 
+                    style={{gridArea: "name"}} 
+                    type="text" 
+                    name="Name:" 
+                    id="name" 
+                    value={name} 
+                    onChange={e => setName(e.target.value)} 
+                    required 
+                />
                 <label style={{gridArea: "label-fname"}} htmlFor="fName">First name</label>
-                <FormInput style={{gridArea: "fname"}} type="text" name="First name" id="fName" />
+                <FormInput 
+                    style={{gridArea: "fname"}} 
+                    type="text" 
+                    name="First name" 
+                    id="fName" 
+                    value={fName} 
+                    onChange={e => setFName(e.target.value)} 
+                />
+                
                 <label style={{gridArea: "label-email"}} htmlFor="email">E-mail(*)</label>
-                <FormInput style={{gridArea: "email"}} type="email" name="email" id="email" required />
+                <FormInput 
+                    style={{gridArea: "email"}} 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    value={email} 
+                    onChange={e => setEmail(e.target.value)} 
+                    required 
+                />
                 <label style={{gridArea: "label-phone"}} htmlFor="phone">Phone</label>
-                <FormInput style={{gridArea: "phone"}} type="tel" name="phone" id="phone" />
+                <FormInput 
+                    style={{gridArea: "phone"}} 
+                    type="tel" 
+                    name="phone" 
+                    id="phone" 
+                    value={phone} 
+                    onChange={e => setPhone(e.target.value)} 
+                />
+                
                 <label style={{gridArea: "label-message"}} htmlFor="message">Your message(*)</label>
-                <FormTextArea style={{gridArea: "message"}} name="message" id="message" cols={30} rows={10} required></FormTextArea>
-                <FormButton style={{gridArea: "submit"}} type="submit" value="Send" /><FormButton style={{gridArea: "reset"}} type="reset" value="Reset" />
+                <FormTextArea 
+                    style={{gridArea: "message"}} 
+                    name="message" 
+                    id="message" 
+                    value={message} 
+                    onChange={e => setMessage(e.target.value)} 
+                    cols={30} 
+                    rows={10} 
+                    required>
+                </FormTextArea>
+                <FormButton 
+                    style={{gridArea: "submit"}} 
+                    type="submit" 
+                    value="Send"
+                    onClick={e => handleFormSubmit(e)} 
+                />
+                <FormButton 
+                    style={{gridArea: "reset"}} 
+                    type="reset" 
+                    value="Reset" 
+                />
             </ContactForm>
         </ContactFormContainer>
     )
