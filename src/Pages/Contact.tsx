@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import { Dispatch, ReactElement, SetStateAction, useEffect, useState } from "react";
 import axios from 'axios';
 
 // style
@@ -82,7 +82,7 @@ function Contact(): ReactElement {
         "message": ""
     });
     const [isMessageSent, setIsMessageSent] = useState(false);
-    const [error, setError] = useState(null);
+    const [error, setError]: [any, Dispatch<SetStateAction<any>>] = useState("");
 
     // used to go at the top of the page after loading
     useEffect(() => { window.scroll({top:0}); }, [])
@@ -93,15 +93,19 @@ function Contact(): ReactElement {
 
     function handleFormSubmit (e: React.MouseEvent<HTMLInputElement, MouseEvent>) {
         e.preventDefault();
-        // axios({
-        //     method: 'post',
-        //     url:`${process.env.API_PATH}`,
-        //     headers: { "content-type": "application/json" },
-        //     data: formData
-        // })
-        //     .then()
-        //     .catch();
-        console.log(formData);
+        axios({
+            method: 'post',
+            url:`${process.env.API_PATH}`,
+            headers: { "content-type": "application/json" },
+            data: formData
+        })
+        .then(result => {
+            if (result.data.sent) {
+                setIsMessageSent(result.data.sent);
+                setError(false);
+            } else setError(true);
+        })
+        .catch(err => setError(err.message));
     }
     
     return (
@@ -173,6 +177,8 @@ function Contact(): ReactElement {
                     value="Reset" 
                 />
             </ContactForm>
+            {isMessageSent && <p style={{color: colours.neonGreen}}>Thank you for contacting me, your message has been succesfully sent !</p>}
+            {error && <p style={{color: colours.neonFuchsia}}>An error occurred ! Please try again later or contact me at simon.tirant@gmail.com</p>}
         </ContactFormContainer>
     )
 }
