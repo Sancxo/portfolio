@@ -1,4 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
+import axios from 'axios';
 
 // style
 import styled from "styled-components";
@@ -68,25 +69,39 @@ const FormButton = styled.input`
     }
     @media ${mediaQueries.mobile} { width: 10em }
 `
-const FormInput = styled.input` ${sharedStyle} `
-const FormTextArea = styled.textarea` ${sharedStyle} `
+const FormInput = styled.input` ${sharedStyle} `;
+const FormTextArea = styled.textarea` ${sharedStyle} `;
 
 function Contact(): ReactElement {
     // use state to handle the form
-    const [name, setName] = useState("");
-    const [fName, setFName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [message, setMessage] = useState("");
+    const [formData, setFormData] = useState({
+        "name": "",
+        "fName": "",
+        "email": "",
+        "phone": "",
+        "message": ""
+    });
     const [isMessageSent, setIsMessageSent] = useState(false);
     const [error, setError] = useState(null);
 
     // used to go at the top of the page after loading
     useEffect(() => { window.scroll({top:0}); }, [])
 
-    function handleFormSubmit(e: React.MouseEvent<HTMLInputElement, MouseEvent>) {
+    function handleChange (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, field: string) {
+        setFormData({...formData, [field]: e.target.value});
+    }
+
+    function handleFormSubmit (e: React.MouseEvent<HTMLInputElement, MouseEvent>) {
         e.preventDefault();
-        console.log(`{name: ${name}, fName: ${fName}, email: ${email}, phone: ${phone}, message: ${message}}`);
+        // axios({
+        //     method: 'post',
+        //     url:`${process.env.API_PATH}`,
+        //     headers: { "content-type": "application/json" },
+        //     data: formData
+        // })
+        //     .then()
+        //     .catch();
+        console.log(formData);
     }
     
     return (
@@ -101,8 +116,8 @@ function Contact(): ReactElement {
                     type="text" 
                     name="Name:" 
                     id="name" 
-                    value={name} 
-                    onChange={e => setName(e.target.value)} 
+                    value={formData.name} 
+                    onChange={e => handleChange(e, "name")} 
                     required 
                 />
                 <label style={{gridArea: "label-fname"}} htmlFor="fName">First name</label>
@@ -111,8 +126,8 @@ function Contact(): ReactElement {
                     type="text" 
                     name="First name" 
                     id="fName" 
-                    value={fName} 
-                    onChange={e => setFName(e.target.value)} 
+                    value={formData.fName} 
+                    onChange={e => handleChange(e, "fName")} 
                 />
                 
                 <label style={{gridArea: "label-email"}} htmlFor="email">E-mail(*)</label>
@@ -121,8 +136,8 @@ function Contact(): ReactElement {
                     type="email" 
                     name="email" 
                     id="email" 
-                    value={email} 
-                    onChange={e => setEmail(e.target.value)} 
+                    value={formData.email} 
+                    onChange={e => handleChange(e, "email")} 
                     required 
                 />
                 <label style={{gridArea: "label-phone"}} htmlFor="phone">Phone</label>
@@ -131,8 +146,8 @@ function Contact(): ReactElement {
                     type="tel" 
                     name="phone" 
                     id="phone" 
-                    value={phone} 
-                    onChange={e => setPhone(e.target.value)} 
+                    value={formData.phone} 
+                    onChange={e => handleChange(e, "phone")}
                 />
                 
                 <label style={{gridArea: "label-message"}} htmlFor="message">Your message(*)</label>
@@ -140,8 +155,8 @@ function Contact(): ReactElement {
                     style={{gridArea: "message"}} 
                     name="message" 
                     id="message" 
-                    value={message} 
-                    onChange={e => setMessage(e.target.value)} 
+                    value={formData.message} 
+                    onChange={e => handleChange(e, "message")} 
                     cols={30} 
                     rows={10} 
                     required>
