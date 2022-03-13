@@ -99,13 +99,19 @@ function Contact(): ReactElement {
             headers: { "content-type": "application/json" },
             data: formData
         })
-        .then(result => {
-            if (result.data.sent) {
-                setIsMessageSent(result.data.sent);
+        .then(res => {
+            if (res.data.sent) {
+                setIsMessageSent(true);
                 setError(false);
-            } else setError(true);
+            } else {
+                setIsMessageSent(false);
+                setError(res.data.message);
+            };
         })
-        .catch(err => setError(err.message));
+        .catch(err => {
+            setIsMessageSent(false);
+            setError(err.message);
+        });
     }
     
     return (
