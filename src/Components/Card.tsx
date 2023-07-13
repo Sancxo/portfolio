@@ -15,8 +15,12 @@ const CardTemplate = styled.div`
 const CardImg = styled.img`
     width: 100%;
     height: 12.5em;
+    position: relative;
+    z-index: 1;
     object-position: 50% top;
     object-fit: cover;
+    transition: 300ms ease-in-out;
+    &:hover { transform: scale(1.25); }
 `
 const CardUrl = styled.a`
     margin: auto;
@@ -26,12 +30,12 @@ const TechnoMiniature = styled.img`
     &:hover { transform: scale(1.5); }
 `
 
-function Card ({id, name, url, cover, category, desc, technos}: {
+function Card({ id, name, url, cover, category, desc, technos }: {
     id: string,
-    name: string, 
+    name: string,
     url: string,
     cover: string,
-    category: string, 
+    category: string,
     desc: string,
     technos: string[]
 }): ReactElement {
@@ -39,20 +43,20 @@ function Card ({id, name, url, cover, category, desc, technos}: {
     return (
         <CardTemplate>
             <div>
-                <h4 style={{margin: "1em auto"}}>{name}</h4>
+                <h4 style={{ margin: "1em auto" }}>{name}</h4>
                 {
                     url !== "" ?
-                        <a style={{textDecoration: "none"}} href={url} target="_blank" rel="noreferrer">
+                        <a style={{ textDecoration: "none" }} href={url} target="_blank" rel="noreferrer">
                             <CardImg src={cover} alt={name} title={name} />
                         </a>
-                    :
+                        :
                         <CardImg src={cover} alt={name} title={name} />
                 }
             </div>
-            <div style={{position: "relative", height: "45%"}}>
+            <div style={{ position: "relative", height: "45%" }}>
                 <p><small>{projectType[category]}</small></p>
                 {technos.map(tech => (
-                    <TechnoMiniature style={{height: "48px", margin: "0 0.25em"}} src={techIcons[tech]} alt={tech} title={tech} key={tech + id} />
+                    <TechnoMiniature style={{ height: "48px", margin: "0 0.25em" }} src={techIcons[tech]} alt={tech} title={tech} key={tech + id} />
                 ))}
                 <p>{desc}</p>
             </div>
