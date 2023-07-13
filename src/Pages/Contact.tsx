@@ -1,4 +1,5 @@
-import { ReactElement, useEffect } from "react";
+import { Dispatch, ReactElement, SetStateAction, useEffect, useState } from "react";
+import axios from 'axios';
 
 // style
 import styled from "styled-components";
@@ -68,13 +69,51 @@ const FormButton = styled.input`
     }
     @media ${mediaQueries.mobile} { width: 10em }
 `
-const FormInput = styled.input` ${sharedStyle} `
-const FormTextArea = styled.textarea` ${sharedStyle} `
+const FormInput = styled.input` ${sharedStyle} `;
+const FormTextArea = styled.textarea` ${sharedStyle} `;
 
 function Contact(): ReactElement {
+    // use state to handle the form
+    const [formData, setFormData] = useState({
+        "name": "",
+        "fName": "",
+        "email": "",
+        "phone": "",
+        "message": ""
+    });
+    const [isMessageSent, setIsMessageSent] = useState(false);
+    const [error, setError]: [any, Dispatch<SetStateAction<any>>] = useState("");
+
     // used to go at the top of the page after loading
     useEffect(() => { window.scroll({top:0}); }, [])
 
+    function handleChange (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, field: string) {
+        setFormData({...formData, [field]: e.target.value});
+    }
+
+    function handleFormSubmit (e: React.MouseEvent<HTMLInputElement, MouseEvent>) {
+        e.preventDefault();
+        axios({
+            method: 'post',
+            url:`${process.env.REACT_APP_API_PATH}`,
+            headers: { "content-type": "application/json" },
+            data: formData
+        })
+        .then(res => {
+            if (res.data.sent) {
+                setIsMessageSent(true);
+                setError(false);
+            } else {
+                setIsMessageSent(false);
+                setError(res.data.message);
+            };
+        })
+        .catch(err => {
+            setIsMessageSent(false);
+            setError(err.message);
+        });
+    }
+    
     return (
         <ContactFormContainer>
             <h2 style={{marginBottom: "0"}}>Contact Me</h2>
@@ -82,17 +121,70 @@ function Contact(): ReactElement {
             <p style={{marginTop: "0"}}><sub>(*) = Required</sub></p>
             <ContactForm action="#">
                 <label style={{gridArea: "label-name"}} htmlFor="name">Name(*)</label>
-                <FormInput style={{gridArea: "name"}} type="text" name="Name:" id="name" required/>
+                <FormInput 
+                    style={{gridArea: "name"}} 
+                    type="text" 
+                    name="Name:" 
+                    id="name" 
+                    value={formData.name} 
+                    onChange={e => handleChange(e, "name")} 
+                    required 
+                />
                 <label style={{gridArea: "label-fname"}} htmlFor="fName">First name</label>
-                <FormInput style={{gridArea: "fname"}} type="text" name="First name" id="fName" />
+                <FormInput 
+                    style={{gridArea: "fname"}} 
+                    type="text" 
+                    name="First name" 
+                    id="fName" 
+                    value={formData.fName} 
+                    onChange={e => handleChange(e, "fName")} 
+                />
+                
                 <label style={{gridArea: "label-email"}} htmlFor="email">E-mail(*)</label>
-                <FormInput style={{gridArea: "email"}} type="email" name="email" id="email" required />
+                <FormInput 
+                    style={{gridArea: "email"}} 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    value={formData.email} 
+                    onChange={e => handleChange(e, "email")} 
+                    required 
+                />
                 <label style={{gridArea: "label-phone"}} htmlFor="phone">Phone</label>
-                <FormInput style={{gridArea: "phone"}} type="tel" name="phone" id="phone" />
+                <FormInput 
+                    style={{gridArea: "phone"}} 
+                    type="tel" 
+                    name="phone" 
+                    id="phone" 
+                    value={formData.phone} 
+                    onChange={e => handleChange(e, "phone")}
+                />
+                
                 <label style={{gridArea: "label-message"}} htmlFor="message">Your message(*)</label>
-                <FormTextArea style={{gridArea: "message"}} name="message" id="message" cols={30} rows={10} required></FormTextArea>
-                <FormButton style={{gridArea: "submit"}} type="submit" value="Send" /><FormButton style={{gridArea: "reset"}} type="reset" value="Reset" />
+                <FormTextArea 
+                    style={{gridArea: "message"}} 
+                    name="message" 
+                    id="message" 
+                    value={formData.message} 
+                    onChange={e => handleChange(e, "message")} 
+                    cols={30} 
+                    rows={10} 
+                    required>
+                </FormTextArea>
+                <FormButton 
+                    style={{gridArea: "submit"}} 
+                    type="submit" 
+                    value="Send"
+                    onClick={e => handleFormSubmit(e)} 
+                />
+                <FormButton 
+                    style={{gridArea: "reset"}} 
+                    type="reset" 
+                    value="Reset" 
+                />
             </ContactForm>
+            {isMessageSent && <p style={{color: colours.neonGreen}}>Thank you for contacting me, your message has been succesfully sent !</p>}
+            {error && <p style={{color: colours.neonFuchsia}}>An error occurred ! Please try again later or contact me at simon.tirant@gmail.com</p>}
         </ContactFormContainer>
     )
 }
