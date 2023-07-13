@@ -6,6 +6,7 @@ import jsIcon from "../Imgs/icons/js.png";
 import tsIcon from "../Imgs/icons/typescript.png";
 import reactIcon from "../Imgs/icons/react.png";
 import angularIcon from "../Imgs/icons/angular.png";
+import vueIcon from "../Imgs/icons/vue.png";
 import threejsIcon from "../Imgs/icons/threejs.png";
 import pwaIcon from "../Imgs/icons/pwa.png";
 import nodeIcon from "../Imgs/icons/node.png";
@@ -19,6 +20,7 @@ import postgresIcon from "../Imgs/icons/postgres.png";
 import mysqlIcon from "../Imgs/icons/mysql.png";
 
 // screenshot imports
+import gpgi from "../Imgs/project-screenshots/gpgi.png";
 import portfolio from "../Imgs/project-screenshots/portfolio.png";
 import lmj from "../Imgs/project-screenshots/lmj.png";
 import wio from "../Imgs/project-screenshots/wio.png";
@@ -35,6 +37,35 @@ import iKebab from "../Imgs/project-screenshots/ikebab.png";
 import greta from "../Imgs/project-screenshots/greta.png";
 import renault from "../Imgs/project-screenshots/renault.png";
 
+const pro = "Pro";
+const perso = "Perso";
+
+const html = "HTML";
+const css = "CSS";
+const btrp = "Bootstrap";
+
+const pwa = "PWA"
+
+const js = "Javascript";
+const ts = "Typescript";
+const ang = "Angular";
+const react = "React";
+const vue = "Vue";
+const three = "Three.js";
+
+const php = "PHP";
+const wp = "Wordpress";
+const elem = "Elementor";
+
+const elix = "Elixir";
+const phx = "Phoenix";
+
+// const ruby = "Ruby";
+
+const graphql = "GraphQL";
+const mysql = "MySQL";
+const psql = "PostgreSQL";
+
 // data to feed each card in Projects page
 const projectList: {
     id: string,
@@ -44,153 +75,163 @@ const projectList: {
     category: string,
     desc: string,
     technos: string[]
-    }[] = [
-    {
-        id: "portfolio",
-        name: "Portfolio",
-        url: "https://simontirant.dev/",
-        cover: portfolio,
-        category: "Perso",
-        desc: "This portfolio.",
-        technos: ["TypeScript", "React", "PHP"]
-    },
-    {
-        id: "lmj",
-        name: "La Maison Jungle",
-        url: "https://sancxo.github.io/la-maison-jungle",
-        cover: lmj,
-        category: "Perso",
-        desc: 'Dynamic front-end e-commerce web page made in React for a course on OpenClassrooms.', // Features: dynamic cart (open/close, add items), automatic item catalog with parameters from model, light/dark mode switch written in localStorage, type filter.
-        technos: ["JavaScript", "React"]
-    },    
-    {
-        id: "wio",
-        name: "Watch It Outside",
-        url: "https://sancxo.github.io/watch-it-outside",
-        cover: wio,
-        category: "Perso",
-        desc: "Responsive website for a fictional film festival in Boston made as an exam for my full-stack training class at OpenClassrooms.",
-        technos: ["HTML", "CSS", "Bootstrap", "JavaScript"]
-    },
-    {
-        id: "chalets-caviar",
-        name: "Chalets & Caviar",
-        url: "http://simontirant.dev/chalets-caviar",
-        cover: chaletsCaviar,
-        category: "Perso",
-        desc: "WordPress website for a fictional real estate agency in Aspen made as an exam for my full-stack training class at OpenClassrooms.",
-        technos: ["PHP", "WordPress", "Elementor"]
-    },
-    {
-        id: "snake",
-        name: "Snake",
-        url: "https://sancxo.github.io/snake",
-        cover: snake,
-        category: "Perso",
-        desc: "Personal project made during summer holiday to stay in shape with vanilla JavaScript and canvas. Fully playable on computers and mobiles, also downloadable on device as a Progressive Web App.",
-        technos: ["HTML", "CSS", "JavaScript", "PWA"]
-    },
-    {
-        id: "7lieues",
-        name: "7 Lieues",
-        url: "https://7lieues.io",
-        cover: septLieues,
-        category: "Pro",
-        desc: "WordPress website made as a freelance mission for 7 Lieues Technologies, which is now my actual employer.",
-        technos: ["PHP", "WordPress", "Elementor"]
-    },
-    {
-        id: "get-gifs",
-        name: "Get Gifs",
-        url: "http://simontirant.dev/get-gifs",
-        cover: getGifs,
-        category: "Pro",
-        desc: "Technical test for a former employer where I should make a React app which connect to Giphy API to display the platform's Top20 gifs with several features.",
-        technos: ["JavaScript", "React", "Bootstrap"]
-    },
-    {
-        id: "supplier-notation",
-        name: "Supplier Notation",
-        url: "",
-        cover: supplierNotation,
-        category: "Pro",
-        desc: "Full-stack data visualisation feature made during a work-placement at 7 Lieues Technologies, containing a form to evaluate a supplier, then the app render data through charts.",
-        technos: ["TypeScript", "Angular", "Bootstrap", "Elixir", "Phoenix", "GraphQL", "PostgreSQL"]
-    },
-    {
-        id: "ikebab",
-        name: "iKebab",
-        url: "",
-        cover: iKebab,
-        category: "Perso",
-        desc: "Fictional kebab delivery app, made during my full-stack training at the GRETA, where the customer can order a sandwich, then receive confirmation by mail while the restaurant can see the order from the database via RESTful API.",
-        technos: ["HTML", "CSS", "PHP", "MySQL"]
-    }, 
-    {
-        id: "greta",
-        name: "GRETA",
-        url: "",
-        cover: greta,
-        category: "Perso",
-        desc: "Wordpress website made during my full-stack training at the GRETA des Hauts-de-Seine.",
-        technos: ["HTML", "CSS", "WordPress"]
-    }, 
-    {
-        id: "renault",
-        name: "Renault Group",
-        url: "",
-        cover: renault,
-        category: "Perso",
-        desc: "Fully responsive Renault Group's website copy made during my full-stack training at the GRETA des Hauts-de-Seine.",
-        technos: ["HTML", "CSS", "Bootstrap"]
-    }, 
-    {
-        id: "njs",
-        name: "Neon Clock",
-        url: "https://sancxo.github.io/NeonJSClock",
-        cover: neonClock,
-        category: "Perso",
-        desc: "Actual clock made in pure JS and HTML/CSS, made for personal training.",
-        technos: ["HTML", "CSS", "JavaScript"]
-    },
-    {
-        id: "pokey-ball",
-        name: "Pokey Ball Clone",
-        url: "https://sancxo.github.io/PokeyBallClone",
-        cover: pokeyBall,
-        category: "Pro",
-        desc: "Copy of a 3D game concept made with Three.js library as a test for a former employer.",
-        technos: ["HTML", "CSS", "JavaScript", "Three.js"]
-    },
-    {
-        id: "forest-view",
-        name: "Forest View",
-        url: "https://sancxo.github.io/forestview",
-        cover: forestView,
-        category: "Perso",
-        desc: "First person landscape static view made with Three.js for personal training.",
-        technos: ["HTML", "CSS", "JavaScript", "Three.js"]
-    }, 
-    {
-        id: "rotating-cube",
-        name: "Rotating 3D Cube",
-        url: "https://sancxo.github.io/Rotating3DCube",
-        cover: rotatingCube,
-        category: "Perso",
-        desc: "Rotating and interactive 3D cube made with Three.js for personal training.",
-        technos: ["HTML", "CSS", "JavaScript", "Three.js"]
-    }
-]
+}[] = [
+        {
+            id: "gpgi",
+            name: "GPGI fundings",
+            url: "https://www.gpgi-funding-mechanisms.com",
+            cover: gpgi,
+            category: pro,
+            desc: "International funding simulation app made as a freelancer for an academic researcher and professor in economics.",
+            technos: [js, vue]
+        },
+        {
+            id: "portfolio",
+            name: "Portfolio",
+            url: "https://simontirant.dev/",
+            cover: portfolio,
+            category: perso,
+            desc: "This portfolio.",
+            technos: [ts, react, php]
+        },
+        {
+            id: "lmj",
+            name: "La Maison Jungle",
+            url: "https://sancxo.github.io/la-maison-jungle",
+            cover: lmj,
+            category: perso,
+            desc: 'Dynamic front-end e-commerce web page made in React for a course on OpenClassrooms.', // Features: dynamic cart (open/close, add items), automatic item catalog with parameters from model, light/dark mode switch written in localStorage, type filter.
+            technos: [js, react]
+        },
+        {
+            id: "wio",
+            name: "Watch It Outside",
+            url: "https://sancxo.github.io/watch-it-outside",
+            cover: wio,
+            category: perso,
+            desc: "Responsive website for a fictional film festival in Boston made as an exam for my full-stack training class at OpenClassrooms.",
+            technos: [html, css, btrp, js]
+        },
+        {
+            id: "chalets-caviar",
+            name: "Chalets & Caviar",
+            url: "http://simontirant.dev/chalets-caviar",
+            cover: chaletsCaviar,
+            category: perso,
+            desc: "WordPress website for a fictional real estate agency in Aspen made as an exam for my full-stack training class at OpenClassrooms.",
+            technos: [php, wp, elem]
+        },
+        {
+            id: "snake",
+            name: "Snake",
+            url: "https://sancxo.github.io/snake",
+            cover: snake,
+            category: perso,
+            desc: "Personal project made during summer holiday to stay in shape with vanilla JavaScript and canvas. Fully playable on computers and mobiles, also downloadable on device as a Progressive Web App.",
+            technos: [html, css, js, pwa]
+        },
+        {
+            id: "7lieues",
+            name: "7 Lieues",
+            url: "https://7lieues.io",
+            cover: septLieues,
+            category: pro,
+            desc: "WordPress website made as a freelance mission for 7 Lieues Technologies, which is now my actual employer.",
+            technos: [php, wp, elem]
+        },
+        {
+            id: "get-gifs",
+            name: "Get Gifs",
+            url: "http://simontirant.dev/get-gifs",
+            cover: getGifs,
+            category: pro,
+            desc: "Technical test for a former employer where I should make a React app which connect to Giphy API to display the platform's Top20 gifs with several features.",
+            technos: [js, react, btrp]
+        },
+        {
+            id: "supplier-notation",
+            name: "Supplier Notation",
+            url: "",
+            cover: supplierNotation,
+            category: pro,
+            desc: "Full-stack data visualisation feature made during a work-placement at 7 Lieues Technologies, containing a form to evaluate a supplier, then the app render data through charts.",
+            technos: [ts, ang, btrp, elix, phx, graphql, psql]
+        },
+        {
+            id: "ikebab",
+            name: "iKebab",
+            url: "",
+            cover: iKebab,
+            category: perso,
+            desc: "Fictional kebab delivery app, made during my full-stack training at the GRETA, where the customer can order a sandwich, then receive confirmation by mail while the restaurant can see the order from the database via RESTful API.",
+            technos: [html, css, php, mysql]
+        },
+        {
+            id: "greta",
+            name: "GRETA",
+            url: "",
+            cover: greta,
+            category: perso,
+            desc: "Wordpress website made during my full-stack training at the GRETA des Hauts-de-Seine.",
+            technos: [html, css, wp]
+        },
+        {
+            id: "renault",
+            name: "Renault Group",
+            url: "",
+            cover: renault,
+            category: perso,
+            desc: "Fully responsive Renault Group's website copy made during my full-stack training at the GRETA des Hauts-de-Seine.",
+            technos: [html, css, btrp]
+        },
+        {
+            id: "njs",
+            name: "Neon Clock",
+            url: "https://sancxo.github.io/NeonJSClock",
+            cover: neonClock,
+            category: perso,
+            desc: "Actual clock made in pure JS and HTML/CSS, made for personal training.",
+            technos: [html, css, js]
+        },
+        {
+            id: "pokey-ball",
+            name: "Pokey Ball Clone",
+            url: "https://sancxo.github.io/PokeyBallClone",
+            cover: pokeyBall,
+            category: pro,
+            desc: "Copy of a 3D game concept made with Three.js library as a test for a former employer.",
+            technos: [html, css, js, three]
+        },
+        {
+            id: "forest-view",
+            name: "Forest View",
+            url: "https://sancxo.github.io/forestview",
+            cover: forestView,
+            category: perso,
+            desc: "First person landscape static view made with Three.js for personal training.",
+            technos: [html, css, js, three]
+        },
+        {
+            id: "rotating-cube",
+            name: "Rotating 3D Cube",
+            url: "https://sancxo.github.io/Rotating3DCube",
+            cover: rotatingCube,
+            category: perso,
+            desc: "Rotating and interactive 3D cube made with Three.js for personal training.",
+            technos: [html, css, js, three]
+        }
+    ]
 
 // Icons to be displayed in each project card depending on the technologies the project uses
-const techIcons: {[index: string]: string} = {
+const techIcons: { [index: string]: string } = {
     "HTML": htmlIcon,
     "CSS": cssIcon,
     "Bootstrap": boostrapIcon,
-    "JavaScript": jsIcon,
-    "TypeScript": tsIcon,
+    "Javascript": jsIcon,
+    "Typescript": tsIcon,
     "React": reactIcon,
     "Angular": angularIcon,
+    "Vue": vueIcon,
     "Three.js": threejsIcon,
     "PWA": pwaIcon,
     "Node": nodeIcon,
@@ -200,29 +241,29 @@ const techIcons: {[index: string]: string} = {
     "GraphQL": graphqlIcon,
     "PostgreSQL": postgresIcon,
     "MySQL": mysqlIcon,
-    "WordPress": wpIcon,
+    "Wordpress": wpIcon,
     "Elementor": elementorIcon
 }
 
 // Technologies displayed in the tech filter select input
-const techFilterList: {[index: string]: string} = {
-    "HTML/CSS": "HTML",
-    "JavaScript": "JavaScript",
-    "TypeScript": "TypeScript",
-    "React": "React",
-    "Angular": "Angular",
-    "Three.js": "Three.js",
+const techFilterList: { [index: string]: string } = {
+    "HTML/CSS": html,
+    js: js,
+    ts: ts,
+    react: react,
+    ang: ang,
+    three: three,
     // "Node": "Node",
-    "Elixir/Phoenix": "Elixir",
-    "PHP": "PHP",
-    "GraphQL": "GraphQL",
-    "WordPress": "WordPress"
+    "Elixir/Phoenix": elix,
+    php: php,
+    graphql: graphql,
+    wp: wp
 }
 
 // Types displayed in the type filter select input
-const projectType: {[index: string]: string} = {
-    "Pro": "Professional work",
-    "Perso": "Personal and training"
+const projectType: { [index: string]: string } = {
+    pro: "Professional work",
+    perso: "Personal and training"
 }
 
-export {projectList, techIcons, techFilterList, projectType}
+export { projectList, techIcons, techFilterList, projectType }
