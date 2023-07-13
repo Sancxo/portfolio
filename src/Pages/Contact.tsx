@@ -95,17 +95,18 @@ function Contact(): ReactElement {
         e.preventDefault();
         axios({
             method: 'post',
-            url: `${process.env.REACT_APP_API_PATH}`,
+            url: `${process.env.REACT_APP_CONTACT_PATH}`,
             headers: { "content-type": "application/json" },
             data: formData
         })
             .then(res => {
-                if (res.data.sent) {
+                const json = JSON.parse(res.data.replace("Array", ""))
+                if (json.sent) {
                     setIsMessageSent(true);
                     setError(false);
                 } else {
                     setIsMessageSent(false);
-                    setError(res.data.message);
+                    setError(json.message);
                 };
             })
             .catch(err => {
@@ -119,12 +120,12 @@ function Contact(): ReactElement {
             <h2 style={{ marginBottom: "0" }}>Contact Me</h2>
 
             <p style={{ marginTop: "0" }}><sub>(*) = Required</sub></p>
-            <ContactForm action="#">
+            <ContactForm>
                 <label style={{ gridArea: "label-name" }} htmlFor="name">Name(*)</label>
                 <FormInput
                     style={{ gridArea: "name" }}
                     type="text"
-                    name="Name:"
+                    name="name"
                     id="name"
                     value={formData.name}
                     onChange={e => handleChange(e, "name")}
