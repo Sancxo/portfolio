@@ -15,8 +15,6 @@ const CardTemplate = styled.div`
 const CardImg = styled.img`
     width: 100%;
     height: 12.5em;
-    position: relative;
-    z-index: 1;
     object-position: 50% top;
     object-fit: cover;
     transition: 300ms ease-in-out;
@@ -26,6 +24,8 @@ const CardUrl = styled.a`
     margin: auto;
 `
 const TechnoMiniature = styled.img`
+    position: relative;
+    z-index: -1;
     transition: 300ms ease-in-out;
     &:hover { transform: scale(1.5); }
 `
