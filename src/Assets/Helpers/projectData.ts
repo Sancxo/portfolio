@@ -86,7 +86,7 @@ const projectList: {
             url: "https://around-help.vercel.app/",
             cover: around,
             category: perso,
-            desc: "Final project of my OpenClassrooms training; it's an aid platform between neighbours using geolocation and websocket to to find social opportunities around you and to communicate inside a chatroom with people in needs.",
+            desc: "Final project of my OpenClassrooms training. It's an aid platform between neighbours using geolocation and websocket to find social opportunities around you and to communicate inside a chatroom with people in needs.",
             technos: [ruby, rails, psql, react, ts]
         },
         {
