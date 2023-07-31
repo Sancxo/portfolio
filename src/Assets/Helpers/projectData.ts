@@ -84,7 +84,7 @@ const projectList: {
             id: "around-help",
             name: "Around Help",
             url: "https://around-help.vercel.app/",
-            cover: "",
+            cover: around,
             category: perso,
             desc: "Final project of my OpenClassrooms training; it's an aid platform between neighbours using geolocation and websocket to to find social opportunities around you and to communicate inside a chatroom with people in needs.",
             technos: [ruby, rails, psql, react, ts]
