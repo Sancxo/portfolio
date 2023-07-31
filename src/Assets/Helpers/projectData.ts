@@ -10,6 +10,8 @@ import vueIcon from "../Imgs/icons/vue.png";
 import threejsIcon from "../Imgs/icons/threejs.png";
 import pwaIcon from "../Imgs/icons/pwa.png";
 import nodeIcon from "../Imgs/icons/node.png";
+import rubyIcon from "../Imgs/icons/ruby.png";
+import railsIcon from "../Imgs/icons/rails.png";
 import elixirIcon from "../Imgs/icons/elixir.png";
 import phoenixIcon from "../Imgs/icons/phoenix.png";
 import phpIcon from "../Imgs/icons/php.png";
@@ -20,6 +22,7 @@ import postgresIcon from "../Imgs/icons/postgres.png";
 import mysqlIcon from "../Imgs/icons/mysql.png";
 
 // screenshot imports
+import around from "../Imgs/project-screenshots/around-help.png";
 import gpgi from "../Imgs/project-screenshots/gpgi.png";
 import portfolio from "../Imgs/project-screenshots/portfolio.png";
 import lmj from "../Imgs/project-screenshots/lmj.png";
@@ -60,7 +63,8 @@ const elem = "Elementor";
 const elix = "Elixir";
 const phx = "Phoenix";
 
-// const ruby = "Ruby";
+const ruby = "Ruby";
+const rails = "Ruby on Rails";
 
 const graphql = "GraphQL";
 const mysql = "MySQL";
@@ -76,6 +80,15 @@ const projectList: {
     desc: string,
     technos: string[]
 }[] = [
+        {
+            id: "around-help",
+            name: "Around Help",
+            url: "https://around-help.vercel.app/",
+            cover: "",
+            category: perso,
+            desc: "Final project of my OpenClassrooms training; it's an aid platform between neighbours using geolocation and websocket to to find social opportunities around you and to communicate inside a chatroom with people in needs.",
+            technos: [ruby, rails, psql, react, ts]
+        },
         {
             id: "gpgi",
             name: "GPGI fundings",
@@ -235,6 +248,8 @@ const techIcons: { [index: string]: string } = {
     "Three.js": threejsIcon,
     "PWA": pwaIcon,
     "Node": nodeIcon,
+    "Ruby": rubyIcon,
+    "Rails": railsIcon,
     "Elixir": elixirIcon,
     "Phoenix": phoenixIcon,
     "PHP": phpIcon,
@@ -254,6 +269,7 @@ const techFilterList: { [index: string]: string } = {
     ang: ang,
     three: three,
     // "Node": "Node",
+    "Ruby/Rails": ruby,
     "Elixir/Phoenix": elix,
     php: php,
     graphql: graphql,
