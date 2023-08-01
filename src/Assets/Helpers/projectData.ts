@@ -64,7 +64,7 @@ const elix = "Elixir";
 const phx = "Phoenix";
 
 const ruby = "Ruby";
-const rails = "Ruby on Rails";
+const rails = "Rails";
 
 const graphql = "GraphQL";
 const mysql = "MySQL";
@@ -86,7 +86,7 @@ const projectList: {
             url: "https://around-help.vercel.app/",
             cover: around,
             category: perso,
-            desc: "Final project of my OpenClassrooms training. It's an aid platform between neighbours using geolocation and websocket to find social opportunities around you and to communicate inside a chatroom with people in needs.",
+            desc: "Aid platform between neighbors integrating geolocation and messaging, made as the final project of my OpenClassrooms training.",
             technos: [ruby, rails, psql, react, ts]
         },
         {
