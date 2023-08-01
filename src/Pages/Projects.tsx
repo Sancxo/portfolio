@@ -17,7 +17,7 @@ const FilterContainer = styled.div`
     left: 0;
     width: 100%;
     background: ${colours.black};
-    z-index: 1;
+    z-index: 2;
     padding: 3em 0 1em 0;
     @media ${mediaQueries.mobile} { padding-bottom: .5em; }
 `
@@ -66,44 +66,44 @@ function Projects(): ReactElement {
     const [techFilter, setTechFilter] = useState("");
 
     // used to go at the top of the page after loading
-    useEffect(() => { window.scroll({top:0}); }, [typeFilter, techFilter])
-    
+    useEffect(() => { window.scroll({ top: 0 }); }, [typeFilter, techFilter])
+
     const removeTag = (filterTag: string) => {
         if (Object.values(techFilterList).includes(filterTag)) setTechFilter("")
         else if (Object.keys(projectType).includes(filterTag)) setTypeFilter("");
     }
 
     const filterTags = (filterTag: string) => {
-        return <FilterTag onClick={_ => removeTag(filterTag)} title={`Delete ${filterTag} filter`}>{ filterTag + " x"}</FilterTag>
+        return <FilterTag onClick={_ => removeTag(filterTag)} title={`Delete ${filterTag} filter`}>{filterTag + " x"}</FilterTag>
     }
 
     return (
         <ProjectContainer>
             <FilterContainer id="filter-container">
-                <div style={{padding: sizes.pagePadding}}>
+                <div style={{ padding: sizes.pagePadding }}>
                     <FilterTagContainer>
                         <h2>My Projects</h2>
 
-                        <p style={{ margin: "0.5em auto"}}>Active filters :</p>
+                        <p style={{ margin: "0.5em auto" }}>Active filters :</p>
                     </FilterTagContainer>
 
                     <InputContainer>
                         <p >{
                             typeFilter !== "" ? filterTags(typeFilter) : null
                         } {
-                            techFilter !== "" ? filterTags(techFilter) : null
-                        }{
-                            typeFilter === "" && techFilter === "" ? <small>Choose a filter below to modify the projects list.</small> : null 
-                        }</p>
+                                techFilter !== "" ? filterTags(techFilter) : null
+                            }{
+                                typeFilter === "" && techFilter === "" ? <small>Choose a filter below to modify the projects list.</small> : null
+                            }</p>
                         <FirstSelect name="type-filter" id="type-filter" onChange={e => setTypeFilter(e.target.value)} value={typeFilter} >
-                                <option value="">Choose a type to filter: </option>
+                            <option value="">Choose a type to filter: </option>
                             {Object.keys(projectType).map((type: string) => (
                                 <option value={type} key={type}>{projectType[type]}</option>
                             ))}
                         </FirstSelect>
 
                         <select name="tech-filter" id="tech-filter" onChange={e => setTechFilter(e.target.value)} value={techFilter} >
-                                <option value="">Choose a tech to filter: </option>
+                            <option value="">Choose a tech to filter: </option>
                             {Object.keys(techFilterList).map((tech: string) => (
                                 <option value={techFilterList[tech]} key={tech}>{tech}</option>
                             ))}
@@ -118,16 +118,17 @@ function Projects(): ReactElement {
                         typeFilter === project.category || typeFilter === "" ?
                             project.technos.includes(techFilter) || techFilter === "" ?
                                 <li key={project.id}>
-                                    <Card 
+                                    <Card
                                         id={project.id}
-                                        name={project.name} 
+                                        name={project.name}
                                         url={project.url}
-                                        cover={project.cover} 
+                                        github={project.github}
+                                        cover={project.cover}
                                         category={project.category}
                                         desc={project.desc}
                                         technos={project.technos}
                                     />
-                                </li> : 
+                                </li> :
                                 null :
                             null
                     ))
