@@ -23,6 +23,7 @@ import mysqlIcon from "../Imgs/icons/mysql.png";
 
 // screenshot imports
 import around from "../Imgs/project-screenshots/around-help.png";
+import chomedu from "../Imgs/project-screenshots/chomedu-weather.png";
 import gpgi from "../Imgs/project-screenshots/gpgi.png";
 import boulderBike from "../Imgs/project-screenshots/boulder-bike-tour.png";
 import fitTrack from "../Imgs/project-screenshots/fit-track.png";
@@ -93,6 +94,16 @@ const projectList: {
             category: train,
             desc: "Aid platform between neighbors integrating geolocation and messaging, made as the final project of my OpenClassrooms training.",
             technos: [ruby, rails, psql, react, ts]
+        },
+        {
+            id: "chomedu",
+            name: "Chômedu Weather",
+            url: "https://chomeduweather.vercel.app/",
+            github: ["https://github.com/Sancxo/ChomeduWeather"],
+            cover: chomedu,
+            category: perso,
+            desc: "French unemployment index prediction model made with a simple AI (perceptron) in pure TypeScript (no library) from INSEE official API and storing results in a serverless database (PostgreSQL through Supabase).",
+            technos: [react, ts, psql]
         },
         {
             id: "gpgi",
