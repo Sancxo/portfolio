@@ -69,11 +69,11 @@ function Card({ id, name, url, github, cover, category, desc, technos }: {
     desc: string,
     technos: string[]
 }): ReactElement {
-
     return (
         <CardTemplate>
             <div>
-                <h4 style={{ margin: "1em auto" }}>{name}</h4>
+                <h4 style={{ margin: "1em auto 0 auto" }}>{name}</h4>
+                <p style={{ margin: ".25rem auto" }}><small>{projectType[category]}</small></p>
                 {
                     url !== "" ?
                         <a style={{ textDecoration: "none" }} href={url} target="_blank" rel="noreferrer">
@@ -84,7 +84,6 @@ function Card({ id, name, url, github, cover, category, desc, technos }: {
                 }
             </div>
             <div style={{ position: "relative", height: "45%" }}>
-                <p><small>{projectType[category]}</small></p>
                 {technos.map(tech => (
                     <TechnoMiniature style={{ height: "48px", margin: "0 0.25em" }} src={techIcons[tech]} alt={tech} title={tech} key={tech + id} />
                 ))}
