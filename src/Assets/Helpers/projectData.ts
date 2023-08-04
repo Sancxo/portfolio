@@ -24,6 +24,7 @@ import mysqlIcon from "../Imgs/icons/mysql.png";
 // screenshot imports
 import around from "../Imgs/project-screenshots/around-help.png";
 import gpgi from "../Imgs/project-screenshots/gpgi.png";
+import boulderBike from "../Imgs/project-screenshots/boulder-bike-tour.png";
 import portfolio from "../Imgs/project-screenshots/portfolio.png";
 import lmj from "../Imgs/project-screenshots/lmj.png";
 import wio from "../Imgs/project-screenshots/wio.png";
@@ -40,8 +41,9 @@ import iKebab from "../Imgs/project-screenshots/ikebab.png";
 import greta from "../Imgs/project-screenshots/greta.png";
 import renault from "../Imgs/project-screenshots/renault.png";
 
-const pro = "Pro";
-const perso = "Perso";
+const pro = "pro";
+const perso = "perso";
+const train = "train";
 
 const html = "HTML";
 const css = "CSS";
@@ -87,7 +89,7 @@ const projectList: {
             url: "https://around-help.vercel.app/",
             github: ["https://github.com/Sancxo/around-help_front", "https://github.com/Sancxo/around-help_back"],
             cover: around,
-            category: perso,
+            category: train,
             desc: "Aid platform between neighbors integrating geolocation and messaging, made as the final project of my OpenClassrooms training.",
             technos: [ruby, rails, psql, react, ts]
         },
@@ -99,6 +101,16 @@ const projectList: {
             category: pro,
             desc: "International funding simulation app made as a freelancer for an academic researcher and professor in economics.",
             technos: [js, vue]
+        },
+        {
+            id: "boulder-bike",
+            name: "Boulder Bike Tour",
+            url: "https://boulder-bike-tour.fly.dev",
+            github: ["https://github.com/Sancxo/BoulderBikeTour"],
+            cover: boulderBike,
+            category: train,
+            desc: "Fictionnal bike race website with rider geolocation and a user form contest made as a project for my OpenClassrooms fullstack path.",
+            technos: [ruby, rails, psql]
         },
         {
             id: "portfolio",
@@ -116,7 +128,7 @@ const projectList: {
             url: "https://sancxo.github.io/la-maison-jungle",
             github: ["https://github.com/Sancxo/la-maison-jungle"],
             cover: lmj,
-            category: perso,
+            category: train,
             desc: 'Dynamic front-end e-commerce web page made in React for a course on OpenClassrooms.', // Features: dynamic cart (open/close, add items), automatic item catalog with parameters from model, light/dark mode switch written in localStorage, type filter.
             technos: [js, react]
         },
@@ -126,7 +138,7 @@ const projectList: {
             url: "https://sancxo.github.io/watch-it-outside",
             github: ["https://github.com/Sancxo/watch-it-outside"],
             cover: wio,
-            category: perso,
+            category: train,
             desc: "Responsive website for a fictional film festival in Boston made as an exam for my full-stack training class at OpenClassrooms.",
             technos: [html, css, btrp, js]
         },
@@ -135,7 +147,7 @@ const projectList: {
             name: "Chalets & Caviar",
             url: "http://simontirant.dev/chalets-caviar",
             cover: chaletsCaviar,
-            category: perso,
+            category: train,
             desc: "WordPress website for a fictional real estate agency in Aspen made as an exam for my full-stack training class at OpenClassrooms.",
             technos: [php, wp, elem]
         },
@@ -181,7 +193,7 @@ const projectList: {
             name: "iKebab",
             github: ["https://github.com/Sancxo/iKebab"],
             cover: iKebab,
-            category: perso,
+            category: train,
             desc: "Fictional kebab delivery app, made during my full-stack training at the GRETA, where the customer can order a sandwich, then receive confirmation by mail while the restaurant can see the order from the database via RESTful API.",
             technos: [html, css, php, mysql]
         },
@@ -189,7 +201,7 @@ const projectList: {
             id: "greta",
             name: "GRETA",
             cover: greta,
-            category: perso,
+            category: train,
             desc: "Wordpress website made during my full-stack training at the GRETA des Hauts-de-Seine.",
             technos: [html, css, wp]
         },
@@ -197,7 +209,7 @@ const projectList: {
             id: "renault",
             name: "Renault Group",
             cover: renault,
-            category: perso,
+            category: train,
             desc: "Fully responsive Renault Group's website copy made during my full-stack training at the GRETA des Hauts-de-Seine.",
             technos: [html, css, btrp]
         },
@@ -271,23 +283,24 @@ const techIcons: { [index: string]: string } = {
 // Technologies displayed in the tech filter select input
 const techFilterList: { [index: string]: string } = {
     "HTML/CSS": html,
-    js: js,
-    ts: ts,
-    react: react,
-    ang: ang,
-    three: three,
+    "JavaScript": js,
+    "TyeScript": ts,
+    "React": react,
+    "Angular": ang,
+    "Three.js": three,
     // "Node": "Node",
     "Ruby/Rails": ruby,
     "Elixir/Phoenix": elix,
-    php: php,
-    graphql: graphql,
-    wp: wp
+    "PHP": php,
+    "GraphQL": graphql,
+    "Wordpress": wp
 }
 
 // Types displayed in the type filter select input
 const projectType: { [index: string]: string } = {
     pro: "Professional work",
-    perso: "Personal and training"
+    perso: "Personal project",
+    train: "Training project"
 }
 
 export { projectList, techIcons, techFilterList, projectType }
