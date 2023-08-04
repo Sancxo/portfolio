@@ -94,7 +94,7 @@ const projectList: {
         {
             id: "gpgi",
             name: "GPGI fundings",
-            url: "https://www.gpgi-funding-mechanisms.com",
+            url: "https://gpgi-funding-git-dev-jilliandum.vercel.app/",
             cover: gpgi,
             category: pro,
             desc: "International funding simulation app made as a freelancer for an academic researcher and professor in economics.",
