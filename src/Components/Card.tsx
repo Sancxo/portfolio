@@ -83,7 +83,7 @@ function Card({ id, name, url, github, cover, category, desc, technos }: {
                         <CardImg src={cover} alt={name} title={name} />
                 }
             </div>
-            <div style={{ position: "relative", height: "45%" }}>
+            <div style={{ position: "relative", height: "47%" }}>
                 {technos.map(tech => (
                     <TechnoMiniature style={{ height: "48px", margin: ".5rem .25rem 0 .25rem" }} src={techIcons[tech]} alt={tech} title={tech} key={tech + id} />
                 ))}
