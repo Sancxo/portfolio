@@ -25,6 +25,7 @@ import mysqlIcon from "../Imgs/icons/mysql.png";
 import around from "../Imgs/project-screenshots/around-help.png";
 import gpgi from "../Imgs/project-screenshots/gpgi.png";
 import boulderBike from "../Imgs/project-screenshots/boulder-bike-tour.png";
+import fitTrack from "../Imgs/project-screenshots/fit-track.png";
 import portfolio from "../Imgs/project-screenshots/portfolio.png";
 import lmj from "../Imgs/project-screenshots/lmj.png";
 import wio from "../Imgs/project-screenshots/wio.png";
@@ -110,6 +111,16 @@ const projectList: {
             cover: boulderBike,
             category: train,
             desc: "Fictionnal bike race website with rider geolocation and a user form contest made as a project for my OpenClassrooms fullstack path.",
+            technos: [ruby, rails, psql]
+        },
+        {
+            id: "fit-track",
+            name: "Fit Track",
+            url: "https://fit-track.fly.dev/",
+            github: ["https://github.com/Sancxo/fitTrack"],
+            cover: fitTrack,
+            category: train,
+            desc: "Full MVC app to track user activites through CRUD and using Devise to manage accounts.",
             technos: [ruby, rails, psql]
         },
         {
