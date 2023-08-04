@@ -93,12 +93,7 @@ function Contact(): ReactElement {
 
     function handleFormSubmit(e: React.MouseEvent<HTMLInputElement, MouseEvent>) {
         e.preventDefault();
-        axios({
-            method: 'post',
-            url: `${process.env.REACT_APP_CONTACT_PATH}`,
-            headers: { "content-type": "application/json" },
-            data: formData
-        })
+        axios.post(process.env.REACT_APP_CONTACT_PATH!, formData)
             .then(res => {
                 const json = JSON.parse(res.data.replace("Array", ""))
                 if (json.sent) {
