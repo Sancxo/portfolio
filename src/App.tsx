@@ -1,8 +1,8 @@
-import React, {Suspense, lazy, useEffect, useState, ReactElement} from 'react';
+import React, { Suspense, lazy, useEffect, useState, ReactElement } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Style imports
-import { GlobalStyle, Loader} from './Assets/Style/styled-components';
+import { GlobalStyle, Loader } from './Assets/Style/styled-components';
 import { sizes } from './Assets/Style/style';
 
 
@@ -19,11 +19,9 @@ const Contact = lazy(() => import("./Pages/Contact"));
 const Error = lazy(() => import('./Pages/Error'));
 
 function App(): ReactElement {
-    
     // state to check if mobile menu is open or not
     const [isMenuDisplayed, setIsMenuDisplayed] = useState(false);
 
-    
     useEffect(() => {
         // To show and hide the scroll to top button (we show if we scroll, we hide again after a certain time)
         const goUpArrow: HTMLElement = document.querySelector('#go-up-arrow') as HTMLElement;
@@ -35,16 +33,16 @@ function App(): ReactElement {
             const scrollPos: number = window.scrollY;
 
             goUpArrow.style.display = scrollPos <= 100 ? "none" : "block";
-            timeout = setTimeout(() => { if(scrollPos === window.scrollY && (!goUpArrow.matches(':hover'))) goUpArrow.style.display = "none" }, 2000);
+            timeout = setTimeout(() => { if (scrollPos === window.scrollY && (!goUpArrow.matches(':hover'))) goUpArrow.style.display = "none" }, 2000);
         }
 
-        goUpArrow.addEventListener('mouseout', _ => displayArrow() );
-        window.addEventListener('scroll', _ => displayArrow() );
+        goUpArrow.addEventListener('mouseout', _ => displayArrow());
+        window.addEventListener('scroll', _ => displayArrow());
 
         return () => {
             // eventListeners & setTimeout cleaning functions
-            goUpArrow.removeEventListener('mouseout', _ => displayArrow() );
-            window.removeEventListener('scroll',  _ => displayArrow() );
+            goUpArrow.removeEventListener('mouseout', _ => displayArrow());
+            window.removeEventListener('scroll', _ => displayArrow());
             clearTimeout(timeout);
         };
     });
@@ -58,15 +56,15 @@ function App(): ReactElement {
                     <GlobalStyle />
 
                     <header>
-                        <Header 
-                            closeMobileMenu={ closeMobileMenu } 
-                            isMenuDisplayed={ isMenuDisplayed } 
-                            setIsMenuDisplayed={ setIsMenuDisplayed } />
+                        <Header
+                            closeMobileMenu={closeMobileMenu}
+                            isMenuDisplayed={isMenuDisplayed}
+                            setIsMenuDisplayed={setIsMenuDisplayed} />
                     </header>
-                    
 
-                    <main style={{paddingTop: sizes.headerHeight}}>
-                        <Suspense fallback={ <div style={{height: "100vh"}}> <Loader /> </div> }>
+
+                    <main style={{ paddingTop: sizes.headerHeight }}>
+                        <Suspense fallback={<div style={{ height: "100vh" }}> <Loader /> </div>}>
                             <Routes>
                                 <Route path="/" element={<Home />} />
                                 <Route path="/projects" element={<Projects />} />

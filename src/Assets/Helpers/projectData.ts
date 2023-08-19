@@ -195,7 +195,7 @@ const projectList: {
         {
             id: "get-gifs",
             name: "Get Gifs",
-            url: "http://simontirant.dev/get-gifs",
+            url: "https://get-gifs.simontirant.dev",
             github: ["https://github.com/Sancxo/get-gifs"],
             cover: getGifs,
             category: pro,
