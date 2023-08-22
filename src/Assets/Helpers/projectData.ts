@@ -180,7 +180,7 @@ const projectList: {
             github: ["https://github.com/Sancxo/snake"],
             cover: snake,
             category: perso,
-            desc: "Personal project made during summer holiday to stay in shape with vanilla JavaScript and canvas. Fully playable on computers and mobiles, also downloadable on device as a Progressive Web App.",
+            desc: "Personal project made during summer holiday to stay in shape with vanilla JavaScript and canvas. Fully playable on computers and touch-screen mobiles, also downloadable on device as a Progressive Web App.",
             technos: [html, css, js, pwa]
         },
         {
