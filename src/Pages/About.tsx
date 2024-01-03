@@ -1,6 +1,6 @@
 import { ReactElement, useEffect } from "react";
 import styled from "styled-components";
-import Profile from "../Assets/Imgs/hero_img.JPG";
+import Profile from "../Assets/Imgs/simon_tirant_img.JPG";
 
 // icon imports
 import elixirIcon from "../Assets/Imgs/icons/elixir.png";
