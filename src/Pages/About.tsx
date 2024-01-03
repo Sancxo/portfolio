@@ -69,7 +69,7 @@ function About(): ReactElement {
             </div>
 
             <SummaryContainer>
-                <ProfilePicture src={Profile} alt="Profile" width={"250em"} height={"250em"} />
+                <ProfilePicture src={Profile} title="Simon Tirant picture" alt="Picture of Simon Tirant" width={"250em"} height={"250em"} />
                 <h2>About Me:</h2>
                 <p>In fall 2019, after working as a grocery store manager in organic shops, I decided to begin a career change in IT and web development. First, I had to update my knowledge since I was used to create static websites in <strong><code>HTML</code></strong> 4 and <strong><code>CSS</code></strong> 2.1 when I was 15. These technologies where suitable enough to display my heavy metal band website on those 2000's heavy greyish computer monitors, but '<i>Hey Boomer, we have iPhones now !</i>'.</p>
                 <p>So <strong><code>responsivity</code></strong> <i>oblige</i>, I started to absorb new things by myself : HTML 5, CSS 3, vanilla <strong><code>JavaScript</code></strong> ice cream and bits of <code><strong>Python</strong></code> (<i>yummy</i>!). Then, in 2020, I was chosen to integrate a one year fulltime full-stack training class at the <a href="https://www.greta-92.fr/1-accueil" target="_blank" rel="noreferrer" title="GRETA des Hauts-de-Seine"><code>GRETA des Hauts-de-Seine</code></a>, where I went further in the matrix: <code><strong>Bootstrap</strong></code> and <code><strong>jQuery</strong></code> for the front, <code><strong>PHP</strong></code> and <code><strong>SQL</strong></code> for the back, <code><strong>REST API</strong></code> for the CRUD, <code><strong>WordPress</strong></code> for the money.</p>
