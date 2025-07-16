@@ -20,8 +20,14 @@ import elementorIcon from "../Imgs/icons/elementor.png";
 import graphqlIcon from "../Imgs/icons/graphql.png";
 import postgresIcon from "../Imgs/icons/postgres.png";
 import mysqlIcon from "../Imgs/icons/mysql.png";
+import shopifyIcon from "../Imgs/icons/shopify.webp";
+import tailwindIcon from "../Imgs/icons/tailwind.webp";
 
 // screenshot imports
+import frixel from "../Imgs/project-screenshots/frixel.png";
+import charlesDarius from "../Imgs/project-screenshots/charles-darius.png";
+import dfc from "../Imgs/project-screenshots/dfc.png";
+import givingBack from "../Imgs/project-screenshots/giving-back.png";
 import around from "../Imgs/project-screenshots/around-help.png";
 import chomedu from "../Imgs/project-screenshots/chomedu-weather.png";
 import gpgi from "../Imgs/project-screenshots/gpgi.png";
@@ -50,6 +56,7 @@ const train = "train";
 const html = "HTML";
 const css = "CSS";
 const btrp = "Bootstrap";
+const tw = "Tailwind";
 
 const pwa = "PWA"
 
@@ -63,6 +70,8 @@ const three = "Three.js";
 const php = "PHP";
 const wp = "Wordpress";
 const elem = "Elementor";
+
+const shop = "Shopify";
 
 const elix = "Elixir";
 const phx = "Phoenix";
@@ -85,6 +94,43 @@ const projectList: {
     desc: string,
     technos: string[]
 }[] = [
+        {
+            id: "frixel",
+            name: "Frixel",
+            url: "https://www.frixel.fr/",
+            cover: frixel,
+            desc: "A home-made tailored CMS created with and for a web application agency based in Paris area. I was responsible for designing the database schema, managing junior developers, reviewing pull requests and integrating front-end.",
+            category: pro,
+            technos: [elix, phx, tw],
+            github: ["https://github.com/Frixel-tech"]
+        },
+        {
+            id: "cd",
+            name: "Charles Darius",
+            url: "https://charlesdarius.fr/",
+            cover: charlesDarius,
+            desc: "A Shopify e-shop for a design and fashion creator based in Paris.",
+            category: pro,
+            technos: [shop, ts, html, css]
+        },
+        {
+            id: "giving-back",
+            name: "Giving Back",
+            url: "https://www.giving-back.io/",
+            cover: givingBack,
+            desc: "A landing-page for a charity-business video game project around NFTs. My task was to responsively integrate a pre-existing page.",
+            category: pro,
+            technos: [react, js, css]
+        },
+        {
+            id: "dfc",
+            name: "Dumont France Cave",
+            url: "https://dumont-francecave.com/",
+            cover: dfc,
+            desc: "A shopify store front and e-shop for a wine-growing and wine-producing machinery and supplies retailer in Champagne area.",
+            category: pro,
+            technos: [shop, ts, html, css]
+        },
         {
             id: "around-help",
             name: "Around Help",
@@ -198,7 +244,7 @@ const projectList: {
             url: "http://get-gifs.simontirant.dev",
             github: ["https://github.com/Sancxo/get-gifs"],
             cover: getGifs,
-            category: pro,
+            category: train,
             desc: "Technical test for a former employer where I should make a React app which connect to Giphy API to display the platform's Top20 gifs with several features.",
             technos: [js, react, btrp]
         },
@@ -251,7 +297,7 @@ const projectList: {
             url: "https://sancxo.github.io/PokeyBallClone",
             github: ["https://github.com/Sancxo/PokeyBallClone"],
             cover: pokeyBall,
-            category: pro,
+            category: train,
             desc: "Copy of a 3D game concept made with Three.js library as a test for a former employer.",
             technos: [html, css, js, three]
         },
@@ -299,7 +345,9 @@ const techIcons: { [index: string]: string } = {
     "PostgreSQL": postgresIcon,
     "MySQL": mysqlIcon,
     "Wordpress": wpIcon,
-    "Elementor": elementorIcon
+    "Elementor": elementorIcon,
+    "Shopify": shopifyIcon,
+    "Tailwind": tailwindIcon
 }
 
 // Technologies displayed in the tech filter select input
@@ -315,7 +363,8 @@ const techFilterList: { [index: string]: string } = {
     "Elixir/Phoenix": elix,
     "PHP": php,
     "GraphQL": graphql,
-    "Wordpress": wp
+    "Wordpress": wp,
+    "Shopify": shop
 }
 
 // Types displayed in the type filter select input
