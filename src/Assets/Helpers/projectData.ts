@@ -101,7 +101,7 @@ const projectList: {
             cover: frixel,
             desc: "A home-made tailored CMS created with and for a web application agency based in Paris area. I was responsible for designing the database schema, managing junior developers, reviewing pull requests and integrating front-end.",
             category: pro,
-            technos: [elix, phx, tw],
+            technos: [elix, phx, tw, psql],
             github: ["https://github.com/Frixel-tech"]
         },
         {
@@ -111,7 +111,7 @@ const projectList: {
             cover: charlesDarius,
             desc: "A Shopify e-shop for a design and fashion creator based in Paris.",
             category: pro,
-            technos: [shop, ts, html, css]
+            technos: [shop, ts, html, css, psql]
         },
         {
             id: "giving-back",
@@ -129,7 +129,7 @@ const projectList: {
             cover: dfc,
             desc: "A shopify store front and e-shop for a wine-growing and wine-producing machinery and supplies retailer in Champagne area.",
             category: pro,
-            technos: [shop, ts, html, css]
+            technos: [shop, ts, html, css, psql]
         },
         {
             id: "around-help",
